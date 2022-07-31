@@ -3836,16 +3836,16 @@ UA.setConfig({productImpressionsTimeout:5000});
   <!-- area: header, elements:16 , column: 514100672 -->
   <div class="rotator js-rotator rotator-header shift-0" data-delay="9000">
    <div class="banners banners-header">
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109234905641-1">
-     <!-- banner id: 109234905641 -->
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109279000169-1">
+     <!-- banner id: 109279000169 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109234905641-1',
-					date: '2022-07-26',
+					id: '109279000169-1',
+					date: '2022-07-27',
 					type: 'B',
 					position: '1',
-					name: 'TELE \- Huawei odbierz opaskę za 1zł \- 072022 \- belka 1200x100',
+					name: 'TELE \- samsung buds 2 \- 072022 \- belka 1200x100',
 					area: {
                     column: '',
                     name: ''
@@ -3853,21 +3853,44 @@ UA.setConfig({productImpressionsTimeout:5000});
 				});
 			}
 			
-	        	UA && UA.setPromotionVisible( '109234905641-1' );
+	        	UA && UA.setPromotionVisible( '109279000169-1' );
      </script>
-     <a class="" href="/promowane.bhtml?promocja=tele-huawei-odbierz-opaske-za-1zl-072022 ">
-      <img alt="" src="//f00.esfr.pl/ver-632196c8427946840d32c936e510adac/banner/109234905641/300a6764-a003-466b-bcc0-129f4f39b829/1200x100  Euro KV BTS Smartfony.png"/>
+     <a class="" href="/cms/samsung-buds-w-zestawie.bhtml">
+      <img alt="" src="//f00.esfr.pl/ver-9effbba15a817a5395a4c43549d9a8c4/banner/109279000169/30024f38-3698-4556-9aa6-9ae5ddf3c16f/euro_1200x100.png.png"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109048353841-2">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109234905641-2">
+     <!-- banner id: 109234905641 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '109234905641-2',
+					date: '2022-07-26',
+					type: 'B',
+					position: '2',
+					name: 'TELE \- Huawei odbierz opaskę za 1zł \- 072022 \- belka 1200x100',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="/promowane.bhtml?promocja=tele-huawei-odbierz-opaske-za-1zl-072022 ">
+      <img alt="" class="lazy thin" data-original="//f00.esfr.pl/ver-632196c8427946840d32c936e510adac/banner/109234905641/300a6764-a003-466b-bcc0-129f4f39b829/1200x100  Euro KV BTS Smartfony.png" src="//f00.esfr.pl/images/www/blank.gif">
+       <img alt="" class="lazy wide" data-original="//f01.esfr.pl/ver-48acd289d36838e1cdec86430448fe56/banner/109234905641/656741e5-41e9-403c-8b0a-0f9084c463c5/1200x100  Euro KV BTS Smartfony (1).png" src="//f00.esfr.pl/images/www/blank.gif"/>
+      </img>
+     </a>
+    </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109048353841-3">
      <!-- banner id: 109048353841 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109048353841-2',
+					id: '109048353841-3',
 					date: '2022-07-22',
 					type: 'B',
-					position: '2',
+					position: '3',
 					name: 'TELE \- Samsung Galaxy S22 50 za 500 \- 072022 \- 1200x100',
 					area: {
                     column: '',
@@ -3880,15 +3903,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-e7a7184f7861621a531381ef9d6c2d87/banner/109048353841/2c6f550b-8b7e-45f5-94d4-3f8315fe0250/euro_1200x100.png.png" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109029323337-3">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109029323337-4">
      <!-- banner id: 109029323337 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109029323337-3',
+					id: '109029323337-4',
 					date: '2022-07-22',
 					type: 'B',
-					position: '3',
+					position: '4',
 					name: 'TELE \- Realme Narzo 50i Prime \- 072022 \- 1200x100',
 					area: {
                     column: '',
@@ -3901,15 +3924,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f00.esfr.pl/ver-3e1f9d05aaa749a6514703c8e779e311/banner/109029323337/69693570-2a3d-4f0d-b78a-1fb5fed37fa7/1200x100.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108997182713-4">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108997182713-5">
      <!-- banner id: 108997182713 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '108997182713-4',
+					id: '108997182713-5',
 					date: '2022-07-21',
 					type: 'B',
-					position: '4',
+					position: '5',
 					name: 'TELE \- głośnik 70% taniej 072022 1200x100',
 					area: {
                     column: '',
@@ -3924,15 +3947,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       </img>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108531620865-5">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108531620865-6">
      <!-- banner id: 108531620865 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '108531620865-5',
+					id: '108531620865-6',
 					date: '2022-07-13',
 					type: 'B',
-					position: '5',
+					position: '6',
 					name: 'AGD \- Kampania Mastercard \- 072022 \- baner główny belka 1200x100',
 					area: {
                     column: '',
@@ -3947,15 +3970,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       </img>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="107627049993-6">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="107627049993-7">
      <!-- banner id: 107627049993 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '107627049993-6',
+					id: '107627049993-7',
 					date: '2022-06-27',
 					type: 'B',
-					position: '6',
+					position: '7',
 					name: 'TELE \-  vivo X80 Pro \- odbierz  prezenty\- 062022 \- 1200x100',
 					area: {
                     column: '',
@@ -3968,15 +3991,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-32835855f07e9f1570e8d0a4d62c016d/banner/107627049993/ca0ef783-7240-4547-b123-ac88edd033f1/VV_133_X80Pro_Bundle_01_EURO_1200x100px_v02.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="103244649697-7">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="103244649697-8">
      <!-- banner id: 103244649697 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '103244649697-7',
+					id: '103244649697-8',
 					date: '2022-04-08',
 					type: 'B',
-					position: '7',
+					position: '8',
 					name: 'Tablety \- Samsung YouTube Premium \-  042022 \- 1200x100',
 					area: {
                     column: '',
@@ -3989,15 +4012,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f00.esfr.pl/ver-12f9cdc2fdd74cf48782c1515196635c/banner/103244649697/9081c434-4e9f-4136-addc-201d605c3d0a/SET MINIMUM EURO1200x100.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109044409417-8">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109044409417-9">
      <!-- banner id: 109044409417 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109044409417-8',
+					id: '109044409417-9',
 					date: '2022-07-22',
 					type: 'B',
-					position: '8',
+					position: '9',
 					name: 'AKC \- Reinston \- Uchwyt rowerowy taniej \- 0722 \-1200x100',
 					area: {
                     column: '',
@@ -4010,15 +4033,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-bf50a3e1746f2596016a27e50fc832d7/banner/109044409417/207466e4-df81-4799-b448-2ad7d08d8015/Banery_uchwyty_tel_1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109387292825-9">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109387292825-10">
      <!-- banner id: 109387292825 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109387292825-9',
+					id: '109387292825-10',
 					date: '2022-07-29',
 					type: 'B',
-					position: '9',
+					position: '10',
 					name: 'ALL \- 60 za 500 \- 072022 \- belka 1200x100 v2',
 					area: {
                     column: '',
@@ -4031,15 +4054,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-ec0ed2bd0e8f1c0e8647782de0eb6a75/banner/109387292825/05fe2ca3-1e1e-46a5-bda0-67c54a413bc8/60za500_DZIS_1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109385664409-10">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109385664409-11">
      <!-- banner id: 109385664409 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109385664409-10',
+					id: '109385664409-11',
 					date: '2022-07-29',
 					type: 'B',
-					position: '10',
+					position: '11',
 					name: 'Cyber rabaty \- 310722 \- belka 1200x100 ',
 					area: {
                     column: '',
@@ -4052,15 +4075,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f00.esfr.pl/ver-e47d97ac6742f8261a4dbc7f4e51c93d/banner/109385664409/37991f2a-3f13-4584-86ac-326a214b2bdc/CYBER_1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109286425329-11">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109286425329-12">
      <!-- banner id: 109286425329 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109286425329-11',
+					id: '109286425329-12',
 					date: '2022-07-27',
 					type: 'B',
-					position: '11',
+					position: '12',
 					name: 'Extremalne Rabaty \- belka 1200x100',
 					area: {
                     column: '',
@@ -4073,15 +4096,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-12248d009f1ab2e5b001bbc1c7bd4aad/banner/109286425329/96465a0c-15de-4891-954a-3e7fb7f00456/EXTREMAL_1200x100_START.png" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109236535049-12">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109236535049-13">
      <!-- banner id: 109236535049 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109236535049-12',
+					id: '109236535049-13',
 					date: '2022-07-26',
 					type: 'B',
-					position: '12',
+					position: '13',
 					name: '5 DNI MOCNYCH OKAZJI \- 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4094,15 +4117,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-647a4ee937ba58be9c397c4bc27f7c90/banner/109236535049/b59a1db9-e29e-445f-a9a9-62a28b39d988/5 Dni Mocnych Okazji_1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109388612097-13">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109388612097-14">
      <!-- banner id: 109388612097 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109388612097-13',
+					id: '109388612097-14',
 					date: '2022-07-29',
 					type: 'B',
-					position: '13',
+					position: '14',
 					name: 'TELE \- Xiaomi \- letni hotspot \- 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4115,15 +4138,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-e394d817003dc9a6ae004e8ae606b993/banner/109388612097/9568454b-5ff0-4e76-b706-86a0cd2613bc/1200x100_beats_25kb_Xiaomi_KV_summer_campaign_najlepszy_letni_hotspot_biale_Euro.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109336765905-14">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109336765905-15">
      <!-- banner id: 109336765905 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109336765905-14',
+					id: '109336765905-15',
 					date: '2022-07-28',
 					type: 'B',
-					position: '14',
+					position: '15',
 					name: 'TELE \- Hammer promocja\/konkurs 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4138,15 +4161,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       </img>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109332224129-15">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109332224129-16">
      <!-- banner id: 109332224129 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109332224129-15',
+					id: '109332224129-16',
 					date: '2022-07-28',
 					type: 'B',
-					position: '15',
+					position: '16',
 					name: 'TELE \- oppo reno 6 taniej \- 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4157,29 +4180,6 @@ UA.setConfig({productImpressionsTimeout:5000});
      </script>
      <a class="" href="/promowane/telefony-komorkowe.bhtml?promocja=tele-oppo-reno-6-taniej-072022">
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-efe6f34d54c9ce55d4ccb2486714c7e2/banner/109332224129/daeec421-7836-425d-b341-315fa671acd3/Euro 1200x100 kopia.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
-     </a>
-    </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109279000169-16">
-     <!-- banner id: 109279000169 -->
-     <script type="text/javascript">
-      if(UA && typeof UA.addPromotion !== 'undefined'){
-				UA.addPromotion({
-					id: '109279000169-16',
-					date: '2022-07-27',
-					type: 'B',
-					position: '16',
-					name: 'TELE \- samsung buds 2 \- 072022 \- belka 1200x100',
-					area: {
-                    column: '',
-                    name: ''
-					}
-				});
-			}
-     </script>
-     <a class="" href="/cms/samsung-buds-w-zestawie.bhtml">
-      <img alt="" class="lazy thin" data-original="//f00.esfr.pl/ver-9effbba15a817a5395a4c43549d9a8c4/banner/109279000169/30024f38-3698-4556-9aa6-9ae5ddf3c16f/euro_1200x100.png.png" src="//f00.esfr.pl/images/www/blank.gif">
-       <img alt="" class="lazy wide" data-original="//f00.esfr.pl/ver-6ab330083e6ddb5bf1d2f8499f054c01/banner/109279000169/c4e9425b-35e9-4682-b3a0-2408416e1a8c/euro_1200x100.png (1).png" src="//f00.esfr.pl/images/www/blank.gif"/>
-      </img>
      </a>
     </div>
    </div>

@@ -1,15 +1,14 @@
 from datetime import datetime, date
+from pathlib import Path
+
 from bs4 import BeautifulSoup
 import requests
 import json
 import os
-
-
-# czy nie narobiłam za dużo tych zmiennych w konstruktorze?
+import os.path
 
 
 class RtvEuroAgdParser:
-
 
     def __init__(self, url):
         self.url = url
@@ -30,12 +29,23 @@ class RtvEuroAgdParser:
         with open(self.html_name, 'w', encoding='utf-8') as output:
             output.write(self.soup.prettify())
 
-    def update_and_save_to_json_and_txt(self):
+    def save_details_to_json_and_txt(self):
         with open(self.txt_name, 'w') as txf:
             txf.write(json.dumps(self.details))
 
         with open(self.json_name, 'w') as jf:
             json.dump(self.details, jf)
 
+    @staticmethod
+    def append_new_data_to_json():
+        path = str(os.getcwd() + '\\RTV_EURO_AGD\\')
+        os.chdir(path)
+        files = Path(os.getcwd()).glob('*.json')
 
+        details_dicts = []
+        for file in files:
+            with open(str(file), 'r') as fp:
+                data = json.load(fp)
 
+            details_dicts.append(data)
+        return details_dicts
