@@ -2,16 +2,18 @@ from datetime import datetime, date
 from bs4 import BeautifulSoup
 import requests
 import json
+import os
+
 
 # czy nie narobiłam za dużo tych zmiennych w konstruktorze?
 
 
 class RtvEuroAgdParser:
 
+
     def __init__(self, url):
         self.url = url
         self.request = requests.get(self.url, verify=False)
-        self.details = {'RTV_EURO_AGD': {}} # to w konstruktorze czy powyżej?
 
         self.html_doc = self.request.text
         self.soup = BeautifulSoup(self.html_doc, 'html.parser')
@@ -20,15 +22,20 @@ class RtvEuroAgdParser:
         self.datetime = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
         self.price = self.soup.find("div", {'class': "product-price"}).get('data-price')
         self.name = self.soup.find("div", {'class': "product-name"}).string.strip()
-        self.txt_name = r'C:/Users/matacza/Desktop/Projekt1/RTV_EURO_AGD/html_' + date.today().strftime('%d-%m-%Y') + '.txt'
-        self.json_name = r'C:/Users/matacza/Desktop/Projekt1/RTV_EURO_AGD/json_' + date.today().strftime('%d-%m-%Y') + '.json'
+        self.details = {'RTV_EURO_AGD': {self.item: [self.name, self.price, self.datetime]}}
+        self.html_name = os.getcwd() + '/RTV_EURO_AGD/html_' + date.today().strftime('%d-%m-%Y') + '.txt'
+        self.txt_name = os.getcwd() + '/RTV_EURO_AGD/txt_' + date.today().strftime('%d-%m-%Y') + '.txt'
+        self.json_name = os.getcwd() + '/RTV_EURO_AGD/json_' + date.today().strftime('%d-%m-%Y') + '.json'
 
-        with open(self.txt_name, 'w', encoding='utf-8') as output:
+        with open(self.html_name, 'w', encoding='utf-8') as output:
             output.write(self.soup.prettify())
 
-    def update_and_save_to_json(self):
-        updated = self.details['RTV_EURO_AGD'].update({self.item: [self.name, self.price, self.datetime]})
-        with open(self.json_name, 'w') as jd:
-            json.dump(updated, jd)
+    def update_and_save_to_json_and_txt(self):
+        with open(self.txt_name, 'w') as txf:
+            txf.write(json.dumps(self.details))
 
-        return jd # gdy go otwiram jest nullem - WHY?;<
+        with open(self.json_name, 'w') as jf:
+            json.dump(self.details, jf)
+
+
+
