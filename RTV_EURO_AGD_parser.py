@@ -9,45 +9,53 @@ import os.path
 
 
 class RtvEuroAgdParser:
-    details_dicts = []
+    SHOP_NAME = 'RTV_EURO_AGD'
+    DETAILS_DICTS = []
+
+    def get_response(self):
+        response = requests.get(self.url, verify=False)  # wywołuję 2 razy url - gdzie on w sumie powinien siedzieć??
+        return response
+
+    def get_content(self):
+        html_doc = self.get_response().text
+        soup = BeautifulSoup(html_doc, 'html.parser')
+        return soup
+
     def __init__(self, url):
+        self.status_code = None
         self.url = url
-        self.request = requests.get(self.url, verify=False)
-
-        self.html_doc = self.request.text
-        self.soup = BeautifulSoup(self.html_doc, 'html.parser')
-
-        self.item = self.soup.find("div", {'class': 'selenium-product-code'}).contents[0]
-        self.datetime = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
-        self.price = self.soup.find("div", {'class': "product-price"}).get('data-price')
-        self.name = self.soup.find("div", {'class': "product-name"}).string.strip()
-        self.details = {'RTV_EURO_AGD': {self.item: [self.name, self.price, self.datetime]}}
-        self.html_name = os.getcwd() + '/RTV_EURO_AGD/html_' + date.today().strftime('%d-%m-%Y') + '.txt'
-        self.txt_name = os.getcwd() + '/RTV_EURO_AGD/txt_' + date.today().strftime('%d-%m-%Y') + '.txt'
-        self.json_name = os.getcwd() + '/RTV_EURO_AGD/json_' + date.today().strftime('%d-%m-%Y') + '.json'
+        self.status_code = RtvEuroAgdParser.get_response(self).status_code
+        self.soup = RtvEuroAgdParser.get_content(self)
+        self.html_name = os.getcwd() + '/' + RtvEuroAgdParser.SHOP_NAME + '/html_' + date.today().strftime('%d-%m-%Y') + '.txt'
 
         with open(self.html_name, 'w', encoding='utf-8') as output:
             output.write(self.soup.prettify())
 
-    def save_details_to_json_and_txt(self):
-        with open(self.txt_name, 'w') as txf:
-            txf.write(json.dumps(self.details))
+    def save_details_to_json(self):
 
-        with open(self.json_name, 'w') as jf:
-            json.dump(self.details, jf)
+        item = self.soup.find("div", {'class': 'selenium-product-code'}).contents[0]
+        date_and_time = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
+        price = self.soup.find("div", {'class': "product-price"}).get('data-price')
+        name = self.soup.find("div", {'class': "product-name"}).string.strip()
+        details = {'RTV_EURO_AGD': {item: [name, price, date_and_time]}}
+        json_name = os.getcwd() + '/' + RtvEuroAgdParser.SHOP_NAME + '/json_' + date.today().strftime('%d-%m-%Y') + '.json'
+
+        with open(json_name, 'w') as json_file:
+            json.dump(details, json_file)
+
+        return json_file
 
     @staticmethod
     def append_new_data_to_json():
-        path = str(os.getcwd() + '\\RTV_EURO_AGD\\')
+
+        path = str(os.getcwd() + '\\' + RtvEuroAgdParser.SHOP_NAME + '\\')
         os.chdir(path)
         files = Path(os.getcwd()).glob('*.json')
-
         for file in files:
             with open(str(file), 'r') as fp:
                 data = json.load(fp)
 
-            RtvEuroAgdParser.details_dicts.append(data)
-        return RtvEuroAgdParser.details_dicts
+            RtvEuroAgdParser.DETAILS_DICTS.append(data)
+        return RtvEuroAgdParser.DETAILS_DICTS
 
-     # def send_email(self):
-     #     if RtvEuroAgdParser.details_dicts.details_dicts[0]['RTV_EURO_AGD'][self.item][1] > RtvEuroAgdParser.details_dicts.details_dicts[1]['RTV_EURO_AGD'][self.item][1]:
+

@@ -5,12 +5,13 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+
 port = 465
 smtp_server = "smtp.gmail.com"
 sender = "aleksandra.matacz93@gmail.com"
 receiver = "a.matacz@o2.pl"
 password = "vteocpsfszrydrgr"
-subject = "Test e-mail"
+subject = "[NIE PRZEGAP] Obserwowany przez Ciebie produkt jest teraz w niższej cenie!"
 email_text = "<i>EmailEmailEmail</i>"
 
 file = "password.txt"

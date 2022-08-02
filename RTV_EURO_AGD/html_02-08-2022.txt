@@ -81,9 +81,9 @@
 		}
 	});
        </script>
-       <script src="/ver-8b6616c1dd564fc78ca954c99e318b45-220513a/javascript/hotfixes-js.ltr" type="text/javascript">
+       <script src="/ver-29d86c02708003d3d4c29f52fc607998-220513a/javascript/hotfixes-js.ltr" type="text/javascript">
        </script>
-       <link href="/ver-8b6616c1dd564fc78ca954c99e318b45-220513a/css/hotfixes-css.ltr" rel="stylesheet" type="text/css">
+       <link href="/ver-29d86c02708003d3d4c29f52fc607998-220513a/css/hotfixes-css.ltr" rel="stylesheet" type="text/css">
         <!-- Dołączenie biblioteki testów AB -->
         <script src="//f01.esfr.pl/upload_module/files/ab_v1.4.js?ver=a" type="text/javascript">
         </script>
@@ -97,7 +97,8 @@ window.seleniumUser = $.cookie('atrUser') && $.cookie('atrUser').length ? true :
 
 //SEPARATOR
 var testyAB = [ 
-    {"testName": 'ab_dev_search4', 'versions':'A,B'}
+    {"testName": 'ab_dev_search4', 'versions':'A,B'},
+    {"testName": 'ab_exit_popup', 'versions':'A,B,C'}
 ]
 
 function shouldRunTests(){
@@ -794,7 +795,7 @@ UA.setConfig({productImpressionsTimeout:5000});
           <span>
            (
            <em>
-            41
+            44
            </em>
            )
           </span>
@@ -3055,6 +3056,35 @@ UA.setConfig({productImpressionsTimeout:5000});
       </li>
      </ul>
      <ul>
+      <li>
+       <!-- area: macro, elements:1 , column: 7175068507 -->
+       <div class="banners banners-macro">
+        <!-- banner id: 106091056617 -->
+        <div class="banner-item banner-simple js-UA-promotion banner-photo banner-link" data-id="106091056617-1">
+         <script type="text/javascript">
+          if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '106091056617-1',
+					date: '2022-05-30',
+					type: 'B',
+					position: '1',
+					name: 'IT \- HARDWARE \- 07.22 \- menu 1200x100',
+					area: {
+                    column: 'MACRO',
+                    name: 'Bannery \- Menu \- Komputery \- nowa wersja'
+					}
+				});
+			}
+         </script>
+         <a href="/cms/it-hardwarowy-wtorek.bhtml">
+          <img alt="" class="lazy thin" data-original="//f00.esfr.pl/ver-2609aa454ad60854dfef94e429bc2b4a/banner/106091056617/aafaa619-bbf0-41d5-b339-de49622b6a1a/1200x100.jpg" src="//f00.esfr.pl/images/www/blank.gif">
+           <img alt="" class="lazy wide" data-original="//f01.esfr.pl/ver-1997835d70f9e5ba75f8b7d1c7102aa9/banner/106091056617/192eb320-35b6-4d58-bda1-2da20316d50e/1200x100.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
+          </img>
+         </a>
+        </div>
+       </div>
+       <!-- end area: macro -->
+      </li>
      </ul>
     </li>
     <li>
@@ -3837,19 +3867,19 @@ UA.setConfig({productImpressionsTimeout:5000});
     </li>
    </ul>
   </nav>
-  <!-- area: header, elements:13 , column: 514100672 -->
+  <!-- area: header, elements:15 , column: 514100672 -->
   <div class="rotator js-rotator rotator-header shift-0" data-delay="9000">
    <div class="banners banners-header">
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108531620865-1">
-     <!-- banner id: 108531620865 -->
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="87042718361-1">
+     <!-- banner id: 87042718361 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '108531620865-1',
-					date: '2022-07-13',
+					id: '87042718361-1',
+					date: '2021-06-11',
 					type: 'B',
 					position: '1',
-					name: 'AGD \- Kampania Mastercard \- 072022 \- baner główny belka 1200x100',
+					name: 'Nocne internetowe mega okazje \- zapowiedź belka 1200x100 wieczór na każdy dzień',
 					area: {
                     column: '',
                     name: ''
@@ -3857,147 +3887,21 @@ UA.setConfig({productImpressionsTimeout:5000});
 				});
 			}
 			
-	        	UA && UA.setPromotionVisible( '108531620865-1' );
+	        	UA && UA.setPromotionVisible( '87042718361-1' );
      </script>
-     <a class="" href="/cms/mastercard-bezcenne-chwile-2022.bhtml">
-      <img alt="" src="//f01.esfr.pl/ver-f202e63abb04e534671f5e87c4061f04/banner/108531620865/4e829d47-2a5c-474d-a51b-8c99d9f7ca80/BCh_EURORTV_1200x100 .jpg"/>
+     <a class="" href="/cms/nocna-promocja.bhtml?link=ban-1200x100">
+      <img alt="" src="//f00.esfr.pl/ver-2bb4d646968d6eddee9317a5fe670fe3/banner/87042718361/be159fb2-1718-404d-99c0-bd8ec096becb/nocne_1200x100.png"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108124813921-2">
-     <!-- banner id: 108124813921 -->
-     <script type="text/javascript">
-      if(UA && typeof UA.addPromotion !== 'undefined'){
-				UA.addPromotion({
-					id: '108124813921-2',
-					date: '2022-07-06',
-					type: 'B',
-					position: '2',
-					name: 'TELE \- ASUS ROG 6 z coolerem z a 1 zł  \- 072022 \- 1200x100\-1',
-					area: {
-                    column: '',
-                    name: ''
-					}
-				});
-			}
-     </script>
-     <a class="" href="/promowane.bhtml?promocja=tele-asus-rog-6-z-coolerem-z-a-1-zl-072022">
-      <img alt="" class="lazy" data-original="//f00.esfr.pl/ver-4ad7bc7c682e095524dfa701f3aed37e/banner/108124813921/72979b9d-dacd-4d73-a3bb-95007cd842a4/1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
-     </a>
-    </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="103244649697-3">
-     <!-- banner id: 103244649697 -->
-     <script type="text/javascript">
-      if(UA && typeof UA.addPromotion !== 'undefined'){
-				UA.addPromotion({
-					id: '103244649697-3',
-					date: '2022-04-08',
-					type: 'B',
-					position: '3',
-					name: 'Tablety \- Samsung YouTube Premium \-  042022 \- 1200x100',
-					area: {
-                    column: '',
-                    name: ''
-					}
-				});
-			}
-     </script>
-     <a class="" href="https://www.euro.com.pl/cms/samsung-galaxy-youtube-premium.bhtml">
-      <img alt="" class="lazy" data-original="//f00.esfr.pl/ver-12f9cdc2fdd74cf48782c1515196635c/banner/103244649697/9081c434-4e9f-4136-addc-201d605c3d0a/SET MINIMUM EURO1200x100.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
-     </a>
-    </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109044409417-4">
-     <!-- banner id: 109044409417 -->
-     <script type="text/javascript">
-      if(UA && typeof UA.addPromotion !== 'undefined'){
-				UA.addPromotion({
-					id: '109044409417-4',
-					date: '2022-07-22',
-					type: 'B',
-					position: '4',
-					name: 'AKC \- Reinston \- Uchwyt rowerowy taniej \- 0722 \-1200x100',
-					area: {
-                    column: '',
-                    name: ''
-					}
-				});
-			}
-     </script>
-     <a class="" href="/cms/akc-uchwyt-rowerowy-taniej.bhtml">
-      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-bf50a3e1746f2596016a27e50fc832d7/banner/109044409417/207466e4-df81-4799-b448-2ad7d08d8015/Banery_uchwyty_tel_1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
-     </a>
-    </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109383818649-5">
-     <!-- banner id: 109383818649 -->
-     <script type="text/javascript">
-      if(UA && typeof UA.addPromotion !== 'undefined'){
-				UA.addPromotion({
-					id: '109383818649-5',
-					date: '2022-07-29',
-					type: 'B',
-					position: '5',
-					name: 'Extremalne Rabaty \- belka 1200x100\-tylko do środy',
-					area: {
-                    column: '',
-                    name: ''
-					}
-				});
-			}
-     </script>
-     <a class="" href="/cms/extremalne-rabaty.bhtml">
-      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-81ee309c4d79203a0954437d02b45057/banner/109383818649/364c1e2c-e66e-4497-acda-3be3069b93ef/EXTREMAL_1200x100_srody.png" src="//f00.esfr.pl/images/www/blank.gif"/>
-     </a>
-    </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109528275009-6">
-     <!-- banner id: 109528275009 -->
-     <script type="text/javascript">
-      if(UA && typeof UA.addPromotion !== 'undefined'){
-				UA.addPromotion({
-					id: '109528275009-6',
-					date: '2022-08-01',
-					type: 'B',
-					position: '6',
-					name: 'TELE \- Samsung Galaxy S22 cashback \- 082022 \- 1200x100',
-					area: {
-                    column: '',
-                    name: ''
-					}
-				});
-			}
-     </script>
-     <a class="" href="/cms/cashback-s22ultra.bhtml">
-      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-688a5a8a4b33facc793d1863c868868a/banner/109528275009/4147ab7b-4325-4a90-ae9f-281aada8f987/1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
-     </a>
-    </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109521761417-7">
-     <!-- banner id: 109521761417 -->
-     <script type="text/javascript">
-      if(UA && typeof UA.addPromotion !== 'undefined'){
-				UA.addPromotion({
-					id: '109521761417-7',
-					date: '2022-08-01',
-					type: 'B',
-					position: '7',
-					name: 'TELE \- Samsung A53  A33 cashback \- 082022 \- 1200x100',
-					area: {
-                    column: '',
-                    name: ''
-					}
-				});
-			}
-     </script>
-     <a class="" href="/cms/cashback-a33a53.bhtml">
-      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-0258d09296bd73b2e4df5f1546d48e63/banner/109521761417/265c8f90-7ff1-468f-8ae0-2c7174ff26dc/1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
-     </a>
-    </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109388612097-8">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109388612097-2">
      <!-- banner id: 109388612097 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109388612097-8',
+					id: '109388612097-2',
 					date: '2022-07-29',
 					type: 'B',
-					position: '8',
+					position: '2',
 					name: 'TELE \- Xiaomi \- letni hotspot \- 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4010,15 +3914,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-e394d817003dc9a6ae004e8ae606b993/banner/109388612097/9568454b-5ff0-4e76-b706-86a0cd2613bc/1200x100_beats_25kb_Xiaomi_KV_summer_campaign_najlepszy_letni_hotspot_biale_Euro.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109336765905-9">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109336765905-3">
      <!-- banner id: 109336765905 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109336765905-9',
+					id: '109336765905-3',
 					date: '2022-07-28',
 					type: 'B',
-					position: '9',
+					position: '3',
 					name: 'TELE \- Hammer promocja\/konkurs 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4033,15 +3937,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       </img>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109332224129-10">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109332224129-4">
      <!-- banner id: 109332224129 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109332224129-10',
+					id: '109332224129-4',
 					date: '2022-07-28',
 					type: 'B',
-					position: '10',
+					position: '4',
 					name: 'TELE \- oppo reno 6 taniej \- 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4054,15 +3958,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-efe6f34d54c9ce55d4ccb2486714c7e2/banner/109332224129/daeec421-7836-425d-b341-315fa671acd3/Euro 1200x100 kopia.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109279000169-11">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109279000169-5">
      <!-- banner id: 109279000169 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109279000169-11',
+					id: '109279000169-5',
 					date: '2022-07-27',
 					type: 'B',
-					position: '11',
+					position: '5',
 					name: 'TELE \- samsung buds 2 \- 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4077,15 +3981,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       </img>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109234905641-12">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109234905641-6">
      <!-- banner id: 109234905641 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '109234905641-12',
+					id: '109234905641-6',
 					date: '2022-07-26',
 					type: 'B',
-					position: '12',
+					position: '6',
 					name: 'TELE \- Huawei odbierz opaskę za 1zł \- 072022 \- belka 1200x100',
 					area: {
                     column: '',
@@ -4100,15 +4004,15 @@ UA.setConfig({productImpressionsTimeout:5000});
       </img>
      </a>
     </div>
-    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108997182713-13">
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108997182713-7">
      <!-- banner id: 108997182713 -->
      <script type="text/javascript">
       if(UA && typeof UA.addPromotion !== 'undefined'){
 				UA.addPromotion({
-					id: '108997182713-13',
+					id: '108997182713-7',
 					date: '2022-07-21',
 					type: 'B',
-					position: '13',
+					position: '7',
 					name: 'TELE \- głośnik 70% taniej 072022 1200x100',
 					area: {
                     column: '',
@@ -4123,9 +4027,183 @@ UA.setConfig({productImpressionsTimeout:5000});
       </img>
      </a>
     </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108531620865-8">
+     <!-- banner id: 108531620865 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '108531620865-8',
+					date: '2022-07-13',
+					type: 'B',
+					position: '8',
+					name: 'AGD \- Kampania Mastercard \- 072022 \- baner główny belka 1200x100',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="/cms/mastercard-bezcenne-chwile-2022.bhtml">
+      <img alt="" class="lazy thin" data-original="//f01.esfr.pl/ver-f202e63abb04e534671f5e87c4061f04/banner/108531620865/4e829d47-2a5c-474d-a51b-8c99d9f7ca80/BCh_EURORTV_1200x100 .jpg" src="//f00.esfr.pl/images/www/blank.gif">
+       <img alt="" class="lazy wide" data-original="//f01.esfr.pl/ver-d97371bda9322ed64c0a83d4978a0741/banner/108531620865/4035ae9d-dcb0-433c-8653-e9789d9e2758/BCh_EURORTV_1200x100 .jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
+      </img>
+     </a>
+    </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="108124813921-9">
+     <!-- banner id: 108124813921 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '108124813921-9',
+					date: '2022-07-06',
+					type: 'B',
+					position: '9',
+					name: 'TELE \- ASUS ROG 6 z coolerem z a 1 zł  \- 072022 \- 1200x100\-1',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="/promowane.bhtml?promocja=tele-asus-rog-6-z-coolerem-z-a-1-zl-072022">
+      <img alt="" class="lazy" data-original="//f00.esfr.pl/ver-4ad7bc7c682e095524dfa701f3aed37e/banner/108124813921/72979b9d-dacd-4d73-a3bb-95007cd842a4/1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
+     </a>
+    </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="103244649697-10">
+     <!-- banner id: 103244649697 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '103244649697-10',
+					date: '2022-04-08',
+					type: 'B',
+					position: '10',
+					name: 'Tablety \- Samsung YouTube Premium \-  042022 \- 1200x100',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="https://www.euro.com.pl/cms/samsung-galaxy-youtube-premium.bhtml">
+      <img alt="" class="lazy" data-original="//f00.esfr.pl/ver-12f9cdc2fdd74cf48782c1515196635c/banner/103244649697/9081c434-4e9f-4136-addc-201d605c3d0a/SET MINIMUM EURO1200x100.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
+     </a>
+    </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109044409417-11">
+     <!-- banner id: 109044409417 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '109044409417-11',
+					date: '2022-07-22',
+					type: 'B',
+					position: '11',
+					name: 'AKC \- Reinston \- Uchwyt rowerowy taniej \- 0722 \-1200x100',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="/cms/akc-uchwyt-rowerowy-taniej.bhtml">
+      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-bf50a3e1746f2596016a27e50fc832d7/banner/109044409417/207466e4-df81-4799-b448-2ad7d08d8015/Banery_uchwyty_tel_1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
+     </a>
+    </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109383818649-12">
+     <!-- banner id: 109383818649 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '109383818649-12',
+					date: '2022-07-29',
+					type: 'B',
+					position: '12',
+					name: 'Extremalne Rabaty \- belka 1200x100\-tylko do środy',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="/cms/extremalne-rabaty.bhtml">
+      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-81ee309c4d79203a0954437d02b45057/banner/109383818649/364c1e2c-e66e-4497-acda-3be3069b93ef/EXTREMAL_1200x100_srody.png" src="//f00.esfr.pl/images/www/blank.gif"/>
+     </a>
+    </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109577813641-13">
+     <!-- banner id: 109577813641 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '109577813641-13',
+					date: '2022-08-02',
+					type: 'B',
+					position: '13',
+					name: 'TELE \-  Oppo Find X5 Pro z ładowarką w zestawie \- 082022 \- 1200x100',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="/promowane.bhtml?promocja=tele-oppo-find-x5-pro-z-ladowarka-w-zestawie-082022">
+      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-3c7638cb0ea7979f8ecabd724c3fde27/banner/109577813641/233d6e7c-e466-471d-9e47-0c384da1bd0d/Euro 1200x100 kopia.jpg" src="//f00.esfr.pl/images/www/blank.gif"/>
+     </a>
+    </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109528275009-14">
+     <!-- banner id: 109528275009 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '109528275009-14',
+					date: '2022-08-01',
+					type: 'B',
+					position: '14',
+					name: 'TELE \- Samsung Galaxy S22 cashback \- 082022 \- 1200x100',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="/cms/cashback-s22ultra.bhtml">
+      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-688a5a8a4b33facc793d1863c868868a/banner/109528275009/4147ab7b-4325-4a90-ae9f-281aada8f987/1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
+     </a>
+    </div>
+    <div class="banner-item js-banner-item js-UA-promotion banner-photo" data-id="109521761417-15">
+     <!-- banner id: 109521761417 -->
+     <script type="text/javascript">
+      if(UA && typeof UA.addPromotion !== 'undefined'){
+				UA.addPromotion({
+					id: '109521761417-15',
+					date: '2022-08-01',
+					type: 'B',
+					position: '15',
+					name: 'TELE \- Samsung A53  A33 cashback \- 082022 \- 1200x100',
+					area: {
+                    column: '',
+                    name: ''
+					}
+				});
+			}
+     </script>
+     <a class="" href="/cms/cashback-a33a53.bhtml">
+      <img alt="" class="lazy" data-original="//f01.esfr.pl/ver-0258d09296bd73b2e4df5f1546d48e63/banner/109521761417/265c8f90-7ff1-468f-8ae0-2c7174ff26dc/1200x100.png" src="//f00.esfr.pl/images/www/blank.gif"/>
+     </a>
+    </div>
    </div>
    <div class="rotator-progress">
     <ul>
+     <li class="js-rotator-pointer">
+     </li>
+     <li class="js-rotator-pointer">
+     </li>
      <li class="js-rotator-pointer">
      </li>
      <li class="js-rotator-pointer">
@@ -4602,33 +4680,33 @@ UA.setConfig({productImpressionsTimeout:5000});
             </div>
             <div class="package-product-price-box">
              <div class="package-product-discount-prices">
-              <div class="price-discount" data-price="26.99">
+              <div class="price-discount" data-price="24.38">
                <div class="price-normal">
-                26,99 zł
+                24,38 zł
                </div>
                <div class="discount-percentage" data-percentage="10">
                 -10%
                </div>
               </div>
-              <div class="price-discount" data-price="25.79">
+              <div class="price-discount" data-price="23.30">
                <div class="price-normal">
-                25,79 zł
+                23,30 zł
                </div>
                <div class="discount-percentage" data-percentage="14">
                 -14%
                </div>
               </div>
-              <div class="price-discount" data-price="24.59">
+              <div class="price-discount" data-price="22.21">
                <div class="price-normal">
-                24,59 zł
+                22,21 zł
                </div>
                <div class="discount-percentage" data-percentage="18">
                 -18%
                </div>
               </div>
              </div>
-             <div class="price-old" data-price="29.99">
-              29,99 zł
+             <div class="price-old" data-price="27.09">
+              27,09 zł
              </div>
             </div>
             <div class="package-product-name">
@@ -4952,59 +5030,59 @@ UA.setConfig({productImpressionsTimeout:5000});
           </label>
          </div>
          <div class="package-products">
-          <div class="package-product-item" data-package-product-id="98956346569">
+          <div class="package-product-item" data-package-product-id="83763306657">
            <div>
             <div class="package-product-photo">
-             <a href="/sluchawki/xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne.bhtml">
-              <img alt="Xiaomi Redmi Buds 3 Lite (czarny)" class="lazy" data-original="//f01.esfr.pl/foto/9/98956346569/f034160701305a20b425dc2e289aa8c3/xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne,98956346569_2.jpg" src="/img/desktop/empty.png"/>
+             <a href="/sluchawki/philips-sluchawki-tws-tat2206bk-czarne.bhtml">
+              <img alt="Philips TAT2206BK/00" class="lazy" data-original="//f00.esfr.pl/foto/9/83763306657/ce9c29492324c233bc9b7d4c27a9e461/philips-sluchawki-tws-tat2206bk-czarne,83763306657_2.jpg" src="/img/desktop/empty.png"/>
              </a>
             </div>
             <div class="package-product-price-box">
              <div class="package-product-discount-prices">
-              <div class="price-discount" data-price="116.99">
+              <div class="price-discount" data-price="179.99">
                <div class="price-normal">
-                116,99 zł
+                179,99 zł
                </div>
                <div class="discount-percentage" data-percentage="10">
                 -10%
                </div>
               </div>
-              <div class="price-discount" data-price="111.79">
+              <div class="price-discount" data-price="171.99">
                <div class="price-normal">
-                111,79 zł
+                171,99 zł
                </div>
                <div class="discount-percentage" data-percentage="14">
                 -14%
                </div>
               </div>
-              <div class="price-discount" data-price="106.59">
+              <div class="price-discount" data-price="163.99">
                <div class="price-normal">
-                106,59 zł
+                163,99 zł
                </div>
                <div class="discount-percentage" data-percentage="18">
                 -18%
                </div>
               </div>
              </div>
-             <div class="price-old" data-price="129.99">
-              129,99 zł
+             <div class="price-old" data-price="199.99">
+              199,99 zł
              </div>
             </div>
             <div class="package-product-name">
-             <a href="/sluchawki/xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne.bhtml">
-              Xiaomi Redmi Buds 3 Lite (czarny)
+             <a href="/sluchawki/philips-sluchawki-tws-tat2206bk-czarne.bhtml">
+              Philips TAT2206BK/00
              </a>
             </div>
            </div>
            <div>
             <div class="stars-rating">
-             <a class="js-save-keyword js-scroll-by-hash" data-seo-url="*sluchawki*xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne%2Ebhtml#opinie" href="#" title="5 na 5, przeczytaj 56 opinii o Redmi Buds 3 Lite (czarny)">
+             <a class="js-save-keyword js-scroll-by-hash" data-seo-url="*sluchawki*philips-sluchawki-tws-tat2206bk-czarne%2Ebhtml#opinie" href="#" title="5 na 5, przeczytaj 39 opinii o TAT2206BK/00">
               <span style="width:100%">
               </span>
              </a>
-             <a class="js-save-keyword js-scroll-by-hash rating-count" data-seo-url="*sluchawki*xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne%2Ebhtml#opinie" href="#">
+             <a class="js-save-keyword js-scroll-by-hash rating-count" data-seo-url="*sluchawki*philips-sluchawki-tws-tat2206bk-czarne%2Ebhtml#opinie" href="#">
               <em>
-               (56 opinii)
+               (39 opinii)
               </em>
              </a>
             </div>
@@ -5126,57 +5204,57 @@ UA.setConfig({productImpressionsTimeout:5000});
             </div>
            </div>
           </div>
-          <div class="package-product-item" data-package-product-id="83763306657">
+          <div class="package-product-item" data-package-product-id="92229771809">
            <div>
             <div class="package-product-photo">
-             <a href="/sluchawki/philips-sluchawki-tws-tat2206bk-czarne.bhtml">
-              <img alt="Philips TAT2206BK/00" class="lazy" data-original="//f00.esfr.pl/foto/9/83763306657/ce9c29492324c233bc9b7d4c27a9e461/philips-sluchawki-tws-tat2206bk-czarne,83763306657_2.jpg" src="/img/desktop/empty.png"/>
+             <a href="/sluchawki/xiaomi-s-uch-redmi-buds-3-pro-szare.bhtml">
+              <img alt="Xiaomi Redmi AirDots Buds 3 Pro (szary)" class="lazy" data-original="//f01.esfr.pl/foto/3/92229771809/7b5736f342024ea66eeb61b208536811/xiaomi-s-uch-redmi-buds-3-pro-szare,92229771809_2.jpg" src="/img/desktop/empty.png"/>
              </a>
             </div>
             <div class="package-product-price-box">
              <div class="package-product-discount-prices">
-              <div class="price-discount" data-price="179.99">
+              <div class="price-discount" data-price="206.10">
                <div class="price-normal">
-                179,99 zł
+                206,10 zł
                </div>
                <div class="discount-percentage" data-percentage="10">
                 -10%
                </div>
               </div>
-              <div class="price-discount" data-price="171.99">
+              <div class="price-discount" data-price="196.94">
                <div class="price-normal">
-                171,99 zł
+                196,94 zł
                </div>
                <div class="discount-percentage" data-percentage="14">
                 -14%
                </div>
               </div>
-              <div class="price-discount" data-price="163.99">
+              <div class="price-discount" data-price="187.78">
                <div class="price-normal">
-                163,99 zł
+                187,78 zł
                </div>
                <div class="discount-percentage" data-percentage="18">
                 -18%
                </div>
               </div>
              </div>
-             <div class="price-old" data-price="199.99">
-              199,99 zł
+             <div class="price-old" data-price="229.00">
+              229 zł
              </div>
             </div>
             <div class="package-product-name">
-             <a href="/sluchawki/philips-sluchawki-tws-tat2206bk-czarne.bhtml">
-              Philips TAT2206BK/00
+             <a href="/sluchawki/xiaomi-s-uch-redmi-buds-3-pro-szare.bhtml">
+              Xiaomi Redmi AirDots Buds 3 Pro (szary)
              </a>
             </div>
            </div>
            <div>
             <div class="stars-rating">
-             <a class="js-save-keyword js-scroll-by-hash" data-seo-url="*sluchawki*philips-sluchawki-tws-tat2206bk-czarne%2Ebhtml#opinie" href="#" title="5 na 5, przeczytaj 39 opinii o TAT2206BK/00">
+             <a class="js-save-keyword js-scroll-by-hash" data-seo-url="*sluchawki*xiaomi-s-uch-redmi-buds-3-pro-szare%2Ebhtml#opinie" href="#" title="5 na 5, przeczytaj 39 opinii o Redmi AirDots Buds 3 Pro">
               <span style="width:100%">
               </span>
              </a>
-             <a class="js-save-keyword js-scroll-by-hash rating-count" data-seo-url="*sluchawki*philips-sluchawki-tws-tat2206bk-czarne%2Ebhtml#opinie" href="#">
+             <a class="js-save-keyword js-scroll-by-hash rating-count" data-seo-url="*sluchawki*xiaomi-s-uch-redmi-buds-3-pro-szare%2Ebhtml#opinie" href="#">
               <em>
                (39 opinii)
               </em>
@@ -5658,33 +5736,33 @@ UA.setConfig({productImpressionsTimeout:5000});
             </div>
             <div class="package-product-price-box">
              <div class="package-product-discount-prices">
-              <div class="price-discount" data-price="26.99">
+              <div class="price-discount" data-price="24.38">
                <div class="price-normal">
-                26,99 zł
+                24,38 zł
                </div>
                <div class="discount-percentage" data-percentage="10">
                 -10%
                </div>
               </div>
-              <div class="price-discount" data-price="25.79">
+              <div class="price-discount" data-price="23.30">
                <div class="price-normal">
-                25,79 zł
+                23,30 zł
                </div>
                <div class="discount-percentage" data-percentage="14">
                 -14%
                </div>
               </div>
-              <div class="price-discount" data-price="24.59">
+              <div class="price-discount" data-price="22.21">
                <div class="price-normal">
-                24,59 zł
+                22,21 zł
                </div>
                <div class="discount-percentage" data-percentage="18">
                 -18%
                </div>
               </div>
              </div>
-             <div class="price-old" data-price="29.99">
-              29,99 zł
+             <div class="price-old" data-price="27.09">
+              27,09 zł
              </div>
             </div>
             <div class="package-product-name">
@@ -6044,59 +6122,59 @@ UA.setConfig({productImpressionsTimeout:5000});
         </h2>
         <div class="package-products-modal">
          <div>
-          <div class="package-product-item" data-package-product-id="98956346569">
+          <div class="package-product-item" data-package-product-id="83763306657">
            <div>
             <div class="package-product-photo">
-             <a href="/sluchawki/xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne.bhtml">
-              <img alt="Xiaomi Redmi Buds 3 Lite (czarny)" class="lazy" data-original="//f01.esfr.pl/foto/9/98956346569/f034160701305a20b425dc2e289aa8c3/xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne,98956346569_2.jpg" src="/img/desktop/empty.png"/>
+             <a href="/sluchawki/philips-sluchawki-tws-tat2206bk-czarne.bhtml">
+              <img alt="Philips TAT2206BK/00" class="lazy" data-original="//f00.esfr.pl/foto/9/83763306657/ce9c29492324c233bc9b7d4c27a9e461/philips-sluchawki-tws-tat2206bk-czarne,83763306657_2.jpg" src="/img/desktop/empty.png"/>
              </a>
             </div>
             <div class="package-product-price-box">
              <div class="package-product-discount-prices">
-              <div class="price-discount" data-price="116.99">
+              <div class="price-discount" data-price="179.99">
                <div class="price-normal">
-                116,99 zł
+                179,99 zł
                </div>
                <div class="discount-percentage" data-percentage="10">
                 -10%
                </div>
               </div>
-              <div class="price-discount" data-price="111.79">
+              <div class="price-discount" data-price="171.99">
                <div class="price-normal">
-                111,79 zł
+                171,99 zł
                </div>
                <div class="discount-percentage" data-percentage="14">
                 -14%
                </div>
               </div>
-              <div class="price-discount" data-price="106.59">
+              <div class="price-discount" data-price="163.99">
                <div class="price-normal">
-                106,59 zł
+                163,99 zł
                </div>
                <div class="discount-percentage" data-percentage="18">
                 -18%
                </div>
               </div>
              </div>
-             <div class="price-old" data-price="129.99">
-              129,99 zł
+             <div class="price-old" data-price="199.99">
+              199,99 zł
              </div>
             </div>
             <div class="package-product-name">
-             <a href="/sluchawki/xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne.bhtml">
-              Xiaomi Redmi Buds 3 Lite (czarny)
+             <a href="/sluchawki/philips-sluchawki-tws-tat2206bk-czarne.bhtml">
+              Philips TAT2206BK/00
              </a>
             </div>
            </div>
            <div>
             <div class="stars-rating">
-             <a class="js-save-keyword js-scroll-by-hash" data-seo-url="*sluchawki*xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne%2Ebhtml#opinie" href="#" title="5 na 5, przeczytaj 56 opinii o Redmi Buds 3 Lite (czarny)">
+             <a class="js-save-keyword js-scroll-by-hash" data-seo-url="*sluchawki*philips-sluchawki-tws-tat2206bk-czarne%2Ebhtml#opinie" href="#" title="5 na 5, przeczytaj 39 opinii o TAT2206BK/00">
               <span style="width:100%">
               </span>
              </a>
-             <a class="js-save-keyword js-scroll-by-hash rating-count" data-seo-url="*sluchawki*xiaomi-sluchawki-tws-redmi-buds-3-lite-czarne%2Ebhtml#opinie" href="#">
+             <a class="js-save-keyword js-scroll-by-hash rating-count" data-seo-url="*sluchawki*philips-sluchawki-tws-tat2206bk-czarne%2Ebhtml#opinie" href="#">
               <em>
-               (56 opinii)
+               (39 opinii)
               </em>
              </a>
             </div>
@@ -6240,57 +6318,57 @@ UA.setConfig({productImpressionsTimeout:5000});
           </label>
          </div>
          <div>
-          <div class="package-product-item" data-package-product-id="83763306657">
+          <div class="package-product-item" data-package-product-id="92229771809">
            <div>
             <div class="package-product-photo">
-             <a href="/sluchawki/philips-sluchawki-tws-tat2206bk-czarne.bhtml">
-              <img alt="Philips TAT2206BK/00" class="lazy" data-original="//f00.esfr.pl/foto/9/83763306657/ce9c29492324c233bc9b7d4c27a9e461/philips-sluchawki-tws-tat2206bk-czarne,83763306657_2.jpg" src="/img/desktop/empty.png"/>
+             <a href="/sluchawki/xiaomi-s-uch-redmi-buds-3-pro-szare.bhtml">
+              <img alt="Xiaomi Redmi AirDots Buds 3 Pro (szary)" class="lazy" data-original="//f01.esfr.pl/foto/3/92229771809/7b5736f342024ea66eeb61b208536811/xiaomi-s-uch-redmi-buds-3-pro-szare,92229771809_2.jpg" src="/img/desktop/empty.png"/>
              </a>
             </div>
             <div class="package-product-price-box">
              <div class="package-product-discount-prices">
-              <div class="price-discount" data-price="179.99">
+              <div class="price-discount" data-price="206.10">
                <div class="price-normal">
-                179,99 zł
+                206,10 zł
                </div>
                <div class="discount-percentage" data-percentage="10">
                 -10%
                </div>
               </div>
-              <div class="price-discount" data-price="171.99">
+              <div class="price-discount" data-price="196.94">
                <div class="price-normal">
-                171,99 zł
+                196,94 zł
                </div>
                <div class="discount-percentage" data-percentage="14">
                 -14%
                </div>
               </div>
-              <div class="price-discount" data-price="163.99">
+              <div class="price-discount" data-price="187.78">
                <div class="price-normal">
-                163,99 zł
+                187,78 zł
                </div>
                <div class="discount-percentage" data-percentage="18">
                 -18%
                </div>
               </div>
              </div>
-             <div class="price-old" data-price="199.99">
-              199,99 zł
+             <div class="price-old" data-price="229.00">
+              229 zł
              </div>
             </div>
             <div class="package-product-name">
-             <a href="/sluchawki/philips-sluchawki-tws-tat2206bk-czarne.bhtml">
-              Philips TAT2206BK/00
+             <a href="/sluchawki/xiaomi-s-uch-redmi-buds-3-pro-szare.bhtml">
+              Xiaomi Redmi AirDots Buds 3 Pro (szary)
              </a>
             </div>
            </div>
            <div>
             <div class="stars-rating">
-             <a class="js-save-keyword js-scroll-by-hash" data-seo-url="*sluchawki*philips-sluchawki-tws-tat2206bk-czarne%2Ebhtml#opinie" href="#" title="5 na 5, przeczytaj 39 opinii o TAT2206BK/00">
+             <a class="js-save-keyword js-scroll-by-hash" data-seo-url="*sluchawki*xiaomi-s-uch-redmi-buds-3-pro-szare%2Ebhtml#opinie" href="#" title="5 na 5, przeczytaj 39 opinii o Redmi AirDots Buds 3 Pro">
               <span style="width:100%">
               </span>
              </a>
-             <a class="js-save-keyword js-scroll-by-hash rating-count" data-seo-url="*sluchawki*philips-sluchawki-tws-tat2206bk-czarne%2Ebhtml#opinie" href="#">
+             <a class="js-save-keyword js-scroll-by-hash rating-count" data-seo-url="*sluchawki*xiaomi-s-uch-redmi-buds-3-pro-szare%2Ebhtml#opinie" href="#">
               <em>
                (39 opinii)
               </em>
@@ -6982,88 +7060,82 @@ UA.setConfig({productImpressionsTimeout:5000});
            </label>
           </div>
          </li>
-         <li class="accessory-item selenium-O-accesory-item accessory-item-43606395841 js-UA-product">
+         <li class="accessory-item selenium-O-accesory-item accessory-item-43917026681 js-UA-product">
           <script type="text/javascript">
            UA && UA.addProduct({
-		id: "43606395841",
-		plu: "1187486",
+		id: "43917026681",
+		plu: "1187739",
 		list: "Akcesoria",
 		position: "",
-		price: "49.99",
+		price: "89.99",
 		category: "powerbank",
-		name: "Reinston 10000mAh EPB019 (czarny)",
-		brand: "Reinston",
+		name: "PowerNeed S6000G 6000mAh, ładowarka solarna z oświetleniem LED",
+		brand: "PowerNeed",
 		variant: "",
 		status: "1"
 		
 	});
           </script>
-          <input class="productId" type="hidden" value="43606395841"/>
-          <input class="productHref" type="hidden" value="/ladowarki-akumulatory-przenosne/reinston-10000-mah-epb019-czarny.bhtml"/>
-          <input class="plu" type="hidden" value="1187486"/>
-          <input class="productPlu" type="hidden" value="1187486"/>
+          <input class="productId" type="hidden" value="43917026681"/>
+          <input class="productHref" type="hidden" value="/ladowarki-akumulatory-przenosne/powerneed-power-bank-6000mah-solarny-z-osw-led-zielony.bhtml"/>
+          <input class="plu" type="hidden" value="1187739"/>
+          <input class="productPlu" type="hidden" value="1187739"/>
           <input class="productsName" type="hidden" value="powerbank"/>
           <input class="productList" type="hidden" value="Akcesoria"/>
           <input class="cat" data-id="145977006" type="hidden" value="Smartfony i gadżety"/>
           <input class="subcat" data-id="1240122806" type="hidden" value="Akcesoria do telefonów"/>
           <input class="subsubcat" data-id="13613680621" type="hidden" value="Powerbanki"/>
           <div class="col-img">
-           <span class="product-status promocja">
-            Promocja
-           </span>
-           <a class="product-image js-go-to-product-card" href="/ladowarki-akumulatory-przenosne/reinston-10000-mah-epb019-czarny.bhtml">
-            <img alt="powerbank Reinston 10000mAh EPB019 (czarny)" class="lazy" data-original="//f00.esfr.pl/foto/1/43606395841/5634c04c7d54bcc89f8802e491cdcf44/reinston-10000-mah-epb019-czarny,43606395841_1.jpg" src="/img/desktop/empty.png"/>
+           <a class="product-image js-go-to-product-card" href="/ladowarki-akumulatory-przenosne/powerneed-power-bank-6000mah-solarny-z-osw-led-zielony.bhtml">
+            <img alt="powerbank PowerNeed S6000G 6000mAh, ładowarka solarna z oświetleniem LED" class="lazy" data-original="//f00.esfr.pl/foto/6/43917026681/252a1d94c9d2b294a693ea60cd9cd153/powerneed-power-bank-6000mah-solarny-z-osw-led-zielony,43917026681_1.jpg" src="/img/desktop/empty.png"/>
            </a>
           </div>
           <div class="accessory-grade">
            <div class="stars-rating">
-            <a class="js-scroll-by-hash" data-seo-url="*ladowarki-akumulatory-przenosne*reinston-10000-mah-epb019-czarny%2Ebhtml#opinie" href="#">
-             <span style="width:80%">
+            <a class="js-scroll-by-hash" data-seo-url="*ladowarki-akumulatory-przenosne*powerneed-power-bank-6000mah-solarny-z-osw-led-zielony%2Ebhtml#opinie" href="#">
+             <span style="width:60%">
              </span>
             </a>
             <em>
-             (36)
+             (13)
             </em>
            </div>
           </div>
           <div class="col-desc">
            <div class="product-prices">
             <div class="price-normal">
-             49,99 zł
-            </div>
-            <div class="price-old">
-             79,99 zł
+             89,99 zł
             </div>
            </div>
            <h3>
-            <a href="/ladowarki-akumulatory-przenosne/reinston-10000-mah-epb019-czarny.bhtml">
-             Powerbank Reinston 10000mAh EPB019 (czarny)
+            <a href="/ladowarki-akumulatory-przenosne/powerneed-power-bank-6000mah-solarny-z-osw-led-zielony.bhtml">
+             Powerbank PowerNeed S6000G 6000mAh, ładowarka solarna z oświetleniem LED
             </a>
            </h3>
            <div class="product-attributes">
             <div class="attributes-row">
              <span class="attribute-name">
-              <a class="js-dictionary" data-product="1187486" href="/slownik.bhtml?definitionId=7536551772" title="Pojemność nominalna - powerbank">
+              <a class="js-dictionary" data-product="1187739" href="/slownik.bhtml?definitionId=7536551772" title="Pojemność nominalna - powerbank">
                Pojemność baterii
               </a>
              </span>
              <span class="attribute-value">
-              10000 mAh
+              6000 mAh
              </span>
             </div>
             <div class="attributes-row">
              <span class="attribute-name">
-              <a class="js-dictionary" data-product="1187486" href="/slownik.bhtml?definitionId=15420938401" title="Prąd wyjściowy - powerbank">
+              <a class="js-dictionary" data-product="1187739" href="/slownik.bhtml?definitionId=15420938401" title="Prąd wyjściowy - powerbank">
                Prąd ładowania portu (max)
               </a>
              </span>
              <span class="attribute-value">
-              2,1 A
+              2 A
              </span>
             </div>
             <div class="attributes-row">
              <span class="attribute-name">
-              <a class="js-dictionary" data-product="1187486" href="/slownik.bhtml?definitionId=15420994305" title="Liczba portów wyjściowych - powerbank">
+              <a class="js-dictionary" data-product="1187739" href="/slownik.bhtml?definitionId=15420994305" title="Liczba portów wyjściowych - powerbank">
                Liczba portów wyjściowych
               </a>
              </span>
@@ -7076,11 +7148,11 @@ UA.setConfig({productImpressionsTimeout:5000});
               Porty i standardy ładowania
              </span>
              <span class="attribute-value">
-              <a class="fancyDict" data-product="1187486" href="/slownik.bhtml?definitionId=320211948" title="USB (Universal Serial Bus)">
+              <a class="fancyDict" data-product="1187739" href="/slownik.bhtml?definitionId=320211948" title="USB (Universal Serial Bus)">
                USB
               </a>
               ,
-              <a class="fancyDict" data-product="1187486" href="/slownik.bhtml?definitionId=320211948" title="USB (Universal Serial Bus)">
+              <a class="fancyDict" data-product="1187739" href="/slownik.bhtml?definitionId=320211948" title="USB (Universal Serial Bus)">
                micro USB
               </a>
              </span>
@@ -7090,7 +7162,7 @@ UA.setConfig({productImpressionsTimeout:5000});
           <div class="add-accessory-to-cart">
            <label class="checkbox-css theme2 checkbox-css-text button">
             <span class="text">
-             <input class="js-add-accessory-to-cart-checkbox" data-item="Reinston 10000mAh EPB019 (czarny)" data-plu="1187486" name="accessory" type="checkbox" value="43606395841"/>
+             <input class="js-add-accessory-to-cart-checkbox" data-item="PowerNeed S6000G 6000mAh, ładowarka solarna z oświetleniem LED" data-plu="1187739" name="accessory" type="checkbox" value="43917026681"/>
              <i>
              </i>
              <span class="toggle-text" data-checked="wybrane" data-unchecked="wybieram">
