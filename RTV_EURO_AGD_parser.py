@@ -9,7 +9,7 @@ import os.path
 
 
 class RtvEuroAgdParser:
-
+    details_dicts = []
     def __init__(self, url):
         self.url = url
         self.request = requests.get(self.url, verify=False)
@@ -42,10 +42,12 @@ class RtvEuroAgdParser:
         os.chdir(path)
         files = Path(os.getcwd()).glob('*.json')
 
-        details_dicts = []
         for file in files:
             with open(str(file), 'r') as fp:
                 data = json.load(fp)
 
-            details_dicts.append(data)
-        return details_dicts
+            RtvEuroAgdParser.details_dicts.append(data)
+        return RtvEuroAgdParser.details_dicts
+
+     # def send_email(self):
+     #     if RtvEuroAgdParser.details_dicts.details_dicts[0]['RTV_EURO_AGD'][self.item][1] > RtvEuroAgdParser.details_dicts.details_dicts[1]['RTV_EURO_AGD'][self.item][1]:
