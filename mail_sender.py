@@ -12,7 +12,7 @@ sender = "aleksandra.matacz93@gmail.com"
 receiver = "a.matacz@o2.pl"
 password = "vteocpsfszrydrgr"
 subject = "[NIE PRZEGAP] Obserwowany przez Ciebie produkt jest teraz w niższej cenie!"
-email_text = "<i>EmailEmailEmail</i>"
+email_text = "<i>Hej, teraz iphone 13 jest w niższej cenie.</i>"
 
 file = "password.txt"
 
