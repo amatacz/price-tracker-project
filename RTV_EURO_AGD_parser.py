@@ -40,10 +40,15 @@ class RtvEuroAgdParser():
     def save_details_to_json(self):
         item = self.soup.find("div", {'class': 'selenium-product-code'}).contents[0]
         date_and_time = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
-        price = self.soup.find("div", {'class': "product-price"}).get('data-price')
+        #price = self.soup.find("div", {'class': "product-price"}).get('data-price') # to działa, ale wyszukałam to w kodzie ręcznie, a nie inspectem
+        price = self.soup.find("div", {'class': "product-price selenium-price-normal"}) # to jest pod inspectem, ale zwraca null DLACZEGO?
+
+
         name = self.soup.find("div", {'class': "product-name"}).string.strip()
         details = {'RTV_EURO_AGD': {item: [name, price, date_and_time]}}
-        json_name = os.getcwd() + '/' + self.SHOP_NAME + '/json_' + date.today().strftime('%d-%m-%Y') + '.json'
+
+        #json_name = os.getcwd() + '/' + self.SHOP_NAME + '/json_' + date.today().strftime('%d-%m-%Y') + '.json'
+        json_name = os.getcwd() + '/' + self.SHOP_NAME + '/json_test' + '.json'
 
         with open(json_name, 'w') as json_file:
             json.dump(details, json_file)

@@ -9,9 +9,6 @@ import os.path
 import common_methods
 
 
-
-
-
 class MediaExpertParser():
     SHOP_NAME = 'MEDIA_EXPERT'
     DETAILS_DICTS = []
