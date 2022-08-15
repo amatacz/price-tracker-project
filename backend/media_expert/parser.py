@@ -7,16 +7,21 @@ import json
 import os
 
 from backend.base import BaseParser
+from backend.mail_sender import send_email
 
 
 class Parser(BaseParser):
     SERVICE = 'MEDIA_EXPERT'
+    ITEM = None
+    PRICE = None
+    NAME = None
 
     def __init__(self, url, product_name):
         self.url = url
         self.product_name = product_name
         self.json_name = Path(os.getcwd() + '/data/' + self.SERVICE + '.json')
         self.process()
+        self.send_email_with_price_alert()
 
     def process(self):
         self.response = self.get_response()
@@ -38,25 +43,37 @@ class Parser(BaseParser):
         return {}
 
     def save_details_to_json(self):
-        item = self.response.find_element(By.XPATH, "//*[@id=\"section_title\"]/span").text
+        self.ITEM = self.response.find_element(By.XPATH, "//*[@id=\"section_title\"]/span").text
         date_and_time = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
-        price = self.response.find_element(By.XPATH, "//*[@id=\"section_offer-available\"]/div[1]/div[1]/div/div/span[1]").text
-        name = self.response.find_element(By.XPATH, "//*[@id=\"section_title\"]/div[1]/h1").text
+        self.PRICE = float((self.response.find_element(By.XPATH, "//*[@id=\"section_offer-available\"]/div[1]/div[1]/div/div/span[1]").text).replace("\u202f", ""))
+        self.NAME = self.response.find_element(By.XPATH, "//*[@id=\"section_title\"]/div[1]/h1").text
 
         if self.data.get(self.SERVICE):
-            if not self.data[self.SERVICE].get(item):
+            if not self.data[self.SERVICE].get(self.ITEM):
                 self.data[self.SERVICE] = {
-                    item: [{'name': name, 'price': price, 'datetime': date_and_time}]
+                    self.ITEM: [{'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time}]
                 }
-            if self.data[self.SERVICE].get(item):
-                self.data[self.SERVICE][item].append({'name': name, 'price': price, 'datetime': date_and_time})
+            if self.data[self.SERVICE].get(self.ITEM):
+                self.data[self.SERVICE][self.ITEM].append({'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time})
 
         if not self.data.get(self.SERVICE):
             self.data[self.SERVICE] = {
-                item: [{'name': name, 'price': price, 'datetime': date_and_time}]
+                self.ITEM: [{'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time}]
             }
 
         with open(self.json_name, 'w') as file:
             json.dump(self.data, file)
+
+    def send_email_with_price_alert(self):
+        if self.data[self.SERVICE].get(self.ITEM)[-1].get("price") > self.data[self.SERVICE].get(self.ITEM)[-2].get(
+                "price"):
+            diff = self.data[self.SERVICE].get(self.ITEM)[-1].get(
+                "price") - self.data[self.SERVICE].get(self.ITEM)[-2].get(
+                "price")
+
+            send_email(self.url, self.SERVICE, diff, self.NAME)
+
+
+
 
 
