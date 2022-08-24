@@ -12,7 +12,7 @@ from backend.mail_sender import send_email
 
 
 class Parser(BaseParser):
-    SERVICE = 'RTV_EURO_AGD'
+    SERVICE = "RTV_EURO_AGD"
     ITEM = None
     PRICE = None
     NAME = None
@@ -58,26 +58,29 @@ class Parser(BaseParser):
 
             if not self.data[self.SERVICE].get(self.ITEM):
                 self.data[self.SERVICE] = {
-                    self.ITEM: [{'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time}]
+                    self.ITEM: [{"name": self.NAME, "price": self.PRICE, "datetime": date_and_time}]
                 }
             if self.data[self.SERVICE].get(self.ITEM):
-                self.data[self.SERVICE][self.ITEM].append({'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time})
+                self.data[self.SERVICE][self.ITEM].append({"name": self.NAME, "price": self.PRICE, "datetime": date_and_time})
 
         if not self.data.get(self.SERVICE):
             self.data[self.SERVICE] = {
-                self.ITEM: [{'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time}]
+                self.ITEM: [{"name": self.NAME, "price": self.PRICE, "datetime": date_and_time}]
             }
 
         with open(self.json_name, 'w') as file:
             json.dump(self.data, file)
 
     def send_email_with_price_alert(self):
-        if self.data[self.SERVICE].get(self.ITEM)[-1].get("price") > self.data[self.SERVICE].get(self.ITEM)[-2].get(
-                "price"):
-            diff = self.data[self.SERVICE].get(self.ITEM)[-1].get(
-                "price") - self.data[self.SERVICE].get(self.ITEM)[-2].get(
-                "price")
+        price_yesterday = self.data[self.SERVICE].get(self.ITEM)[-1].get("price")
+        price_today = self.data[self.SERVICE].get(self.ITEM)[-2].get("price")
 
-            send_email(self.url, self.SERVICE, diff, self.NAME)
+        if price_yesterday and price_today:
+            if price_yesterday >= price_today:
+                diff = self.data[self.SERVICE].get(self.ITEM)[-1].get(
+                    "price") - self.data[self.SERVICE].get(self.ITEM)[-2].get(
+                    "price")
 
+                send_email(self.url, self.SERVICE, diff, self.NAME)
+        pass
 

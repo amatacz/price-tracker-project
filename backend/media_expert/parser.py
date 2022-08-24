@@ -3,6 +3,7 @@ from pathlib import Path
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 import json
 import os
 
@@ -43,10 +44,22 @@ class Parser(BaseParser):
         return {}
 
     def save_details_to_json(self):
-        self.ITEM = self.response.find_element(By.XPATH, "//*[@id=\"section_title\"]/span").text
+        try:
+            self.ITEM = self.response.find_element(By.XPATH, "//*[@id=\"section_title\"]/span").text
+        except NoSuchElementException:
+            pass
+
         date_and_time = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
-        self.PRICE = float((self.response.find_element(By.XPATH, "//*[@id=\"section_offer-available\"]/div[1]/div[1]/div/div/span[1]").text).replace("\u202f", ""))
-        self.NAME = self.response.find_element(By.XPATH, "//*[@id=\"section_title\"]/div[1]/h1").text
+        try:
+            self.PRICE = float((self.response.find_element(By.XPATH, "//*[@id=\"section_offer-available\"]/div[1]/div[1]/div/div/span[1]").text).replace("\u202f", ""))
+            # self.PRICE = self.response.find_element(By.XPATH, "//*[@id=\"section_page-summary-box\"]/div/div[2]/div/div[2]/div[1]/div/div/span[1]").text
+        except NoSuchElementException:
+            pass
+
+        try:
+            self.NAME = self.response.find_element(By.XPATH, "//*[@id=\"section_title\"]/div[1]/h1").text
+        except NoSuchElementException:
+            pass
 
         if self.data.get(self.SERVICE):
             if not self.data[self.SERVICE].get(self.ITEM):
@@ -65,13 +78,17 @@ class Parser(BaseParser):
             json.dump(self.data, file)
 
     def send_email_with_price_alert(self):
-        if self.data[self.SERVICE].get(self.ITEM)[-1].get("price") > self.data[self.SERVICE].get(self.ITEM)[-2].get(
-                "price"):
-            diff = self.data[self.SERVICE].get(self.ITEM)[-1].get(
-                "price") - self.data[self.SERVICE].get(self.ITEM)[-2].get(
-                "price")
+        price_yesterday = self.data[self.SERVICE].get(self.ITEM)[-1].get("price")
+        price_today = self.data[self.SERVICE].get(self.ITEM)[-2].get("price")
 
-            send_email(self.url, self.SERVICE, diff, self.NAME)
+        if price_yesterday and price_today:
+            if price_yesterday >= price_today:
+                diff = self.data[self.SERVICE].get(self.ITEM)[-1].get(
+                    "price") - self.data[self.SERVICE].get(self.ITEM)[-2].get(
+                    "price")
+
+                send_email(self.url, self.SERVICE, diff, self.NAME)
+        pass
 
 
 

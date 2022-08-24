@@ -7,13 +7,19 @@ from email.mime.text import MIMEText
 def send_email(url, SERVICE, diff, NAME):
     port = 465
     smtp_server = "smtp.gmail.com"
-    sender = "aleksandra.matacz93@gmail.com"
+
+    f = open("C:/Users/matacza/Desktop/Projekt1/password.txt", "r")
+    lines = f.readlines()
+    sender = lines[0]
+    password = lines[1]
+    f.close()
+
     receiver = "a.matacz@o2.pl"
-    password = "vteocpsfszrydrgr"
+
     subject = "[NIE PRZEGAP] Obserwowany przez Ciebie produkt jest teraz w niższej cenie!"
     email_text = f"""
     Cześć,<br>
-    {NAME} jest tańszy o {diff}<br>
+    {NAME} jest tańszy o {diff} złotych!<br>
     Sprawdź akutalną ofertę na {SERVICE}! <br><br> 
     <a href={url}>Link do oferty</a>""".format(NAME=NAME, diff=diff, SERVICE=SERVICE, url=url)
 
