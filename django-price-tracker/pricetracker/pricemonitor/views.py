@@ -3,7 +3,7 @@ from .models import Service, Product, ServiceProduct
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-# czy widoki Create,Update,Delete z ServiceProduct są potrzebne?
+# czy widoki Create, Update, Delete z ServiceProduct są potrzebne?
 
 
 class ServiceList(ListView):
