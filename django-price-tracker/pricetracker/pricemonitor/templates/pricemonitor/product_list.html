@@ -1,13 +1,33 @@
-<!DOCTYPE html>
 {% extends 'pricemonitor/base.html' %}
 {% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}
+    <title>Product list - Price Monitor for smart shopping </title>
+{% endblock %}
 
-</body>
-</html>
+
+{% block content %}
+<div class="container-fluid">
+{% for product in object_list %}
+    <div class="card" style="width: 30rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> jak zaciągnąć img produktu ze strony -->
+        <div class="card-body">
+        <h5 class="card-title">{{ product.verbose_name }}</h5>
+            <br>
+        <a href="#" class="btn btn-primary">Więcej</a>
+        <a href="{% url 'productupdate' product.id %}" class="btn btn-primary">Edytuj</a>
+        <a href="{% url 'productdelete' product.id %}" class="btn btn-primary">Usuń</a>
+        </div>
+        <br><br>
+    </div>
+
+
+{% empty %}
+
+<h4>Nie śledzisz jeszcze żadnych produktów </h4>
+{% endfor %}
+<a href="{% url 'productcreate' %}" class="btn btn-primary">Dodaj produkt </a>
+<br>
+<br>
+</div>
+{% endblock %}

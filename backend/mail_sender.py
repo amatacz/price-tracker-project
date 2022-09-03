@@ -2,17 +2,15 @@ import smtplib
 import ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import pricetracker.pricetracker.settings
 
 
 def send_email(url, SERVICE, diff, NAME):
     port = 465
     smtp_server = "smtp.gmail.com"
 
-    f = open("C:/Users/matacza/Desktop/Projekt1/password.txt", "r")
-    lines = f.readlines()
-    sender = lines[0]
-    password = lines[1]
-    f.close()
+    sender = settings.EMAIL_HOST
+    password = pricetracker.settings.EMAIL_PASSWORD
 
     receiver = "a.matacz@o2.pl"
 

@@ -1,0 +1,33 @@
+{% extends 'pricemonitor/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Edytuj produkt - Monitoruj ceny i kupuj mądrze </title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <h3> Edytuj produkt </h3>
+
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Nazwa produktu</label>
+      <input type="text" class="form-control" name="name" id="id_name" value ="{{product.name}}">
+      <br>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Nazwa techniczna</label>
+      <input type="text" class="form-control" name="verbose_name" id="id_verbose_name" value = "{{ product.verbose_name }}">
+      <br>
+    </div>
+
+    <a href="{% url 'productlist' %}" type="button" class="btn btn-primary">Lista produktów</a>
+    <button type="submit" class="btn btn-success">Dodaj</button>
+
+  </form>
+
+</div>
+{% endblock %}

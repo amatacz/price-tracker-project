@@ -1,19 +1,70 @@
 <!DOCTYPE html>
-{% load static %}
+
 
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>Price Monitor for smart shopping</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block title %}
+    <title>Price Monitor</title>
+    {% endblock %}
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/pricemonitor.css' %}">
 
 <body>
+    <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+    <div class="container topnav">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Price monitor</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<h1>PRICE MONITORING FOR EVERYBODY!</h1>
+    <div class="container text-center">
+        <span class="align-middle">
+        <br><br>
+    {% block content %}
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <h1>Price tracker for smart shopping</h1><br>
+        <h4>Track prices and be smarter!</h4><br><br>
+
+
+        <div class="row justify-content-center text-center">
+            <button type="button" class="btn btn-primary btn-lg" href="#">Sign Up</button>
+        </div>
+    {% endblock %}
+        </span>
+        </div>
+     </div>
+
+
+
+
+<!-- CZY JA TEGO POTRZEBUJE?
+<nav class="navbar navbar-dark bg-dark navbar-fixed-bottom">
+  <div class="container foot-nav">
+    <a class="navbar-brand" href="#">Go up</a>
+  </div>
+</nav> -->
+
+
 </body>
 </html>
