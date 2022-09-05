@@ -15,7 +15,7 @@
                    <div class="card-column" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{ service.verbose_name }}</h5><br>
-                        <a href="#" class="btn btn-success">Więcej</a>
+                        <a href="{% url 'servicedetail' service.id %}" class="btn btn-success">Więcej</a>
                         <a href="{% url 'serviceupdate' service.id %}" class="btn btn-success">Edytuj</a>
                         <a href="{% url 'servicedelete' service.id %}" class="btn btn-success">Usuń</a>
                     </div>

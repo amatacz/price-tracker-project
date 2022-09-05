@@ -1,0 +1,26 @@
+{% extends 'pricemonitor/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Szczegóły produktu - Monitoruj ceny i kupuj mądrze </title>
+{% endblock %}
+
+{% block content %}
+<div class="container-detail">
+    <div class="row justify-content-center">
+        <h3>Szczegóły produktu</h3>
+        <div class="col-sm-6 mt-3 mb-3">
+            <p><b>Nazwa produktu</b> <br>{{ product.verbose_name }}</p>
+            <p><b>Nazwa produktu</b> <br>{{ product.name }}</p>
+            <p><b>Adres URL produtku</b> <br> {{ product.URL }} Tu będzie URL produktu </p>
+        </div>
+        <div class="col-sm-6 mt-3 mb-3">
+            <p>TU BĘDZIE FOTKA PRODUKTU</p>
+        </div>
+    </div>
+
+    <br><br>
+    <a href="{% url 'productlist' %}" type="button" class="btn btn-success">Lista produktów</a>
+
+</div>
+{% endblock %}

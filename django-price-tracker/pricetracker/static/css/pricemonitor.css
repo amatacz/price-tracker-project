@@ -11,6 +11,10 @@ nav{
     font-weight: bold;
 }
 
+.container-detail {
+
+}
+
 body {
     background-image: url("/static/img/tlo_strona.jpg");
     height: 100%;
