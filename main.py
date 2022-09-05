@@ -25,7 +25,7 @@ PRODUCTS_MAPPER = {
     ],
     "euro": [
         {"product_name": "Iphone 13 256GB Red",
-         "url": "https://www.euro.com.pl/telefony-komorkowe/apple-iphone-13-256gb-red.bhtml"}
+         "url": "https://www.euro.com.pl/telefony-komork owe/apple-iphone-13-256gb-red.bhtml"}
     ],
     "media_markt": [
         {"product_name": "Iphone 13 256GB Red",

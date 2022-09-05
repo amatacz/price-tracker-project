@@ -6,27 +6,32 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <form method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label class="form-label">Adres URL</label>
-                <input type="text" class="form-control" name="host" id="id_host">
-                <br>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Nazwa serwisu</label>
-                <input type="text" class="form-control" name="name" id="id_name"><br>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Nazwa techniczna</label>
-                <input type="text" class="form-control" name="verbose_name" id="id_verbose_name">
-                <br>
-            </div>
+    <div class="container">
+        <div class="row">
+            <h3>Dodaj serwis</h3>
+            <div class="col-sm-4 mt-3 mb-3">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Adres URL</label>
+                        <input type="text" class="form-control" name="host" id="id_host">
+                        <br>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nazwa serwisu</label>
+                        <input type="text" class="form-control" name="name" id="id_name"><br>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nazwa techniczna</label>
+                        <input type="text" class="form-control" name="verbose_name" id="id_verbose_name">
+                        <br>
+                    </div>
 
-            <a href="{% url 'servicelist' %}" type="button" class="btn btn-primary">Lista serwisów</a>
-            <button type="submit" class="btn btn-success">Dodaj</button>
+                    <a href="{% url 'servicelist' %}" type="button" class="btn btn-success">Lista serwisów</a>
+                    <button type="submit" class="btn btn-outline-success">Dodaj</button>
 
-        </form>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -7,29 +7,26 @@
 
 
 {% block content %}
-<div class="container-fluid">
-{% for service in object_list %}
+<div class="container">
+    <div class="row">
+        <h3>Twoje serwisy</h3>
+            {% for service in object_list %}
+               <div class="col-sm-5 mb-3 mt-3">
+                   <div class="card-column" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ service.verbose_name }}</h5><br>
+                        <a href="#" class="btn btn-success">Więcej</a>
+                        <a href="{% url 'serviceupdate' service.id %}" class="btn btn-success">Edytuj</a>
+                        <a href="{% url 'servicedelete' service.id %}" class="btn btn-success">Usuń</a>
+                    </div>
+               {% empty %}
+                    <h4>Jeszcze nie śledzisz żadnych serwisów </h4>
+                    <a href="{% url 'servicecreate' %}" class="btn btn-success mt-3">Dodaj serwis</a>
+                    </div>
+               </div>
+            {% endfor %}
 
-    <div class="card" style="width: 30rem;">
-        <!-- <img src="..." class="card-img-top" alt="..."> jak zaciągnąć img produktu ze strony -->
-        <div class="card-body">
-        <h5 class="card-title">{{ service.verbose_name }}</h5>
-            <br>
-        <a href="#" class="btn btn-primary">Więcej</a>
-        <a href="{% url 'serviceupdate' service.id %}" class="btn btn-primary">Edytuj</a>
-        <a href="{% url 'servicedelete' service.id %}" class="btn btn-primary">Usuń</a>
-        </div>
-        <br><br>
+        <a href="{% url 'servicecreate' %}" class="btn btn-outline-success mt-3">Dodaj serwis</a>
     </div>
-
-
-{% empty %}
-<h4>Jeszcze nie śledzisz żadnych serwisów </h4>
-<a href="{% url 'servicecreate' %}" class="btn btn-primary">Dodaj serwis</a>
-{% endfor %}
-
-<a href="{% url 'servicecreate' %}" class="btn btn-primary">Dodaj serwis</a>
-<br>
-<br>
 </div>
 {% endblock %}

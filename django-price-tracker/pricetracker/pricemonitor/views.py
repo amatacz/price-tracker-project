@@ -4,6 +4,7 @@ from .models import Service, Product, ServiceProduct
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+from django.http import HttpResponse
 
 
 def home_view(request):
@@ -69,6 +70,11 @@ class ServiceDelete(DeleteView):
     model = Service
     template_name = "pricemonitor/service_delete_form.html"
     success_url = reverse_lazy('service_list')
+
+    # def delete(self, request, *args):
+    #     service = Service.objects.get(pk=id)
+    #     service.delete()
+    #     return HttpResponse("Deleted!")
 
 
 class ProductDelete(DeleteView):
