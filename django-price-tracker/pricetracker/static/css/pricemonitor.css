@@ -2,33 +2,30 @@ html {
   height: 100%;
 }
 
-nav{
-    background-color:rgba(25, 111, 61, 0.5)
-}
-
-.navbar-brand {
-    color: #0C0C0C;
-    font-weight: bold;
-}
-
-.container-detail {
-
-}
-
 body {
-    background-image: url("/static/img/tlo_strona.jpg");
+    background-image: url("/static/img/tlo_strona_niebieskie.jpg");
     height: 100%;
     width: 100%;
-    background-position: top-left;
+    background-position: top-right;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+nav {
+    background-color: rgb(0, 34, 181, 0.75);
+    color: #FFFFFF;
+}
+
+
 h1, h4, h3 {
-    color: #0C0C0C;
+    color: #000000;
     font-weight: bold;
 }
 
 .card-title {
-    color: #0C0C0C;
+    color: #000000;
+}
+
+#content-block {
+    font-family: Helvetica, Arial, monospace;
 }

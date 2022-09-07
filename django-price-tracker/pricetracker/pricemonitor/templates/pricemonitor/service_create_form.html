@@ -5,6 +5,16 @@
 <title xmlns="http://www.w3.org/1999/html">Dodaj serwis - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div class="container">
+       <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
+    </div>
+    <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Wyloguj się</a>
+</nav>
+{% endblock %}
+
+
 {% block content %}
     <div class="container">
         <div class="row">
@@ -27,8 +37,8 @@
                         <br>
                     </div>
 
-                    <a href="{% url 'servicelist' %}" type="button" class="btn btn-success">Lista serwisów</a>
-                    <button type="submit" class="btn btn-outline-success">Dodaj</button>
+                    <a href="{% url 'servicelist' %}" type="button" class="btn btn-dark">Lista serwisów</a>
+                    <button type="submit" class="btn btn-outline-dark">Dodaj</button>
 
                 </form>
             </div>

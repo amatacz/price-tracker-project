@@ -5,30 +5,41 @@
     <title>Product list - Price Monitor for smart shopping </title>
 {% endblock %}
 
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div class="container">
+       <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
+    </div>
+    <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Wyloguj się</a>
+</nav>
+{% endblock %}
+
 
 {% block content %}
     <div class="container">
         <div class="row">
             <h3>Twoje produkty</h3>
             {% for product in object_list %}
-                <div class="col-sm-5 mt-3 mb-3">
+                <div class="col-sm-6 mt-3 mb-3">
                     <div class="card-column" style="width: 18rem;">
                         <!-- <img src="..." class="card-img-top" alt="..."> jak zaciągnąć img produktu ze strony -->
                         <div class="card-body">
                             <h5 class="card-title">{{ product.verbose_name }}</h5>
                             <br>
-                            <a href="{% url 'productdetail' product.id %}" class="btn btn-success">Więcej</a>
-                            <a href="{% url 'productupdate' product.id %}" class="btn btn-success">Edytuj</a>
-                            <a href="{% url 'productdelete' product.id %}" class="btn btn-success">Usuń</a>
+                            <a href="{% url 'productdetail' product.id %}" class="btn btn-outline-dark">Więcej</a>
+                            <a href="{% url 'productupdate' product.id %}" class="btn btn-outline-dark">Edytuj</a>
+                            <a href="{% url 'productdelete' product.id %}" class="btn btn-dark">Usuń</a>
                         </div>
                     </div>
                </div>
                {% empty %}
                <h4>Nie śledzisz jeszcze żadnych produktów </h4>
-               <a href="{% url 'servicecreate' %}" class="btn btn-outline-success">Dodaj produkt</a>
+               <a href="{% url 'servicecreate' %}" class="btn btn-dark">Dodaj produkt</a>
             {% endfor %}
 
-        <a href="{% url 'productcreate' %}" class="btn btn-outline-success">Dodaj produkt </a>
+            <div class="button-add"><br><br><br>
+                <a href="{% url 'productcreate' %}" class="btn btn-dark btn-sm">Dodaj produkt </a>
+            </div>
         </div>
     </div>
 {% endblock %}

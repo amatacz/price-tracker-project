@@ -5,6 +5,16 @@
     <title>Szczegóły produktu - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div class="container">
+       <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
+    </div>
+    <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Wyloguj się</a>
+</nav>
+{% endblock %}
+
+
 {% block content %}
 <div class="container-detail">
     <div class="row justify-content-center">
@@ -12,7 +22,7 @@
         <div class="col-sm-6 mt-3 mb-3">
             <p><b>Nazwa produktu</b> <br>{{ product.verbose_name }}</p>
             <p><b>Nazwa produktu</b> <br>{{ product.name }}</p>
-            <p><b>Adres URL produtku</b> <br> {{ product.URL }} Tu będzie URL produktu </p>
+            <p><b>Adres URL produtku</b> <br><a href="{{ product.product_url }}" target="_blank"> {{product.product_url }}</a></p>
         </div>
         <div class="col-sm-6 mt-3 mb-3">
             <p>TU BĘDZIE FOTKA PRODUKTU</p>
@@ -20,7 +30,7 @@
     </div>
 
     <br><br>
-    <a href="{% url 'productlist' %}" type="button" class="btn btn-success">Lista produktów</a>
+    <a href="{% url 'productlist' %}" type="button" class="btn btn-dark">Lista produktów</a>
 
 </div>
 {% endblock %}

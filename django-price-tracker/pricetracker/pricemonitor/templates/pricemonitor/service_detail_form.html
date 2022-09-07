@@ -5,21 +5,31 @@
     <title>Szczegóły produktu - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div class="container">
+       <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
+    </div>
+    <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Wyloguj się</a>
+</nav>
+{% endblock %}
+
+
 {% block content %}
 <div class="container-detail">
     <div class="row justify-content-center">
         <h3>Szczegóły serwisu </h3>
         <div class="col-sm-6 mt-3 mb-3">
-            <p><b>Nazwa produktu</b> <br>{{ service.verbose_name }}</p>
-            <p><b>Nazwa produktu</b> <br>{{ service.name }}</p>
-            <p><b>Adres URL produtku</b> <br> {{ service.HOST }} </p>
+            <p><b>Nazwa serwisu</b> <br>{{ service.verbose_name }}</p>
+            <p><b>Nazwa serwisu</b> <br>{{ service.name }}</p>
+            <p><b>Adres URL serwisu</b><br><a href="{{ service.host }}" target="_blank">{{ service.host }}</a></p>
         </div>
         <div class="col-sm-6 mt-3 mb-3">
-            <p>TU BĘDZIE LOGO SERWIS</p>
+            <p>TU BĘDZIE LOGO SERWISU</p>
         </div>
     </div>
 
-    <a href="{% url 'servicelist' %}" type="button" class="btn btn-success">Lista serwisów</a>
+    <a href="{% url 'servicelist' %}" type="button" class="btn btn-dark">Lista serwisów</a>
 
 </div>
 

@@ -16,29 +16,35 @@
 </head>
 
 <body>
+    {% block nav %}
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
       <div class="container">
-          <a class="navbar-brand" href="#">Strona główna</a>
+          <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
       </div>
-        <a class="navbar-text me-3" href="#" style="float: right">Zaloguj się</a>
-        <a class="navbar-text me-3" href="#" style="float: right">Zarejestruj się</a>
-    </nav>
+        <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Zaloguj się</a>
+        <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Zarejestruj się</a>
 
-    <br><br><br><br>
-    <div class="d-flex aligns-items-center justify-content-center">
+    </nav>
+    {% endblock %}
+
+    <br><br><br><br><br><br>
+    <div class="d-flex aligns-items-center justify-content-center" id="content-block">
     {% block content %}
+
         <div class="container text-center">
         <h1>Monitoruj ceny</h1><br>
         <h4>i kupuj mądrze!</h4><br><br>
 
-        <button type="button" class="btn btn-success btn-sm" href="#">Dołącz do nas</button>
+        <button type="button" class="btn btn-dark btn-sm" href="#">Dołącz do nas</button>
         </div>
     {% endblock %}
     </div>
 
     <nav class="navbar fixed-bottom navbar-expand-lg navbar-light nav-fixed-bottom">
        <div class="container">
-         <a class="navbar-brand" href="#top">Do góry</a>
+         <div class="navbar-brand">
+             <a href="#top" type="button" class="btn btn-dark btn-sm">Do góry</a>
+         </div>
        </div>
     </nav>
 

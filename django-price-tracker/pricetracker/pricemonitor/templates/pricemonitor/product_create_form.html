@@ -6,6 +6,15 @@
 <title>Dodaj produkt - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div class="container">
+       <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
+    </div>
+    <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Wyloguj się</a>
+</nav>
+{% endblock %}
+
 
 {% block content %}
     <div class="container">
@@ -24,9 +33,15 @@
                         <input type="text" class="form-control" name="verbose_name" id="id_verbose_name">
                         <br>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">Adres URL produktu</label>
+                        <input type="text" class="form-control" name="product_url" id="id_product_url">
+                        <br>
+                    </div>
 
-                    <a href="{% url 'productlist' %}" type="button" class="btn btn-success">Lista produktów</a>
-                    <button type="submit" class="btn btn-outline-success">Dodaj</button>
+
+                    <a href="{% url 'productlist' %}" type="button" class="btn btn-dark">Lista produktów</a>
+                    <button type="submit" class="btn btn-outline-dark">Dodaj</button>
 
                 </form>
             </div>

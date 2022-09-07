@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block title %}
-<title>Usuń serwis - Monitoruj ceny i kupuj mądrze</title>
+<title>Usuń produkt - Monitoruj ceny i kupuj mądrze</title>
 {% endblock %}
 
 {% block nav %}
@@ -20,9 +20,9 @@
 {% block content %}
 <form method="post" action="">
     <h3>Usuń serwis</h3>
-    <p>Czy na pewno chcesz usunąć serwis {{ service.verbose_name }}?</p>
+    <p>Czy na pewno chcesz usunąć produkt {{ produkt.verbose_name }}?</p>
     <button type="submit" class="btn btn-dark">Usuń</button>
-    <a href="/service/list/" type="button" class="btn btn-outline-dark">Anuluj</a>
+    <a href="/produkt/list/" type="button" class="btn btn-outline-dark">Anuluj</a>
 
 </form>
 

@@ -12,6 +12,7 @@ class Service(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255)
     verbose_name = models.CharField(max_length=255)
+    product_url = models.URLField(max_length=255, default="no address")
 
 
 class ServiceProduct(models.Model):

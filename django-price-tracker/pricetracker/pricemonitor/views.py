@@ -61,7 +61,7 @@ class ServiceDelete(DeleteView):
 class ProductCreate(CreateView):
     model = Product
     template_name = "pricemonitor/product_create_form.html"
-    fields = ["name", "verbose_name"]
+    fields = ["name", "verbose_name", "product_url"]
     success_url = reverse_lazy('productlist')
 
 

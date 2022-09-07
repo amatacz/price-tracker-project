@@ -27,7 +27,7 @@ class Parser(BaseParser):
         self.response = self.get_response()
         self.data = self.get_data()
         self.save_details_to_json()
-        #self.send_email_with_price_alert()
+        self.send_email_with_price_alert()
 
     def get_response(self):
         response = webdriver.Chrome('C:/Users/matacza/Downloads/chromedriver')
@@ -81,7 +81,7 @@ class Parser(BaseParser):
         price_today = self.data[self.SERVICE].get(self.ITEM)[-2].get("price")
 
         if price_yesterday and price_today:
-            if price_yesterday <= price_today:
+            if price_yesterday >= price_today:
                 diff = self.data[self.SERVICE].get(self.ITEM)[-1].get(
                     "price") - self.data[self.SERVICE].get(self.ITEM)[-2].get(
                     "price")

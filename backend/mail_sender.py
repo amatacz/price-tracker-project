@@ -2,24 +2,20 @@ import smtplib
 import ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import pricetracker.pricetracker.settings
 
 
 def send_email(url, SERVICE, diff, NAME):
     port = 465
     smtp_server = "smtp.gmail.com"
 
-    sender = settings.EMAIL_HOST
-    password = pricetracker.settings.EMAIL_PASSWORD
+    sender = 'amatacz.dev@gmail.com'
+    password = 'czhduadjgpbhaxbm'
 
     receiver = "a.matacz@o2.pl"
 
     subject = "[NIE PRZEGAP] Obserwowany przez Ciebie produkt jest teraz w niższej cenie!"
-    email_text = f"""
-    Cześć,<br>
-    {NAME} jest tańszy o {diff} złotych!<br>
-    Sprawdź akutalną ofertę na {SERVICE}! <br><br> 
-    <a href={url}>Link do oferty</a>""".format(NAME=NAME, diff=diff, SERVICE=SERVICE, url=url)
+
+    email_text = open('backend/email.html', 'r').read()
 
     msg = MIMEMultipart()
     msg["From"] = sender

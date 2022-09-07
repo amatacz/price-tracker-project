@@ -5,6 +5,15 @@
     <title>Lista serwisów - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div class="container">
+       <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
+    </div>
+    <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Wyloguj się</a>
+</nav>
+{% endblock %}
+
 
 {% block content %}
 <div class="container">
@@ -14,19 +23,25 @@
                <div class="col-sm-5 mb-3 mt-3">
                    <div class="card-column" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ service.verbose_name }}</h5><br>
-                        <a href="{% url 'servicedetail' service.id %}" class="btn btn-success">Więcej</a>
-                        <a href="{% url 'serviceupdate' service.id %}" class="btn btn-success">Edytuj</a>
-                        <a href="{% url 'servicedelete' service.id %}" class="btn btn-success">Usuń</a>
+                    <!-- <img src="..." class="card-img-top" alt="..."> jak zaciągnąć img produktu ze strony -->
+                        <h5 class="card-title">{{ service.verbose_name }}</h5>
+                        <br>
+                        <a href="{% url 'servicedetail' service.id %}" class="btn btn-outline-dark">Więcej</a>
+                        <a href="{% url 'serviceupdate' service.id %}" class="btn btn-outline-dark">Edytuj</a>
+                        <a href="{% url 'servicedelete' service.id %}" class="btn btn-dark">Usuń</a>
                     </div>
+                   </div>
+               </div>
                {% empty %}
                     <h4>Jeszcze nie śledzisz żadnych serwisów </h4>
-                    <a href="{% url 'servicecreate' %}" class="btn btn-success mt-3">Dodaj serwis</a>
+                    <a href="{% url 'servicecreate' %}" class="btn btn-dark mt-3">Dodaj serwis</a>
                     </div>
                </div>
             {% endfor %}
 
-        <a href="{% url 'servicecreate' %}" class="btn btn-outline-success mt-3">Dodaj serwis</a>
+        <div class="button-add"><br><br><br>
+            <a href="{% url 'servicecreate' %}" class="btn btn-dark mt-3 btn-sm">Dodaj serwis</a>
+        </div>
     </div>
 </div>
 {% endblock %}

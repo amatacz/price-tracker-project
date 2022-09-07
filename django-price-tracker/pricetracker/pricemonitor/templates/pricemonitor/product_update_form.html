@@ -5,6 +5,16 @@
 <title>Edytuj produkt - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div class="container">
+       <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
+    </div>
+    <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Wyloguj się</a>
+</nav>
+{% endblock %}
+
+
 {% block content %}
     <div class="container">
         <div class="row">
@@ -23,8 +33,14 @@
                   <br>
                 </div>
 
-                <a href="{% url 'productlist' %}" type="button" class="btn btn-success">Lista produktów</a>
-                <button type="submit" class="btn btn-outline-success">Dodaj</button>
+                <div class="mb-3">
+                  <label class="form-label">URL produktu</label>
+                  <input type="text" class="form-control" name="product_url" id="id_product_url" value = "{{ product.product_url }}">
+                  <br>
+                </div>
+
+                <a href="{% url 'productlist' %}" type="button" class="btn btn-dark">Lista produktów</a>
+                <button type="submit" class="btn btn-outline-dark">Dodaj</button>
                 </form>
             </div>
         </div>

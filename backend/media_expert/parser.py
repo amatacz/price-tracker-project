@@ -22,7 +22,7 @@ class Parser(BaseParser):
         self.product_name = product_name
         self.json_name = Path(os.getcwd() + '/data/' + self.SERVICE + '.json')
         self.process()
-        #self.send_email_with_price_alert()
+        self.send_email_with_price_alert()
 
     def process(self):
         self.response = self.get_response()

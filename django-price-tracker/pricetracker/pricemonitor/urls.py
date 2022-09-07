@@ -4,7 +4,8 @@ from . import views
 # tu potem dodać log in, log out itp
 
 urlpatterns = [
-    path('', views.home_view, name='home'),
+    path('', views.home_view, name='index'),
+    path('home/', views.home_view, name='home'),
     path('service/list/', views.ServiceList.as_view(), name='servicelist'),
     path('service/create/', views.ServiceCreate.as_view(), name='servicecreate'),
     path('service/update/<pk>/', views.ServiceUpdate.as_view(), name='serviceupdate'),

@@ -11,3 +11,5 @@ Tylko, że wtedy w polu HOST w modelu Service musiałaby być podawana strona g�
 
 5. Czy może scrappować od razu url do głownego zdjęcia produktu, wtedy w kartach na stronie /product/list/ mogłyby się wyświetlać od razu fotki.
 
+6. Sign in, log in, log out
+
