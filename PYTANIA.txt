@@ -2,7 +2,7 @@
 
 2. Jak wsadzić backend do projektu django?
 
-3. Jak poprowadzić formularze usuwające?
+3. Jak przeprowadzić success_url, żeby po rejestracji wskakiwała strona główna ale z zalogowanym uzytkownikiem?
 
 4. Jak wygenerować folmularze do ServiceProduct - skoro mamy już stworzone PK produktu i PK serwisu - moze te powiązania powinny się automatycznie tworzyć?
 
@@ -11,5 +11,4 @@ Tylko, że wtedy w polu HOST w modelu Service musiałaby być podawana strona g�
 
 5. Czy może scrappować od razu url do głownego zdjęcia produktu, wtedy w kartach na stronie /product/list/ mogłyby się wyświetlać od razu fotki.
 
-6. Sign in, log in, log out
 

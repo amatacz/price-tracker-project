@@ -8,7 +8,7 @@ import importlib
 
 # 'media_expert'
 # 'media_expert': [
-#     {'product_name': 'Iphone 13 256GB Red', 'url': 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/smartfon-apple-iphone-13-256gb-5g-6-1-czerwony-mlq93pm-a'}
+#     {'product_name': 'Iphone 13 256GB Red', 'url': 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/smartfcdon-apple-iphone-13-256gb-5g-6-1-czerwony-mlq93pm-a'}
 #     ]
 
 

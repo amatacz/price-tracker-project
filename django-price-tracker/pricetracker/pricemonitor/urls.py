@@ -1,10 +1,9 @@
 from django.urls import path, include
 from . import views
 
-# tu potem dodać log in, log out itp
 
 urlpatterns = [
-    path('', views.home_view, name='index'),
+    path('', views.home_view, name='home'),
     path('home/', views.home_view, name='home'),
     path('service/list/', views.ServiceList.as_view(), name='servicelist'),
     path('service/create/', views.ServiceCreate.as_view(), name='servicecreate'),
@@ -20,6 +19,7 @@ urlpatterns = [
     path('servicepproduct/create/', views.ServiceProductCreate.as_view(), name='serviceproductcreate'),
     path('serviceproduct/update/<pk>/', views.ServiceProductUpdate.as_view(), name='serviceproductupdate'),
     path('serviceproduct/delete/<pk>', views.ServiceProductDelete.as_view(), name='serviceproductdelete'),
+    path('sign-up/', views.UserCreate.as_view(), name='sign-up'),
 ]
 
 

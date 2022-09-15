@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     {% load static %}
@@ -11,42 +11,57 @@
     {% endblock %}
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="{% static 'css/pricemonitor.css' %}">
 </head>
 
 <body>
     {% block nav %}
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <nav class="navbar static-top navbar-expand-lg navbar-light bg-light">
       <div class="container">
           <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
       </div>
-        <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Zaloguj się</a>
-        <a href="#top" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Zarejestruj się</a>
-
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" type="button" class="btn btn-dark btn-sm me-3" style="float: right">Wyloguj się</a>
+        {% else %}
+        <a href="{% url 'login' %}" type="button" class="btn btn-dark me-3" style="float: right">Zaloguj się</a>
+        <a href="{% url 'sign-up' %}" type="button" class="btn btn-dark me-3" style="float: right">Zarejestruj się</a>
+        {% endif %}
     </nav>
     {% endblock %}
-
     <br><br><br><br><br><br>
-    <div class="d-flex aligns-items-center justify-content-center" id="content-block">
+    <div class="center-screen inline-block">
     {% block content %}
-
-        <div class="container text-center">
-        <h1>Monitoruj ceny</h1><br>
-        <h4>i kupuj mądrze!</h4><br><br>
-
-        <button type="button" class="btn btn-dark btn-sm" href="#">Dołącz do nas</button>
+        {% if user.is_authenticated %}
+        <div class="row mb-3" style="width: 25%; margin: 0 auto;">
+            <a href="{% url 'servicelist' %}" type="button" class="btn btn-dark btn-lg me-3" style="float: right">Lista serwisów</a>
         </div>
+        <div class="row mb-3" style="width: 25%; margin: 0 auto;">
+            <a href="{% url 'productlist' %}" type="button" class="btn btn-dark btn-lg me-3" style="float: right">Lista produktów</a>
+        </div>
+        {% else %}
+        <div class="row" style="width: 50%; margin: 0 auto;">
+        <h1>Monitoruj ceny</h1><br>
+        </div>
+        <div class="row mb-3" style="width: 50%; margin: 0 auto;">
+        <h4>i kupuj mądrze!</h4>
+        </div>
+        <div class="row" style="width: 50%; margin: 0 auto;">
+        <a href="{% url 'sign-up' %}" type="button" class="btn btn-dark btn-block">Dołącz do nas</a>
+        </div>
+        {% endif %}
     {% endblock %}
     </div>
 
-    <nav class="navbar fixed-bottom navbar-expand-lg navbar-light nav-fixed-bottom">
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-light">
        <div class="container">
          <div class="navbar-brand">
              <a href="#top" type="button" class="btn btn-dark btn-sm">Do góry</a>
          </div>
        </div>
     </nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 </body>
 </html>

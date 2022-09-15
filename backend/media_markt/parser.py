@@ -27,7 +27,7 @@ class Parser(BaseParser):
         self.response = self.get_response()
         self.data = self.get_data()
         self.save_details_to_json()
-        self.send_email_with_price_alert()
+        #self.send_email_with_price_alert()
 
     def get_response(self):
         response = webdriver.Chrome('C:/Users/matacza/Downloads/chromedriver')

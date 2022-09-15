@@ -22,12 +22,12 @@ class Parser(BaseParser):
         self.product_name = product_name
         self.json_name = Path(os.getcwd() + '/data/' + self.SERVICE + '.json')
         self.process()
-        self.send_email_with_price_alert()
 
     def process(self):
         self.response = self.get_response()
         self.data = self.get_data()
         self.save_details_to_json()
+        #self.send_email_with_price_alert()
 
     def get_response(self):
         response = webdriver.Chrome('C:/Users/matacza/Downloads/chromedriver')
