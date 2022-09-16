@@ -12,7 +12,7 @@
             {% for product in object_list %}
                 <div class="col-sm-6 mt-3 mb-3">
                     <div class="card-column" style="width: 18rem;">
-                        <!-- <img src="..." class="card-img-top" alt="..."> jak zaciągnąć img produktu ze strony -->
+                        <img src="/static/img/iphone13_red_256.png" class="card-img-top" alt="iphone_13_red_265">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.verbose_name }}</h5>
                             <br>
@@ -24,11 +24,16 @@
                </div>
                {% empty %}
                <h4>Nie śledzisz jeszcze żadnych produktów </h4>
-               <a href="{% url 'servicecreate' %}" class="btn btn-dark">Dodaj produkt</a>
+               <a href="{% url 'productcreate' %}" class="btn btn-dark btn-sm mb-3 mt-3" style="width: 25%; margin: 0 auto;">Dodaj produkt </a>
             {% endfor %}
 
-            <div class="button-add"><br><br><br>
-                <a href="{% url 'productcreate' %}" class="btn btn-dark btn-sm">Dodaj produkt </a>
+            <div class="container mb-3">
+                <div class="row">
+                <a href="{% url 'productcreate' %}" class="btn btn-outline-dark btn-sm mb-1 mt-5" style="width: 25%;">Dodaj produkt </a>
+                </div>
+                <div class="row">
+                <a href="{% url 'home' %}" class="btn btn-outline-dark btn-sm mb-5" style="width: 25%;">Wróć</a>
+                </div>
             </div>
         </div>
     </div>

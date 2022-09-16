@@ -13,7 +13,7 @@
                <div class="col-sm-5 mb-3 mt-3">
                    <div class="card-column" style="width: 18rem;">
                     <div class="card-body">
-                    <!-- <img src="..." class="card-img-top" alt="..."> jak zaciągnąć img produktu ze strony -->
+                    <img src="/static/img/shop_icon.png" class="card-img-top" alt="shop_icon">
                         <h5 class="card-title">{{ service.verbose_name }}</h5>
                         <br>
                         <a href="{% url 'servicedetail' service.id %}" class="btn btn-outline-dark">Więcej</a>
@@ -24,14 +24,17 @@
                </div>
                {% empty %}
                     <h4>Jeszcze nie śledzisz żadnych serwisów </h4>
-                    <a href="{% url 'servicecreate' %}" class="btn btn-dark mt-3">Dodaj serwis</a>
-                    </div>
-               </div>
+                    <a href="{% url 'servicecreate' %}" class="btn btn-dark btn-sm mb-3 mt-3">Dodaj serwis</a>
             {% endfor %}
 
-        <div class="button-add"><br><br><br>
-            <a href="{% url 'servicecreate' %}" class="btn btn-dark mt-3 btn-sm">Dodaj serwis</a>
-        </div>
+             <div class="container mb-3">
+                 <div class="row">
+                    <a href="{% url 'servicecreate' %}" class="btn btn-dark btn-sm mb-3 mt-3" style="width: 25%;">Dodaj serwis</a>
+                 </div>
+                 <div class="row">
+                    <a href="{% url 'home' %}" class="btn btn-outline-dark btn-sm mb-3" style="width: 25%;">Wróć</a>
+                 </div>
+             </div>
     </div>
 </div>
 {% endblock %}

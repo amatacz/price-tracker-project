@@ -17,20 +17,20 @@ import importlib
 #           'url': 'https://www.euro.com.pl/telefony-komorkowe/apple-iphone-13-256gb-red.bhtml'}
 #          ],
 
-SERVICES = ["media_expert", "euro", "media_markt", ]
+SERVICES = ["euro"]
 
 PRODUCTS_MAPPER = {
-    "media_expert": [
-        {"product_name": "Iphone 13 256GB Red", "url": "https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/smartfon-apple-iphone-13-256gb-5g-6-1-czerwony-mlq93pm-a"}
-    ],
+    # "media_expert": [
+    #     {"product_name": "Iphone 13 256GB Red", "url": "https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/smartfon-apple-iphone-13-256gb-5g-6-1-czerwony-mlq93pm-a"}
+    # ],
     "euro": [
         {"product_name": "Iphone 13 256GB Red",
-         "url": "https://www.euro.com.pl/telefony-komork owe/apple-iphone-13-256gb-red.bhtml"}
+         "url": "https://www.euro.com.pl/telefony-komorkowe/apple-iphone-13-256gb-red.bhtml"}
     ],
-    "media_markt": [
-        {"product_name": "Iphone 13 256GB Red",
-         "url": "https://mediamarkt.pl/telefony-i-smartfony/smartfon-apple-iphone-13-256gb-product-red-mlq93pm-a"}
-    ],
+    # "media_markt": [
+    #     {"product_name": "Iphone 13 256GB Red",
+    #      "url": "https://mediamarkt.pl/telefony-i-smartfony/smartfon-apple-iphone-13-256gb-product-red-mlq93pm-a"}
+    # ],
 }
 
 
