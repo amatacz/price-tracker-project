@@ -2,8 +2,6 @@
 
 2. Jak wsadzić backend do projektu django?
 
-3. Jak przeprowadzić success_url, żeby po rejestracji wskakiwała strona główna ale z zalogowanym uzytkownikiem?
-
 4. Jak wygenerować folmularze do ServiceProduct - skoro mamy już stworzone PK produktu i PK serwisu - moze te powiązania powinny się automatycznie tworzyć?
 
 Np. do modelu produktu dodać FK z serwisu - np. w formularzu tworzenia produktu mógłby generować się dropdown z utworzonymi serwisami.

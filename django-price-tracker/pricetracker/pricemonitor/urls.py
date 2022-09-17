@@ -19,7 +19,7 @@ urlpatterns = [
     path('servicepproduct/create/', views.ServiceProductCreate.as_view(), name='serviceproductcreate'),
     path('serviceproduct/update/<pk>/', views.ServiceProductUpdate.as_view(), name='serviceproductupdate'),
     path('serviceproduct/delete/<pk>', views.ServiceProductDelete.as_view(), name='serviceproductdelete'),
-    path('sign-up/', views.UserCreate.as_view(), name='sign-up'),
+    path('register/', views.register_request, name='register'),
 ]
 
 

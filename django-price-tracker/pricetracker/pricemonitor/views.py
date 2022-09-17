@@ -1,13 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Service, Product, ServiceProduct, UserProfile
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from .forms import UserCreateForm
+from django.contrib.auth import login
+from django.contrib import messages
+from .forms import NewUserForm
 
 
 def home_view(request):
@@ -104,11 +106,23 @@ class UserLogin(LoginView):
     template_name = 'registration/login.html'
 
 
-class UserCreate(CreateView):
-    form_class = UserCreateForm
-    template_name = 'registration/sign_up.html'
-    success_url = reverse_lazy('home')
+# class UserCreate(CreateView):
+#     form_class = UserCreateForm
+#     template_name = 'registration/register.html'
+#     success_url = reverse_lazy('home')
 
 
+def register_request(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Rejestracja przebiegła pomyślnie.")
 
+            return redirect(reverse_lazy('home'))
+        messages.error(request, "Rejestracja nie powiodła się. Sprawdź dane.")
+    form = NewUserForm()
+
+    return render(request=request, template_name="registration/register.html", context={"register_form": form})
 
