@@ -16,6 +16,7 @@ class Parser(BaseParser):
     ITEM = None
     PRICE = None
     NAME = None
+    IMG = None
 
     def __init__(self, url, product_name):
         self.url = url
@@ -60,17 +61,22 @@ class Parser(BaseParser):
         except NoSuchElementException:
             pass
 
+        try:
+            self.IMG = self.response.find_element(By.XPATH, "//*[@id=\"21607324\"]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div/div[1]/div/div/img").get_attribute("src")
+        except NoSuchElementException:
+            pass
+
         if self.data.get(self.SERVICE):
             if not self.data[self.SERVICE].get(self.ITEM):
                 self.data[self.SERVICE] = {
-                    self.ITEM: [{'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time}]
+                    self.ITEM: [{'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time, "img": self.IMG}]
                 }
             if self.data[self.SERVICE].get(self.ITEM):
-                self.data[self.SERVICE][self.ITEM].append({'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time})
+                self.data[self.SERVICE][self.ITEM].append({'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time, "img": self.IMG})
 
         if not self.data.get(self.SERVICE):
             self.data[self.SERVICE] = {
-                self.ITEM: [{'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time}]
+                self.ITEM: [{'name': self.NAME, 'price': self.PRICE, 'datetime': date_and_time, "img": self.IMG}]
             }
 
         with open(self.json_name, 'w') as file:

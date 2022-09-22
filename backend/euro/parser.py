@@ -16,6 +16,7 @@ class Parser(BaseParser):
     ITEM = None
     PRICE = None
     NAME = None
+    IMG = None
 
     def __init__(self, url, product_name):
         self.url = url
@@ -53,19 +54,20 @@ class Parser(BaseParser):
         date_and_time = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
         self.PRICE = float(self.soup.find("div", {'class': "product-price"}).get('data-price'))
         self.NAME = self.soup.find("div", {'class': "product-name"}).string.strip()
+        self.IMG = self.soup.find("a", attrs={"id": "big-photo"}).get('href')
 
         if self.data.get(self.SERVICE):
 
             if not self.data[self.SERVICE].get(self.ITEM):
                 self.data[self.SERVICE] = {
-                    self.ITEM: [{"name": self.NAME, "price": self.PRICE, "datetime": date_and_time}]
+                    self.ITEM: [{"name": self.NAME, "price": self.PRICE, "datetime": date_and_time, "img": self.IMG}]
                 }
             if self.data[self.SERVICE].get(self.ITEM):
-                self.data[self.SERVICE][self.ITEM].append({"name": self.NAME, "price": self.PRICE, "datetime": date_and_time})
+                self.data[self.SERVICE][self.ITEM].append({"name": self.NAME, "price": self.PRICE, "datetime": date_and_time, "img": self.IMG})
 
         if not self.data.get(self.SERVICE):
             self.data[self.SERVICE] = {
-                self.ITEM: [{"name": self.NAME, "price": self.PRICE, "datetime": date_and_time}]
+                self.ITEM: [{"name": self.NAME, "price": self.PRICE, "datetime": date_and_time, "img": self.IMG}]
             }
 
         with open(self.json_name, 'w') as file:

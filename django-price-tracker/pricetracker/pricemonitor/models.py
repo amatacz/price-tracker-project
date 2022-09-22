@@ -4,7 +4,6 @@ from django.db import models
 class UserProfile(models.Model):
     user = models.OneToOneField("auth.User", on_delete=models.CASCADE)
 
-
 class Service(models.Model):
     host = models.URLField(max_length=255)
     name = models.CharField(max_length=30)

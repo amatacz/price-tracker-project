@@ -7,6 +7,5 @@
 Np. do modelu produktu dodać FK z serwisu - np. w formularzu tworzenia produktu mógłby generować się dropdown z utworzonymi serwisami.
 Tylko, że wtedy w polu HOST w modelu Service musiałaby być podawana strona główna sklepu, a URL do produktu byłby podawany podczas tworzenia produktu.
 
-5. Czy może scrappować od razu url do głownego zdjęcia produktu, wtedy w kartach na stronie /product/list/ mogłyby się wyświetlać od razu fotki.
-
+5. Jak ogarnąc do końca password-reset?
 
