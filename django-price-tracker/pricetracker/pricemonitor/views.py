@@ -125,4 +125,3 @@ def register_request(request):
     form = NewUserForm()
 
     return render(request=request, template_name="registration/register.html", context={"register_form": form})
-

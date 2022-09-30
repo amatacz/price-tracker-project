@@ -1,11 +1,3 @@
-1. Gdzie powinien być umieszczony plik sitesettings.py - żeby móc zaciągać z niego i django SecretKey i kredki do maila?
+4. Jak ogarnąc do końca password-reset?
 
-2. Jak wsadzić backend do projektu django?
-
-4. Jak wygenerować folmularze do ServiceProduct - skoro mamy już stworzone PK produktu i PK serwisu - moze te powiązania powinny się automatycznie tworzyć?
-
-Np. do modelu produktu dodać FK z serwisu - np. w formularzu tworzenia produktu mógłby generować się dropdown z utworzonymi serwisami.
-Tylko, że wtedy w polu HOST w modelu Service musiałaby być podawana strona główna sklepu, a URL do produktu byłby podawany podczas tworzenia produktu.
-
-5. Jak ogarnąc do końca password-reset?
-
+W models.py cos mi nie gra

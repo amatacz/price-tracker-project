@@ -2,13 +2,13 @@ import smtplib
 import ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+from importlib import import_module
 
 def send_email(url, SERVICE, diff, NAME):
     port = 465
     smtp_server = "smtp.gmail.com"
 
-    sender = 'amatacz.dev@gmail.com'
+    sender = import_module('pricetracker/pricetracker/sitesettings.py').EMAIL_HOST
     password = 'czhduadjgpbhaxbm'
 
     receiver = "a.matacz@o2.pl"
