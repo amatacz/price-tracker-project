@@ -7,6 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 import json
 import os
 
+
 from backend.base import BaseParser
 from backend.mail_sender import send_email
 

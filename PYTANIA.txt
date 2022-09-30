@@ -1,3 +1,4 @@
 4. Jak ogarnąc do końca password-reset?
 
-W models.py cos mi nie gra
+W models.py cos mi nie gra - zakomentowałam, bo bez tego nie chciał mi ruszyc serwer
+w parserach nie mogę

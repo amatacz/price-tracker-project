@@ -49,7 +49,7 @@ class ServiceProductItemManager(models.Manager):
 class ServiceProductItem(models.Model):
     service_product = models.ForeignKey("ServiceProduct", related_name="items", on_delete=models.CASCADE)
     date = models.DateField()
-    price = models.DecimalField()
+    price = models.DecimalField(max_digits=10, decimal_places=3)
 
     object = ServiceProductItemManager()
 
@@ -65,33 +65,33 @@ class ServiceProductDataRequestManager(models.Manager):
             )
 
 
-class ServiceProductDataRequest(models.Model):
-    service_product = models.ForeignKey("ServiceProduct", related_name="items", on_delete=models.CASCADE)
-    start_datetime = models.DateTimeField(auto_now_add=True)
-    end_datetime = models.DateTimeField(null=True)
-    status = models.CharField(max_length=12, choices=(('blad', 'Błąd'), ('oczekuje', 'Oczekuje'), ('wykonano', 'Wykonano'), ('w trakcie', 'W trakcie')))
-    error_message = models.TextField()
+# class ServiceProductDataRequest(models.Model):
+#     service_product = models.ForeignKey("ServiceProduct", related_name="items", on_delete=models.CASCADE)
+#     start_datetime = models.DateTimeField(auto_now_add=True)
+#     end_datetime = models.DateTimeField(null=True)
+#     status = models.CharField(max_length=12, choices=(('blad', 'Błąd'), ('oczekuje', 'Oczekuje'), ('wykonano', 'Wykonano'), ('w trakcie', 'W trakcie')))
+#     error_message = models.TextField()
 
-# Co tu sie dzieje?
-
-    def get_data(self):
-        self.status = 'w trakcie'
-        self.save()
-        parser = import_module(f'pricetracker.pricemonitor.backend.{self.service_product.service.service_name}.parser').Parser
-        parser_obj = parser.Parser(
-            url=self.service_product.product_url,
-            product_name=self.service_product.product_name
-        )
-        try:
-            response = parser_obj.get_data()
-        except Exception as e:
-            self.status = 'blad'
-            self.error_message = str(repr(e))
-        else:
-            ServiceProductItem.object.register_from_data(response)
-            self.status = "Wykonano"
-        self.end_datetime = datetime.datetime.now()
-        self.save()
+# # Co tu sie dzieje?
+#
+#     def get_data(self):
+#         self.status = 'w trakcie'
+#         self.save()
+#         parser = import_module(f'pricetracker.pricemonitor.backend.{self.service_product.service.service_name}.parser').Parser
+#         parser_obj = parser.Parser(
+#             url=self.service_product.product_url,
+#             product_name=self.service_product.product_name
+#         )
+#         try:
+#             response = parser_obj.get_data()
+#         except Exception as e:
+#             self.status = 'blad'
+#             self.error_message = str(repr(e))
+#         else:
+#             ServiceProductItem.object.register_from_data(response)
+#             self.status = "Wykonano"
+#         self.end_datetime = datetime.datetime.now()
+#         self.save()
 
 # class ProductUserRequest(models.Model):
 #     STATUSES = (

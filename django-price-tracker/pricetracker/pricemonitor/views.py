@@ -34,7 +34,7 @@ class ServiceProductList(LoginRequiredMixin, ListView):
 class ServiceCreate(LoginRequiredMixin, CreateView):
     model = Service
     template_name = "pricemonitor/service_create_form.html"
-    fields = ["host", "name", "verbose_name"]
+    fields = ["host", "service_name", "verbose_name"]
     success_url = reverse_lazy('servicelist')
 
 
@@ -60,7 +60,7 @@ class ServiceDelete(LoginRequiredMixin, DeleteView):
 class ProductCreate(LoginRequiredMixin, CreateView):
     model = Product
     template_name = "pricemonitor/product_create_form.html"
-    fields = ["name", "verbose_name", "product_url"]
+    fields = ["product_name", "verbose_name"]
     success_url = reverse_lazy('productlist')
 
 
