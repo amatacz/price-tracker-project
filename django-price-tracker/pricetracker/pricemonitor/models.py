@@ -65,12 +65,12 @@ class ServiceProductDataRequestManager(models.Manager):
             )
 
 
-# class ServiceProductDataRequest(models.Model):
-#     service_product = models.ForeignKey("ServiceProduct", related_name="items", on_delete=models.CASCADE)
-#     start_datetime = models.DateTimeField(auto_now_add=True)
-#     end_datetime = models.DateTimeField(null=True)
-#     status = models.CharField(max_length=12, choices=(('blad', 'Błąd'), ('oczekuje', 'Oczekuje'), ('wykonano', 'Wykonano'), ('w trakcie', 'W trakcie')))
-#     error_message = models.TextField()
+class ServiceProductDataRequest(models.Model):
+    service_product = models.ForeignKey("ServiceProduct", related_name="items", on_delete=models.CASCADE)
+    start_datetime = models.DateTimeField(auto_now_add=True)
+    end_datetime = models.DateTimeField(null=True)
+    status = models.CharField(max_length=12, choices=(('blad', 'Błąd'), ('oczekuje', 'Oczekuje'), ('wykonano', 'Wykonano'), ('w trakcie', 'W trakcie')))
+    error_message = models.TextField()
 
 # # Co tu sie dzieje?
 #
@@ -106,4 +106,3 @@ class ServiceProductDataRequestManager(models.Manager):
 #     product_url = models.URLField(max_length=255, default="no address")
 #     service = models.ForeignKey("Service", on_delete=models.CASCADE)
 #     status = models.CharField(max_length=1, choices=STATUSES, default="p")
-#

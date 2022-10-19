@@ -15,7 +15,7 @@ def send_email(url, SERVICE, diff, NAME):
 
     subject = "[NIE PRZEGAP] Obserwowany przez Ciebie produkt jest teraz w niższej cenie!"
 
-    email_text = open('backend/email.html', 'r').read()
+    email_text = open('django-price-tracker/pricetracker/pricemonitor/backend/email.html', 'r').read()
 
     msg = MIMEMultipart()
     msg["From"] = sender

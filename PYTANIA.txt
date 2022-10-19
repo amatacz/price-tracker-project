@@ -1,4 +1,11 @@
-4. Jak ogarnąc do końca password-reset?
+
+
+nie mogę wrzucić zmiennych z pliku sitesettings.py do email_sender.py
 
 W models.py cos mi nie gra - zakomentowałam, bo bez tego nie chciał mi ruszyc serwer
-w parserach nie mogę
+
+w parserach źle importuję moduły - jak to naprawić?
+
+gdzie mają być main.py i mail_sender.py?
+
+Jak ogarnąc do końca password-reset?
