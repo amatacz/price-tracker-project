@@ -1,0 +1,15 @@
+{% extends 'pricemonitor/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>TBU</title>
+{% endblock %}
+
+{% block content %}
+{{ form.errors }}
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-dark">Dodaj</button>
+</form>
+{% endblock %}
