@@ -17,17 +17,23 @@
         <div class="col-sm-6 mt-3 mb-3">
             <p>TU BĘDZIE LOGO SERWISU</p>
         </div>
-    </div>
+    
 
     <a href="{% url 'servicelist' %}" type="button" class="btn btn-dark">Lista serwisów</a>
+    </div>
 
     <div class="row">
+        <div class="col-sm-6 mt-3 mb-3">
+            <br><br>
         <h3>Produkty</h3>
-        <a href="{% url 'serviceproductcreate' service.id %}" class="btn btn-dark">Dodaj produkt</a><br>
-
+        <br><br>
         {% for product in service.products.all %}
             {{ product }}
         {% endfor %}
+
+        <br><br>
+        <a href="{% url 'serviceproductcreate' service.id %}" class="btn btn-dark">Dodaj produkt</a><br>
+        </div>
     </div>
 </div>
 
