@@ -10,9 +10,9 @@
 <form method="post" action="">
     {% csrf_token %}
     <h3>Usuń serwis</h3>
-    <p>Czy na pewno chcesz usunąć produkt {{ produkt.verbose_name }}?</p>
+    <p>Czy na pewno chcesz usunąć produkt {{ product.verbose_name }}?</p>
     <button type="submit" class="btn btn-dark">Usuń</button>
-    <a href="/produkt/list/" type="button" class="btn btn-outline-dark">Anuluj</a>
+    <a href="/product/list/" type="button" class="btn btn-outline-dark">Anuluj</a>
 
 </form>
 

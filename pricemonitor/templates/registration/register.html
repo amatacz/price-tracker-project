@@ -7,13 +7,13 @@
 
 {% block content %}
 
-{% load crispy_forms_tags %}
 
 <div class="container py-5">
     <h1>Zarejestruj się</h1>
     <form method="POST" action="{% url 'register' %}">
         {% csrf_token %}
-            {{ register_form|crispy }}
+        {{ form.as_p }}
+        {{ form.errors }}
         <button class="btn btn-dark mt-3" type="submit">Dołącz</button>
     </form>
     <p class="text-center">Masz już konto? <a href="{% url 'login' %}">Zaloguj się</a></p>

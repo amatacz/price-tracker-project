@@ -24,16 +24,8 @@
     <div class="row" style="width: 50%; margin: 0 auto;">
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
-            <table>
-                <tr>
-                    <td>{{ form.username.label_tag }}</td>
-                    <td>{{ form.username }}</td>
-                </tr>
-                <tr>
-                    <td class="me-3">{{ form.password.label_tag }}</td>
-                    <td class="me-3">{{ form.password }}</td>
-                </tr>
-            </table>
+            {{ form.as_p }}
+            {{ form.errors }}
             <br>
             <input type="submit" value="Zaloguj się">
             <input type="hidden" name="next" value="{{ next }}">

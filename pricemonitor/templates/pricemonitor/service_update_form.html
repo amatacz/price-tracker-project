@@ -10,6 +10,8 @@
     <div class="row">
         <h3>Edytuj serwis</h3>
         <div class="col-sm-4 mt-3 mb-3">
+
+
             {% comment %}
             {% with errors=form.errors %}
             {% if errors %}
@@ -21,24 +23,12 @@
             {% endif %}
             {% endwith %}
             {% endcomment %}
+
+
             <form method="post" action="">
                 {% csrf_token %}
-                <div class="mb-3">
-                    <label class="form-label">Adres URL</label>
-                    <input type="url" class="form-control" name="host" id="id_host" value="{{ service.host }}">
-                    <br>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Nazwa serwisu</label>
-                    <input type="text" class="form-control" name="service_name" id="id_service_name" value="{{ service.service_name }}"><br>
-                    {{ form.service_name.errors }}
-                   
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Nazwa techniczna</label>
-                    <input type="text" class="form-control" name="verbose_name" id="id_verbose_name" value="{{ service.verbose_name }}">
-                    <br>
-                </div>
+                {{ form.as_p }}
+                {{ form.errors }}
 
                 <a href="{% url 'servicelist' %}" type="button" class="btn btn-dark">Lista serwisów</a>
                 <button type="submit" class="btn btn-outline-dark">Zapisz</button>
