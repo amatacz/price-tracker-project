@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title xmlns="http://www.w3.org/1999/html">Dodaj serwis - Monitoruj ceny i kupuj mądrze </title>
+<title>Dodaj serwis - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
         <div class="row">
             <h3>Dodaj serwis</h3>
             <div class="col-sm-4 mt-3 mb-3">
-                <form method="post">
+                <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
                     {{ form.errors }}

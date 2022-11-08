@@ -17,15 +17,15 @@
 
 <body>
     {% block nav %}
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #f4f4f4;">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
       <div class="container">
-          <a class="navbar-brand" href="{% url 'home' %}">Strona główna</a>
+        <a class="navbar-brand mb-0 me-3 h1" href="{% url 'home' %}">Strona główna</a>
       </div>
         {% if user.is_authenticated %}
         <a href="{% url 'logout' %}" type="button" class="btn btn-dark btn-sm me-3" style="float:right;">Wyloguj się</a>
         {% else %}
-        <a href="{% url 'login' %}" type="button" class="btn btn-dark me-3" style="float: right;">Zaloguj się</a>
-        <a href="{% url 'register' %}" type="button" class="btn btn-dark me-3" style="float: right;">Zarejestruj się</a>
+        <a href="{% url 'login' %}" type="button" class="btn btn-outline-dark me-3" style="float: right;">Zaloguj się</a>
+        <a href="{% url 'register' %}" type="button" class="btn btn-outline-dark me-3" style="float: right;">Zarejestruj się</a>
         {% endif %}
     </nav>
     {% endblock %}
@@ -66,7 +66,7 @@
     {% endblock %}
     </div>
     <div class="container-bottom">
-    <nav class="navbar fixed-bottom navbar-expand-lg navbar-light" style="background-color: #f4f4f4;">
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-light">
         <div class="container">
             <div class="navbar-brand">
                 <a href="#top" type="button" class="btn btn-dark btn-sm">Do góry</a>
