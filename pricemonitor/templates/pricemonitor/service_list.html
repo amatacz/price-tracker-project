@@ -5,36 +5,43 @@
     <title>Lista serwisów - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
-{% block content %}
-<div class="container">
-    <div class="row">
-        <h3>Twoje serwisy</h3>
-            {% for service in object_list %}
-               <div class="col-sm-5 mb-3 mt-3">
-                   <div class="card-column" style="width: 18rem;">
-                    <div class="card-body">
-                    <img src="/static/img/shop_icon.png" class="card-img-top" alt="shop_icon">
-                        <h5 class="card-title">{{ service.verbose_name }}</h5>
-                        <br>
-                        <a href="{% url 'servicedetail' service.id %}" class="btn btn-outline-dark">Więcej</a>
-                        <a href="{% url 'serviceupdate' service.id %}" class="btn btn-outline-dark">Edytuj</a>
-                        <a href="{% url 'servicedelete' service.id %}" class="btn btn-dark">Usuń</a>
-                    </div>
-                   </div>
-               </div>
-               {% empty %}
-                    <h4>Jeszcze nie śledzisz żadnych serwisów </h4>
-                    <a href="{% url 'servicecreate' %}" class="btn btn-dark btn-sm mb-3 mt-3">Dodaj serwis</a>
-            {% endfor %}
 
-             <div class="container mb-3">
-                 <div class="row">
-                    <a href="{% url 'servicecreate' %}" class="btn btn-dark btn-sm mb-3 mt-3" style="width: 25%;">Dodaj serwis</a>
-                 </div>
-                 <div class="row">
-                    <a href="{% url 'home' %}" class="btn btn-outline-dark btn-sm mb-3" style="width: 25%;">Wróć</a>
-                 </div>
-             </div>
+{% block content %}
+<div class="main_section layout_padding">
+    <h3> {{ user.profile.role }}</h3>
+    <h3 class="main_subtitle">Twoje serwisy</h3>
+    <div class="container justify-content-center">
+        <div class="row mt-3">
+                {% for service in object_list %}
+                <div class="col-sm-6">
+                    <div class="card-item" style="width: 18rem;">
+                        <div class="card-body">
+                        <img src="/static/img/service/{{ service.verbose_name }}.png" class="card-img-top" alt="service_icon">
+                            <h5 class="card-title bt">{{ service.verbose_name }}</h5>
+                            <br>
+                            <div class="bt_sm"><a href="{% url 'servicedetail' service.id %}">Więcej</a></div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                        <h4>Jeszcze nie śledzisz żadnych serwisów </h4>
+                        <div class="row mt-3">
+                            <div class="col-sm-6">
+                                <div class="bt_sm"><a href="{% url 'servicecreate' %}">Dodaj serwis</a></div>
+                            </div>
+                        </div>
+                {% endfor %}
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-6">
+                <div class="bt_sm"><a href="{% url 'servicecreate' %}">Dodaj serwis</a></div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+                <div class="container">
+                    <div class="bt"><a href="{% url 'home' %}">Wróć</a></div><br><br>
+                </div>
+        </div>
     </div>
 </div>
 {% endblock %}

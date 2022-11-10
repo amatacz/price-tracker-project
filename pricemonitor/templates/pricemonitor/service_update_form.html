@@ -6,35 +6,22 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <h3>Edytuj serwis</h3>
-        <div class="col-sm-4 mt-3 mb-3">
-
-
-            {% comment %}
-            {% with errors=form.errors %}
-            {% if errors %}
-                <div class="alert alert-danger" role="alert">
-                {% for key, error in form.errors.items %}
-                   {{ key }} {{ error }}<br>
-                {% endfor %}
-                </div>
-            {% endif %}
-            {% endwith %}
-            {% endcomment %}
-
-
-            <form method="post" action="">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {{ form.errors }}
-
-                <a href="{% url 'servicelist' %}" type="button" class="btn btn-dark">Lista serwisów</a>
-                <button type="submit" class="btn btn-outline-dark">Zapisz</button>
-            </form>
-        </div>
+<h3 class="main_subtitle">Edytuj serwis</h3>
+<div class="container justify-content-center">
+    <div class="row mt-3">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {{ form.errors }}
     </div>
+    <div class="row mt-3">
+        <div class="bt_sm"><button class="btn btn-outline-dark" type="submit">Zapisz</button></div>
+    </div>
+    </form>
+    <div class="row">
+        <div class="bt_sm"><a href="{% url 'servicelist' %}">Lista serwisów</a></div>
+    </div>
+    
 </div>
 
 {% endblock %}

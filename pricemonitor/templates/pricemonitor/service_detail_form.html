@@ -2,42 +2,57 @@
 {% load static %}
 
 {% block title %}
-    <title>Szczegóły produktu - Monitoruj ceny i kupuj mądrze </title>
+    <title>Szczegóły serwisu - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
+
 {% block content %}
-<div class="container-detail">
-    <div class="row justify-content-center">
-        <h3>Szczegóły serwisu </h3>
+<h3 class="main_title">Twoje serwisy</h3>
+<div class="container justify-content-center">
+    <div class="row mt-3">
         <div class="col-sm-6 mt-3 mb-3">
-            <p><b>Nazwa serwisu</b> <br>{{ service.verbose_name }}</p>
-            <p><b>Nazwa techniczna serwisu</b> <br>{{ service.service_name }}</p>
-            <p><b>Adres URL serwisu</b><br><a href="{{ service.host }}" target="_blank">{{ service.host }}</a></p>
+            <h3 style="text-decoration: underline;">Nazwa serwisu</h3>
+            <h4>{{ service.verbose_name }}</h4>
+            <h3 style="text-decoration: underline;">Nazwa techniczna serwisu</h3>
+            <h4>{{ service.service_name }}</h4>
+            <h3 style="text-decoration: underline;">Adres URL serwisu</h3>
+            <h4><a href="{{ service.host }}" target="_blank">{{ service.host }}</a></h4>
         </div>
         <div class="col-sm-6 mt-3 mb-3">
-            <p>TU BĘDZIE LOGO SERWISU</p>
+            <img src="/static/img/service/{{ service.verbose_name }}.png" class="card-img-top" alt="service_icon">
         </div>
     
-
-    <a href="{% url 'servicelist' %}" type="button" class="btn btn-dark">Lista serwisów</a>
     </div>
 
-    <div class="row">
-        <div class="col-sm-6 mt-3 mb-3">
-            <br><br>
-        <h3>Produkty</h3>
-        <br><br>
-        {% for product in service.products.all %}
-            {{ product }}
-        {% endfor %}
+    <!-- hide buttons available for moderators -->
+    {% if user.profile.role == "moderator" %}
+    <div class="row mt-3">
+        <div class="bt_sm"><a href="{% url 'serviceupdate' service.id %}">Edytuj</a></div>
+        <div class="bt_sm"><a href="{% url 'servicedelete' service.id %}">Usuń</a></div>
+    </div>
+    {% endif %}
 
-        <br><br>
-        <a href="{% url 'serviceproductcreate' service.id %}" class="btn btn-dark">Dodaj produkt</a><br>
+    <div class="row mt-3">
+        <div class="col-sm-12 mt-3 mb-3">
+            <div class="bt_sm"><a href="{% url 'servicelist' %}">Wróc do listy serwisów</a></div>
         </div>
     </div>
+    <div class="row mt-3">
+        <h3 class="main_subtitle">Produkty</h3>
+        <div class="col-sm-6 mt-3 mb-3">
+        {% for product in service.products.all %}
+        <h3 style="text-decoration: underline;">Nazwa produktu</h3>
+        <h4>{{ product.verbose_name }}</h4>
+        <h3 style="text-decoration: underline;">Link do produktu</h3>
+        <h4><a href="{{ serviceproduct.product_url }}" target="_blank">{{ serviceproduct.product_url }}</a></h4>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12 mt-3 mb-3">
+            <div class="bt_sm"><a href="{% url 'serviceproductcreate' service.id %}">Dodaj produkt</a></div>
+        </div>
+    </div>
+    
 </div>
-
-
-
-
 {% endblock %}

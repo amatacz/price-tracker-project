@@ -4,35 +4,25 @@
 <title>Zaloguj się - Monitoruj ceny i kupuj mądrze</title>
 {% endblock %}
 
-
 {% block content %}
-<div class="mx-auto">
-    <div class="row" style="width: 50%; margin: 0 auto;">
-        {% if form.errors %}
-        <p style="color: red">Błędna nazwa użytkownika i/lub hasło. Spróbuj jeszcze raz.</p>
-        {% endif %}
-        <br><br>
-        {% if next %}
-            {% if user.is_authenticated %}
-            <p style="color: red">Nie masz dostępu do tej strony. Aby kontynuować, użyj konta z uprawnieniami.</p>
-            {% else %}
-            <p>Zaloguj się, aby zobaczyć tę stronę.</p>
-            {% endif %}
-        {% endif %}
-    </div>
-
-    <div class="row" style="width: 50%; margin: 0 auto;">
-        <form method="post" action="{% url 'login' %}">
+<div class="container">
+    <h3 class="main_subtitle">Zaloguj się</h3>
+    <div class="col col-lg-4">
+    <div class="row mt-3">
+        <form method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }}
             {{ form.errors }}
-            <br>
-            <input type="submit" value="Zaloguj się">
-            <input type="hidden" name="next" value="{{ next }}">
+    </div>
+    <div class="row mt-3">
+        <div class="bt"><input type="submit" value="Zaloguj się"></div>
+        <input type="hidden" name="next" value="{{ next }}">
+    </div>
         </form>
+    <div class="row">
+        <div class="card-title">Nie masz jeszcze konta? <a href="{% url 'register' %}">Załóż je.</a></div>
+        <div class="card-title"><a href="{% url 'password_reset' %}">Zapomniałeś hasła?</a></div>
     </div>
-    <p class="text-center mt-3">Nie masz jeszcze konta? <a href="{% url 'register' %}">Załóż je.</a></p>
-    <p class="text-center"><a href="{% url 'password_reset' %}">Zapomniałeś hasła?</a></p>
     </div>
-
+</div>
 {% endblock %}

@@ -6,35 +6,43 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <h3>Twoje produkty</h3>
-            {% for product in object_list %}
-                <div class="col-sm-6 mt-3 mb-3">
-                    <div class="card-column" style="width: 18rem;">
-                        <img src="/static/img/iphone13_red_256.png" class="card-img-top" alt="iphone_13_red_265">
+<div class="main_section layout_padding">
+    <h3> {{ user.profile.role }}</h3>
+    <h3 class="main_subtitle">Produkty</h3>
+    <div class="container justify-content-center">
+        <div class="row mt-3">
+                {% for product in object_list %}
+                <div class="col-sm-6">
+                    <div class="card-item" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title">{{ product.verbose_name }}</h5>
+                        <img src="/static/img/product/{{ product.product_name }}.png" class="card-img-top" alt="product_icon">
+                            <h5 class="card-title bt">{{ product.verbose_name }}</h5>
                             <br>
-                            <a href="{% url 'productdetail' product.id %}" class="btn btn-outline-dark">Więcej</a>
-                            <a href="{% url 'productupdate' product.id %}" class="btn btn-outline-dark">Edytuj</a>
-                            <a href="{% url 'productdelete' product.id %}" class="btn btn-dark">Usuń</a>
+                            <div class="bt_sm"><a href="{% url 'productdetail' product.id %}">Więcej</a></div>
                         </div>
                     </div>
-               </div>
-               {% empty %}
-               <h4>Nie śledzisz jeszcze żadnych produktów </h4>
-               <a href="{% url 'productcreate' %}" class="btn btn-dark btn-sm mb-3 mt-3" style="width: 25%; margin: 0 auto;">Dodaj produkt </a>
-            {% endfor %}
-
-            <div class="container mb-3">
-                <div class="row">
-                <a href="{% url 'productcreate' %}" class="btn btn-outline-dark btn-sm mb-1 mt-5" style="width: 25%;">Dodaj produkt </a>
                 </div>
-                <div class="row">
-                <a href="{% url 'home' %}" class="btn btn-outline-dark btn-sm mb-5" style="width: 25%;">Wróć</a>
+                {% empty %}
+                        <h3 >Jeszcze nie śledzisz żadnych serwisów </h4>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <div class="bt_sm"><a href="{% url 'productcreate' %}">Dodaj produkt</a></div>
+                                </div>
+                            </div>
+                {% endfor %}
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <div class="bt_sm"><a href="{% url 'productcreate' %}">Dodaj produkt</a></div>
+                    </div>
                 </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="container">
+                <div class="bt"><a href="{% url 'home' %}">Wróć</a></div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
+
+

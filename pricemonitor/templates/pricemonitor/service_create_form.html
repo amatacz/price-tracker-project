@@ -6,20 +6,20 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <h3>Dodaj serwis</h3>
-            <div class="col-sm-4 mt-3 mb-3">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    {{ form.errors }}
-
-                    <button type="submit" class="btn btn-outline-dark">Dodaj</button>
-                    <a href="{% url 'servicelist' %}" type="button" class="btn btn-dark">Lista serwisów</a>
-
-                </form>
-            </div>
+<h3 class="main_subtitle">Dodaj serwis</h3>
+<div class="container justify-content-center">
+    <div class="row mt-3">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p}}
+            {{ form.errors }}
         </div>
+    <div class="row mt-3">
+        <div class="bt_sm"><button class="btn btn-outline-dark" type="submit">Zapisz</button></div>
     </div>
+        </form>
+    <div class="row">
+        <div class="bt_sm"><a href="{% url 'servicelist' %}">Lista produktów</a></div>
+    </div>
+</div>
 {% endblock %}

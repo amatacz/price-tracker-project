@@ -5,21 +5,35 @@
     <title>Szczegóły produktu - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
+
+
+
 {% block content %}
-<div class="container-detail">
-    <div class="row justify-content-center">
-        <h3>Szczegóły produktu</h3>
-        <div class="col-sm-6 mt-3 mb-3">
-            <p><b>Nazwa produktu</b> <br>{{ product.verbose_name }}</p>
-            <p><b>Nazwa produktu</b> <br>{{ product.name }}</p>
+    <h3 class="main_title">Twoje produkty</h3>
+    <div class="container justify-content-center">
+        <div class="row mt-3">
+            <div class="col-sm-6 mt-3 mb-3">
+                <h3 style="text-decoration: underline;">Nazwa produktu</h3>
+                <h4>{{ product.verbose_name }}</h4>
+            </div>
+            <div class="col-sm-6 mt-3 mb-3">
+                <img src="/static/img/product/{{ product.product_name }}.png" alt="service_icon">
+            </div>
+        
         </div>
-        <div class="col-sm-6 mt-3 mb-3">
-            <p>TU BĘDZIE FOTKA PRODUKTU</p>
+
+        <!-- hide buttons available for moderators -->
+        {% if user.profile.role == "moderator" %}
+        <div class="row mt-3">
+            <div class="bt_sm"><a href="{% url 'productupdate' product.id %}">Edytuj</a></div>
+            <div class="bt_sm"><a href="{% url 'productdelete' product.id %}">Usuń</a></div>
         </div>
+        {% endif %}
+
+        <div class="row mt-3">
+            <div class="col-sm-12 mt-3 mb-3">
+                <div class="bt_sm"><a href="{% url 'productlist' %}">Wróc do listy produktów</a></div>
+            </div>
+        </div>        
     </div>
-
-    <br><br>
-    <a href="{% url 'productlist' %}" type="button" class="btn btn-dark">Lista produktów</a>
-
-</div>
 {% endblock %}
