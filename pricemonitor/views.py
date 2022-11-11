@@ -11,8 +11,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, LoginUserForm
 from rest_framework.exceptions import PermissionDenied
+<<<<<<< HEAD
 from .permissions import ModeratorPermisionMixin, PermissionRequiredMixin
 
+=======
+from .permissions import UserPermisionMixin, UserRequestPermisionMixin
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
 
 # User views
 class signUp(CreateView):
@@ -20,6 +24,7 @@ class signUp(CreateView):
     template_name = 'registration/register.html'
     success_url = reverse_lazy('login')
 
+<<<<<<< HEAD
     def post(self, request):
         post = super().post(request)
         username = request.POST["username"]
@@ -28,6 +33,16 @@ class signUp(CreateView):
         user = authenticate(username=username, password=password)
         login(request, user)
         return redirect('home')
+=======
+    #def post(self, request):
+    #    post = super().post(request)
+    #    print(request.POST)
+    #    username = ''
+    #    password = ''
+    #    user = authenticate(username=username, password=password)
+    #    login(request, user)
+    #    return redirect('home')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
 
 
 class loginView(View):
@@ -64,6 +79,21 @@ class logoutView(View):
         logout(request)
         return redirect('home')
 
+<<<<<<< HEAD
+=======
+"""class UserAccessMixin(PermissionRequiredMixin):
+    def dispatch(self, request, *args, **kwargs):
+        if (not self.request.user.is_authenticated):
+            return redirect_to_login(self.request.get_full_path(),
+                                     self.get_login_url(), self.get_redirect_field_name())
+        if not self.has_permission():
+            message = 'You shall not pass'
+            return redirect('home')
+            # return message
+            #return PermissionDenied('You shall not pass')
+             
+        return super(UserAccessMixin, self).dispatch(request, *args, **kwargs)"""
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
 
 def home_view(request):
     return render(request, 'pricemonitor/base.html')
@@ -84,59 +114,104 @@ class ServiceProductList(LoginRequiredMixin, ListView):
     template_name = "pricemonitor/serviceproduct_list.html"
 
 
+<<<<<<< HEAD
 class ServiceCreate(ModeratorPermisionMixin, CreateView):
+=======
+class ServiceCreate(UserPermisionMixin, CreateView):
+    #permission_required = ('pricemonitor.add_service')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = Service
     template_name = "pricemonitor/service_create_form.html"
     fields = ["host", "service_name", "verbose_name"]
     success_url = reverse_lazy('servicelist')
 
 
+<<<<<<< HEAD
 class ServiceDetail(LoginRequiredMixin, DetailView):
+=======
+class ServiceDetail(DetailView):
+    permission_required = ('pricemonitor.view_service')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = Service
     template_name = 'pricemonitor/service_detail_form.html'
     success_url = reverse_lazy('servicelist')
 
 
+<<<<<<< HEAD
 class ServiceUpdate(ModeratorPermisionMixin, UpdateView):
+=======
+class ServiceUpdate(UpdateView):
+    permission_required = ('pricemonitor.change_service')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = Service
     template_name = "pricemonitor/service_update_form.html"
     fields = ["host", "service_name", "verbose_name"]
     success_url = reverse_lazy('servicelist')
 
 
+<<<<<<< HEAD
 class ServiceDelete(ModeratorPermisionMixin, DeleteView):
+=======
+class ServiceDelete(DeleteView):
+    permission_required = ('pricemonitor.delete_service')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = Service
     template_name = "pricemonitor/service_delete_form.html"
     success_url = reverse_lazy('servicelist')
 
 
+<<<<<<< HEAD
 class ProductCreate(ModeratorPermisionMixin, CreateView):
+=======
+class ProductCreate(CreateView):
+    permission_required = ('pricemonitor.add_product')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = Product
     template_name = "pricemonitor/product_create_form.html"
     fields = ["product_name", "verbose_name"]
     success_url = reverse_lazy('productlist')
 
 
+<<<<<<< HEAD
 class ProductUpdate(ModeratorPermisionMixin, UpdateView):
+=======
+class ProductUpdate(UpdateView):
+    permission_required = ('pricemonitor.change_product')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = Product
     template_name = "pricemonitor/product_update_form.html"
     fields = ["name", "verbose_name"]
     success_url = reverse_lazy('productlist')
 
 
+<<<<<<< HEAD
 class ProductDetail(LoginRequiredMixin, DetailView):
+=======
+class ProductDetail(DetailView):
+    permission_required = ('pricemonitor.view_product')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = Product
     template_name = 'pricemonitor/product_detail_form.html'
     success_url = reverse_lazy('productlist')
 
 
+<<<<<<< HEAD
 class ProductDelete(ModeratorPermisionMixin, DeleteView):
+=======
+class ProductDelete(DeleteView):
+    permission_required = ('pricemonitor.delete_product')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = Product
     template_name = "pricemonitor/product_delete_form.html"
     success_url = reverse_lazy('productlist')
 
 
+<<<<<<< HEAD
 class ServiceProductCreate(ModeratorPermisionMixin, CreateView):
+=======
+class ServiceProductCreate(CreateView):
+    permission_required = ('pricemonitor.add_serviceproduct')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = ServiceProduct
     fields = ['product', 'service', 'product_url']
     template_name = "pricemonitor/serviceproduct_create_form.html"
@@ -151,13 +226,23 @@ class ServiceProductCreate(ModeratorPermisionMixin, CreateView):
         return reverse_lazy('servicedetail', args=[self.kwargs['service_id']])
 
 
+<<<<<<< HEAD
 class ServiceProductUpdate(ModeratorPermisionMixin, UpdateView):
+=======
+class ServiceProductUpdate(UpdateView):
+    permission_required = ('pricemonitor.change_serviceproduct')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = ServiceProduct
     template_name = "pricemonitor/serviceproduct_update_form.html"
     success_url = reverse_lazy('serviceproductlist')
 
 
+<<<<<<< HEAD
 class ServiceProductDelete(ModeratorPermisionMixin, DeleteView):
+=======
+class ServiceProductDelete(UserRequestPermisionMixin, DeleteView):
+    permission_required = ('pricemonitor.delete_serviceproduct')
+>>>>>>> 83c5cfa6f4e0dd156aa2811706d5d49ab811c8c4
     model = ServiceProduct
     template_name = "pricemonitor/serviceproduct_delete_form.html"
     success_url = reverse_lazy('serviceproductlist')
