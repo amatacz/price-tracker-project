@@ -26,7 +26,7 @@ class signUp(CreateView):
         password = request.POST["password1"]
 
         user = authenticate(username=username, password=password)
-        login(request, user)
+        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
         return redirect('home')
 
 
