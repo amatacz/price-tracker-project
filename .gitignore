@@ -1,4 +1,5 @@
-django-price-tracker/pricetracker/pricetracker/sitesettings.py
+/PriceMonitor/pricetracker/sitesettings.py
 password.txt
 PYTANIA.txt
 env/
+db.sqlite3

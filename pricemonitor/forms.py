@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import Service, Product, ServiceProduct
+from pricemonitor.models.service import Service
+from pricemonitor.models.product import Product
+from pricemonitor.models.serviceproduct import ServiceProduct
 from django.contrib.auth.models import User
 
 # CRUD - (Cr)eate
