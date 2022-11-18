@@ -295,6 +295,7 @@ button {
   background-size: 100%;
   margin-top: 10px;
   margin-bottom: 390px;
+  display: inline-grid;
 }
 
 .main_title {
@@ -386,4 +387,11 @@ button {
   text-transform: uppercase;
   text-align: center;
   margin-top: 30px;
+}
+.card-img-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 33.3%;
 }

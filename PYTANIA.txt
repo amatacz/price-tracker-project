@@ -1,1 +1,2 @@
 
+CSS -> .main_section chcę dodać display: inline-grid; i nie działa, a jak dodaje to "na brudno" w przeglądarce, to gra

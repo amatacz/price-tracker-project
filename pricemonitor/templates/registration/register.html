@@ -8,7 +8,7 @@
 {% block content %}
 <div class="container justify-content-center">
     <h3 class="main_subtitle">Zarejestruj się</h3>
-    <div class="col col-lg-4">
+    <div class="div">
         <div class="row mt-3">
             <form method="POST" action="">
                 {% csrf_token %}
@@ -22,7 +22,7 @@
             </form>
             <div class="row">
                 <div class="card-title">Masz już konto? <a href="{% url 'login' %}">Zaloguj się</a></div>
-                <div class="card-title"><a href="{% url 'password_reset' %}">Zapomniałeś hasła?</a></div>
+                <div class="card-title"><a href="{% url 'reset_password' %}">Zapomniałeś hasła?</a></div>
             </div>
     </div>
 </div>
