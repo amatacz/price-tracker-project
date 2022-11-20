@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+    <head>
+        {% load static %}
+        <!-- basic -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- site metas -->
+        {% block title %}
+        <title>Price Monitor</title>
+        {% endblock %}
+        <!-- tailwind css -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+        <script>
+            tailwind.config = {
+              theme: {
+                extend: {
+                  colors: {
+                    'light-lime': '#abd699',
+                    'fresh-lemon': '#ffe26a',
+                    'teal': '#75c9b7',
+                    'mint': '#c7ddcc',
+                    'navy': '#16123f'
+                  },
+                  fontFamily: {
+                    'oswald': ['Oswald'],
+                    'oxygen': ['Oxygen']
+                  }
+                }
+              }
+            }
+          </script>
+        <!-- style css-->
+        <link rel="stylesheet" href="{% static 'css/pricemonitor.css' %}">
+        <!-- responsive css TO DO -->
+    </head>
+
+    <body class="bg-gradient-to-br from-light-lime to-teal">
+        {% block nav %}
+              <!-- header section start -->
+                <div class="header_section">
+                        <div class="container-fluid header_main">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <a class="logo" href="{% url 'home' %}">Strona Główna</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'logout' %}">Wyloguj się</a>
+                                    </li>
+                                    {% else %}
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}">Zaloguj się</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'register' %}">Zarejestruj się</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </nav>
+                        </div>
+                </div>
+            <!-- header section end -->
+        {% endblock %}
+
+        <!-- main section start -->
+        <div class="main_section justify-content-center">
+            <div class="main_section layout_padding">
+            {% block content %}       
+               <h1 class="main_title">Monitoruj ceny <br>i kupuj mądrze.</h1>
+               {% if user.is_authenticated %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 ml-3 card-item" style="width: 18rem;">
+                            <img src="/static/img/service_icon.png" class="card-img" alt="service-image">
+                            <div class="card-body">
+                                <h5 class="card-title">Twoje serwisy</h5>
+                                <div class="bt"><a href="{% url 'servicelist' %}">Więcej</a></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 ml-3 card-item" style="width: 18rem;">
+                                <img src="/static/img/product_icon.png" class="card-img" alt="product-image">
+                                <div class="card-body bt">
+                                    <h5 class="card-title">Twoje produkty</h5>
+                                    <div class="bt"><a href="{% url 'productlist' %}">Więcej</a></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="bt"><a href="{% url 'register' %}">Dołącz do nas</a></div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endblock %}
+            </div>
+        </div>
+        <!-- main section end -->
+
+        <!-- footer section start -->
+            <div class="footer_section">
+                <div class="container-fluid footer_main">
+                <div class="footer_menu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="logo" href="#top">Do góry</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <!-- footer section end -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>    
+    </body>
+</html>

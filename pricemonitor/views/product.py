@@ -25,7 +25,7 @@ class ProductCreate(ModeratorPermisionMixin, CreateView):
 class ProductUpdate(ModeratorPermisionMixin, UpdateView):
     model = Product
     template_name = "pricemonitor/product_update_form.html"
-    fields = ["name", "verbose_name"]
+    fields = ["product_name", "verbose_name"]
     success_url = reverse_lazy('productlist')
 
 

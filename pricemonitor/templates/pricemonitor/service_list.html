@@ -2,49 +2,40 @@
 {% load static %}
 
 {% block title %}
-    <title>Lista serwisów - Monitoruj ceny i kupuj mądrze </title>
+    <title>Lista serwisów - Monitoruj ceny i kupuj mądrze</title>
 {% endblock %}
 
 
 {% block content %}
-<div class="main_section layout_padding">
-    <h3 class="main_subtitle">Twoje serwisy</h3>
-    <div class="container justify-content-center">
-        <div class="row mt-3">
-                {% for service in object_list %}
-                <div class="col-sm-6">
-                    <div class="card-item" style="width: 18rem;">
-                        <div class="card-body">
-                            <row>
-                                <img src="/static/img/service/{{ service.verbose_name }}.png" class="card-img-top" alt="service_icon">
-                            </row>
-                            <row>
-                                <h5 class="card-title bt">{{ service.verbose_name }}</h5>
-                            </row>
-                            <row>
-                                <div class="bt_sm"><a href="{% url 'servicedetail' service.id %}">Więcej</a></div>
-                            </row>
-                        </div>
-                    </div>
-                </div>
-                {% empty %}
-                        <h4>Jeszcze nie śledzisz żadnych serwisów </h4>
-                        <div class="row mt-3">
-                            <div class="col-sm-6">
-                                <div class="bt_sm"><a href="{% url 'servicecreate' %}">Dodaj serwis</a></div>
-                            </div>
-                        </div>
-                {% endfor %}
-        </div>
-        <div class="row mt-3">
-            <div class="col-sm-6">
-                <div class="bt_sm"><a href="{% url 'servicecreate' %}">Dodaj serwis</a></div>
+<div class="container flex flex-col justify-between px-6 mx-auto mt-10 mb-16 space-y-0 md:space-y-0 space-x-4">
+    <div class="mb-16">
+        <h3 class="max-w-md text-4xl font-bold px-6 text-start text-ebony md:text-5xl">Twoje serwisy</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2">
+    {% for service in object_list %}
+        <div class="max-w-sm pt-10 mb-16 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <img class="object-scale-down h-24 w-96" src="/static/img/service/{{ service.service_name }}.svg" alt="" />
+            <div class="p-5">
+                <a href="{% url 'servicedetail' service.id %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">
+                    Więcej
+                </a>
             </div>
         </div>
-        <div class="row mt-3 mb-3">
-                <div class="container">
-                    <div class="bt"><a href="{% url 'home' %}">Wróć</a></div><br><br>
-                </div>
+      
+    {% empty %}
+    <div class="max-w-md mb-16 text-4xl font-bold text-start md:text-5xl">
+        <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
+            Jeszcze nie śledzisz żadnych serwisów
+        </h1>
+    </div>
+    {% endfor %}
+    </div> 
+    <div class="flex flex-col mb-32">
+        <div class="items-right justify-between">
+            <a href="{% url 'servicecreate' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Dodaj serwis</a>
+        </div>
+        <div class="items-right justify-between">
+            <a href="{% url 'home' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Wróć</a>
         </div>
     </div>
 </div>

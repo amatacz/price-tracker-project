@@ -2,106 +2,156 @@
 <html lang="pl">
 
     <head>
-        {% load static %}
-        <!-- basic -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- mobile metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-        <!-- site metas -->
-        {% block title %}
-        <title>Price Monitor</title>
-        {% endblock %}
-        <!-- bootstrap css -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <!-- style css-->
-        <link rel="stylesheet" href="{% static 'css/pricemonitor.css' %}">
-        <!-- responsive css TO DO -->
+      {% load static %}
+      <!-- basic -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      {% block title %}
+      <title>Price Monitor</title>
+      {% endblock %}
+      <!-- tailwind css -->
+      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+      <script>
+        tailwind.config = {
+          theme: {
+            screens: {
+              sm: '480px',
+              md: '768px',
+              lg: '976px',
+              xl: '1140px'
+            },
+              extend: {
+                colors: {
+                // ice: '#99D3DF',
+                //   // fresh_water: '#88BBD6',
+                //   // plaster: '#CDCDCD',
+                //   // linen: 'E9E9E9',
+                //   // powder_blue: '#4B6D9D',
+                // dark_jeans: '#274463',
+                //   // orange: '#e28743',
+                // mint: '#92ddc8',
+                // rose: '#dd929c',
+                // salmon: '#ddb292',
+                pink: '#f8e8e9',
+                cream: '#fefafb',
+                ebony: '#241e20',
+                coffee: '#a9908d'
+              },
+              fontFamily: {
+                'oswald': ['Oswald'],
+                'oxygen': ['Oxygen']
+              },
+            }
+          }
+        }
+      </script>
+      <!-- style css-->
+      <link rel="stylesheet" href="css/main.css">
+      <!-- responsive css TO DO -->
     </head>
 
-    <body>
-        {% block nav %}
-              <!-- header section start -->
-                <div class="header_section">
-                        <div class="container-fluid header_main">
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <a class="logo" href="{% url 'home' %}">Strona Główna</a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav">
-                                    {% if user.is_authenticated %}
-                                    <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'logout' %}">Wyloguj się</a>
-                                    </li>
-                                    {% else %}
-                                    <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'login' %}">Zaloguj się</a>
-                                    </li>
-                                    <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'register' %}">Zarejestruj się</a>
-                                    </li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                        </nav>
-                        </div>
-                </div>
-            <!-- header section end -->
-        {% endblock %}
-
-        <!-- main section start -->
-        <div class="main_section justify-content-center">
-            <div class="main_section layout_padding">
-            {% block content %}       
-               <h1 class="main_title">Monitoruj ceny <br>i kupuj mądrze.</h1>
-               {% if user.is_authenticated %}
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 ml-3 card-item" style="width: 18rem;">
-                            <img src="/static/img/service_icon.png" class="card-img" alt="service-image">
-                            <div class="card-body">
-                                <h5 class="card-title">Twoje serwisy</h5>
-                                <div class="bt"><a href="{% url 'servicelist' %}">Więcej</a></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 ml-3 card-item" style="width: 18rem;">
-                                <img src="/static/img/product_icon.png" class="card-img" alt="product-image">
-                                <div class="card-body bt">
-                                    <h5 class="card-title">Twoje produkty</h5>
-                                    <div class="bt"><a href="{% url 'productlist' %}">Więcej</a></div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                {% else %}
-                <div class="container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="bt"><a href="{% url 'register' %}">Dołącz do nas</a></div>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-            {% endblock %}
-            </div>
+    <body class="flex flex-col min-h-screen bg-gradient-to-br from-pink to-cream">
+      <!-- Navbar -->
+      {% block nav %}
+      <nav class="relative container min-w-full">
+      <!-- Flex container -->
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="pt-2">
+            <a href="{% url 'home' %}"><img src="/static/img/logo.svg" alt=""/></a>
+          </div>
+          {% if user.is_authenticated %}
+          <!-- Buttons -->
+          <div class="items-right justify-between">
+            <a href="{% url 'logout' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Wyloguj się</a>
+          </div>
+          {% else %}
+          <div class="items-right justify-between">
+            <a href="{% url 'login' %}" class="inline-grid m-3 p-3 px-6 text-white  text-center bg-coffee rounded-full hover:bg-pink">Zaloguj się</a>
+            <a href="{% url 'register' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Zarejestruj się</a>
+          </div>
+          {% endif %}
         </div>
-        <!-- main section end -->
+      </nav>
+      {% endblock %}
 
-        <!-- footer section start -->
-            <div class="footer_section">
-                <div class="container-fluid footer_main">
-                <div class="footer_menu">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="logo" href="#top">Do góry</a>
-                        </li>
-                    </ul>
-                </div>
-                </div>
+      <!-- Hero section -->
+      <section id="hero">
+        <!-- Flex Container -->
+        <div class="container flex flex-col-reverse md:flex-row justify-between p-16 mx-auto m-10 space-y-0 md:space-y-0">
+          {% block content %}
+          
+          {% if user.is_authenticated %}
+          <!-- Left div -->
+          <div class="flex flex-col mb-32 space-y-6 md:w-1/2 items-center">
+            <h5 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl">Twoje serwisy</h5>
+            <div class="flex justify-center">
+              <img src="/static/img/service_icon.svg" class="object-scale-down h-48 w-96" alt="">
             </div>
-            <!-- footer section end -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>    
+            <div class="flex justify-center">
+              <p class="text-xl	font-bold underline decoration-1"><a href="{% url 'servicelist' %}">Więcej</p>
+            </div>
+          </div>
+          <!-- Right div -->
+          <div class="flex flex-col mb-32 space-y-6 md:w-1/2 items-center">
+            <h5 class="max-w-md text-4xl mb-6 font-bold text-center text-ebony md:text-5xl">Twoje produkty</h5>
+            <div class="flex justify-center">
+              <img src="/static/img/product_icon.svg" class="object-scale-down h-48 w-96" alt="">
+            </div>
+            <div class="flex justify-center">
+              <p class="text-xl	font-bold underline decoration-1"><a href="{% url 'productlist' %}">Więcej</p>
+            </div>
+          </div>
+          {% else %}
+          <!-- Left div -->
+          <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+            <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
+              Monitoruj ceny i kupuj mądrze!
+            </h1>
+            <p class="max-w-sm text-center text-ebony md:text-left">
+              Trzymaj rękę na pulsie, kupuj wtedy gdy jest najkorzystniej!
+            </p>
+            <div class="flex justify-center md:justify-start">
+            <a href="{% url 'register' %}" class="p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Zarejestruj się</a>
+            </div>
+          </div>
+          <!-- Image -->
+          <div class="md:w-1/2">
+            <img src="/static/img/heroimage.svg" alt="">
+          </div>
+          {% endif %}
+          {% endblock %}
+        </div>
+        <!-- Footer -->
+        <footer class="bg-coffee mt-auto fixed bottom-0 min-w-full">
+          <!-- Flex Container -->
+          <div class="container flex flex-col justify-between px-3 mx-auto space-y-0 md:flex-row">
+            <!-- Logo container -->
+            <div class="flex flex-col items-start justify-between md:flex-row md:space-x-6">
+              <!-- Logo -->
+              <div>
+                <a href="{% url 'home' %}"><img src="/static/img/logo.svg" class="h-16" alt=""/></a>
+              </div>
+            </div>
+              <!-- Social Links Container -->
+            <div class="flex flex-col pt-4 items-right justify-between md:flex-row md:space-x-6">
+              <!-- Link 1 -->
+              <a href="#" target="_blank">
+                <img src="/static/img/icon-linkedin.svg" class="h-8" alt=""/>
+              </a>
+              <!-- Link 2 -->
+              <a href="#" target="blank">
+                <img src="/static/img/icon-github.svg" class="h-8" alt=""/>
+              </a>
+            </div>
+          </div>
+        </footer>
+
+
+
     </body>
 </html>

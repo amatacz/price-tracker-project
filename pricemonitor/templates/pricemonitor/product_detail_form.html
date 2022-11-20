@@ -6,34 +6,28 @@
 {% endblock %}
 
 
-
-
 {% block content %}
-    <h3 class="main_title">Twoje produkty</h3>
-    <div class="container justify-content-center">
-        <div class="row mt-3">
-            <div class="col-sm-6 mt-3 mb-3">
-                <h3 style="text-decoration: underline;">Nazwa produktu</h3>
-                <h4>{{ product.verbose_name }}</h4>
-            </div>
-            <div class="col-sm-6 mt-3 mb-3">
-                <img src="/static/img/product/{{ product.product_name }}.png" alt="service_icon">
-            </div>
-        
-        </div>
-
-        <!-- hide buttons available for moderators -->
-        {% if user.profile.role == "moderator" %}
-        <div class="row mt-3">
-            <div class="bt_sm"><a href="{% url 'productupdate' product.id %}">Edytuj</a></div>
-            <div class="bt_sm"><a href="{% url 'productdelete' product.id %}">Usuń</a></div>
+<!-- Left div -->
+<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+    <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
+        {{ product.verbose_name }}
+    </h1>
+    <div class="flex flex-col justify-start md:justify-between">
+        <!-- Hide buttons available for moderators -->
+        {% if user.profile.role == 'moderator' %}
+        <div class="flex flex-col mt-16 mb-8 md:flex-row space-x-10">
+            <a href="{% url 'productupdate' product.id %}" class="p-3 px-8 text-white text-center bg-coffee rounded-full hover:bg-pink">Edytuj</a>
+            <a href="{% url 'productdelete' product.id %}" class="p-3 px-8 text-white text-center bg-coffee rounded-full hover:bg-pink">Usuń</a>  
         </div>
         {% endif %}
-
-        <div class="row mt-3">
-            <div class="col-sm-12 mt-3 mb-3">
-                <div class="bt_sm"><a href="{% url 'productlist' %}">Wróc do listy produktów</a></div>
-            </div>
-        </div>        
+        <div class="flex flex-col mb-16 md:w-1/2">
+            <a href="{% url 'productlist' %}" class="p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Lista serwisów</a>
+        </div>
     </div>
+  </div>
+  <!-- Image -->
+  <div class="md:w-1/2 ">
+    <img src="/static/img/product/{{ product.verbose_name }}.png" class="object-scale-down h-24 w-96" alt="">
+  </div>
+</div>
 {% endblock %}

@@ -7,10 +7,20 @@
 
 {% block content %}
 
-<form method="POST">
+<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+    <h1 class="max-w-md text-4xl font-bold text-powder_blue text-center md:text-5xl md:text-left">
+        Dodaj produkt
+    </h1>
+
+    <form method="POST" action="">
     {% csrf_token %}
-    {{ form.as_p }}
-    {{ form.errors }}
-    <button type="submit" class="btn btn-dark">Dodaj</button>
-</form>
+    <h4 class="max-w-sm text-center text-dark_jeans md:text-left">
+        {{ form|crispy }}
+    </h4>    
+    <button type="submit" class="p-3 px-6 my-6 text-white text-center bg-dark_jeans rounded-full hover:bg-fresh_water">Zapisz</button>
+    </form>
+    <div class="flex flex-col mb-16">
+        <a href="{% url 'productlist' %}" class="p-3 px-6 text-white text-center bg-dark_jeans rounded-full hover:bg-fresh_water">Wróc do listy produktów</a>
+    </div>    
+</div>
 {% endblock %}

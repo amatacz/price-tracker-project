@@ -1,10 +1,17 @@
 {% extends 'pricemonitor/base.html' %}
 
 {% block title %}
-<title>Brak dostępu</title>
+<title>Strona nie istnieje</title>
 {% endblock %}
 
 {% block content %}
-<h1 class="main_title">Ta strona nie istnieje</h1>
-<div class="bt"><a href="{% url 'home' %}">Wróć do strony głównej</a></div>
+<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+    <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
+        Wskazana strona nie istnieje
+    </h1>
+    <div class="flex flex-col mb-16">
+        <a href="{% url 'home' %}" class="p-3 px-6 text-white text-center bg-powder_blue rounded hover:bg-fresh_water">Wróc do strony głównej</a>
+    </div>   
+</div>
+
 {% endblock %}

@@ -1,25 +1,28 @@
 {% extends 'pricemonitor/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 
 {% block title %}
 <title>Dodaj serwis - Monitoruj ceny i kupuj mądrze </title>
 {% endblock %}
 
 {% block content %}
-<h3 class="main_subtitle">Dodaj serwis</h3>
-<div class="container justify-content-center">
-    <div class="row mt-3">
-        <form method="POST" action="">
-            {% csrf_token %}
-            {{ form.as_p}}
-            {{ form.errors }}
-        </div>
-    <div class="row mt-3">
-        <div class="bt_sm"><button class="btn btn-outline-dark" type="submit">Zapisz</button></div>
-    </div>
-        </form>
-    <div class="row">
-        <div class="bt_sm"><a href="{% url 'servicelist' %}">Lista produktów</a></div>
-    </div>
+<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+    <h1 class="max-w-md text-4xl font-bold text-center text-powder_blue md:text-5xl md:text-left">
+        Dodaj serwis
+    </h1>
+
+    <form method="POST" action="">
+    {% csrf_token %}
+    <h4 class="max-w-sm text-center text-dark_jeans md:text-left">
+        {{ form|crispy }}
+    </h4>    
+    <button type="submit" class="p-3 px-6 my-6 text-white text-center bg-dark_jeans rounded-full hover:bg-fresh_water">Zapisz</button>
+    </form>
+    <div class="flex flex-col mb-16">
+        <a href="{% url 'servicelist' %}" class="p-3 px-6 text-white text-center bg-dark_jeans rounded-full hover:bg-fresh_water">Wróc do listy serwisów</a>
+    </div>    
 </div>
+
 {% endblock %}

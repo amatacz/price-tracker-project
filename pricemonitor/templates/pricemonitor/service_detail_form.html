@@ -7,52 +7,29 @@
 
 
 {% block content %}
-<h3 class="main_title">Twoje serwisy</h3>
-<div class="container justify-content-center">
-    <div class="row mt-3">
-        <div class="col-sm-6 mt-3 mb-3">
-            <h3 style="text-decoration: underline;">Nazwa serwisu</h3>
-            <h4>{{ service.verbose_name }}</h4>
-            <h3 style="text-decoration: underline;">Nazwa techniczna serwisu</h3>
-            <h4>{{ service.service_name }}</h4>
-            <h3 style="text-decoration: underline;">Adres URL serwisu</h3>
-            <h4><a href="{{ service.host }}" target="_blank">{{ service.host }}</a></h4>
+<!-- Left div -->
+<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+    <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
+        {{ service.verbose_name }}
+    </h1>
+    <p class="max-w-sm text-center text-ebony md:text-left">
+        <a href="{{ service.host }}" target="_blank">{{ service.host }}</a></p>
+    <div class="flex flex-col justify-start md:justify-between">
+        <!-- Hide buttons available for moderators -->
+        {% if user.profile.role == 'moderator' %}
+        <div class="flex flex-col mt-16 mb-8 md:flex-row space-x-10">
+            <a href="{% url 'serviceupdate' service.id %}" class="p-3 px-8 text-white text-center bg-coffee rounded-full hover:bg-pinkr">Edytuj</a>
+            <a href="{% url 'servicedelete' service.id %}" class="p-3 px-8 text-white text-center bg-coffee rounded-full hover:bg-pink">Usuń</a>  
         </div>
-        <div class="col-sm-6 mt-3 mb-3">
-            <img src="/static/img/service/{{ service.verbose_name }}.png" class="card-img-top" alt="service_icon">
-        </div>
-    
-    </div>
-
-    <!-- hide buttons available for moderators -->
-    {% if user.profile.role == "moderator" %}
-    <div class="row mt-3">
-        <div class="bt_sm"><a href="{% url 'serviceupdate' service.id %}">Edytuj</a></div>
-        <div class="bt_sm"><a href="{% url 'servicedelete' service.id %}">Usuń</a></div>
-    </div>
-    {% endif %}
-
-    <div class="row mt-3">
-        <div class="col-sm-12 mt-3 mb-3">
-            <div class="bt_sm"><a href="{% url 'servicelist' %}">Wróc do listy serwisów</a></div>
+        {% endif %}
+        <div class="flex flex-col mb-8 md:w-1/2">
+            <a href="{% url 'servicelist' %}" class="p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Lista serwisów</a>
         </div>
     </div>
-    <div class="row mt-3">
-        <h3 class="main_subtitle">Produkty</h3>
-        <div class="col-sm-6 mt-3 mb-3">
-        {% for product in service.products.all %}
-        <h3 style="text-decoration: underline;">Nazwa produktu</h3>
-        <h4>{{ product.verbose_name }}</h4>
-        <h3 style="text-decoration: underline;">Link do produktu</h3>
-        <h4><a href="{{ serviceproduct.product_url }}" target="_blank">{{ serviceproduct.product_url }}</a></h4>
-        {% endfor %}
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-sm-12 mt-3 mb-3">
-            <div class="bt_sm"><a href="{% url 'serviceproductcreate' service.id %}">Dodaj produkt</a></div>
-        </div>
-    </div>
-    
+  </div>
+  <!-- Image -->
+  <div class="md:w-1/2 ">
+    <img src="/static/img/service/{{ service.service_name }}.svg" class="object-fill h-24 w-96" alt="">
+  </div>
 </div>
 {% endblock %}

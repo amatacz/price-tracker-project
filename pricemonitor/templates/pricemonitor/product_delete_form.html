@@ -1,27 +1,26 @@
 {% extends 'pricemonitor/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}
 <title>Usuń produkt - Monitoruj ceny i kupuj mądrze</title>
 {% endblock %}
 
-
 {% block content %}
-<div class="container justify-content-center">
-<h3 class="main_title">Usuń produkt</h3>
-    <div class="row mt-3">
+<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+    <div class="flex flex-col">
+        <h1 class="max-w-md mb-8 text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
+            Usuń produkt
+        </h1>
         <form method="POST" action="">
-            {% csrf_token %}
-                <h3>Czy na pewno chcesz usunąć produkt {{ product.verbose_name }}?</h3>
-        </div>
-        <div class="row">
-                <div class="bt_sm"><button type="submit" class="btn btn-dark">Usuń</button></div>
-        </div>
-            </form>
-        <div class="row mt-3">
-            <div class="bt_sm"><a href="/product/list/" type="button">Anuluj</a></div>
-        </div>
+        {% csrf_token %}
+        <h4 class="max-w-sm text-center text-dark_jeans md:text-left">
+            Czy na pewno chcesz usunąć produkt <b>{{ product.verbose_name }}?</b></h4>
+        <button type="submit" class="p-3 px-6 mt-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Usuń</button>
+        </form>
+    </div>
+    <div class="flex flex-col mb-16 md:w-1/2">
+        <a href="{% url 'productlist' %}" class="p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Wróc do listy produktów</a>
+    </div>    
 </div>
- 
-
 {% endblock %}
