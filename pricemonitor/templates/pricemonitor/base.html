@@ -64,9 +64,15 @@
           <div class="pt-2">
             <a href="{% url 'home' %}"><img src="/static/img/logo.svg" alt=""/></a>
           </div>
+          <div class="flex items-center justify-between">
+            {% for msg in messages %}
+            {{ msg }}
+          {% endfor %}
+          </div>
           {% if user.is_authenticated %}
           <!-- Buttons -->
           <div class="items-right justify-between">
+            <a href="{% url 'userprofile' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Profil Użytkownika</a>
             <a href="{% url 'logout' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Wyloguj się</a>
           </div>
           {% else %}
@@ -84,7 +90,6 @@
         <!-- Flex Container -->
         <div class="container flex flex-col-reverse md:flex-row justify-between p-16 mx-auto m-10 space-y-0 md:space-y-0">
           {% block content %}
-          
           {% if user.is_authenticated %}
           <!-- Left div -->
           <div class="flex flex-col mb-32 space-y-6 md:w-1/2 items-center">

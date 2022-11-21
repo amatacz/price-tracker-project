@@ -19,14 +19,19 @@ urlpatterns = [
     path('serviceproduct/list/', views.ServiceProductList.as_view(), name='serviceproductlist'),
     path('servicepproduct/create/<service_id>', views.ServiceProductCreate.as_view(), name='serviceproductcreate'),
     path('serviceproduct/update/<pk>/', views.ServiceProductUpdate.as_view(), name='serviceproductupdate'),
-    path('serviceproduct/delete/<pk>', views.ServiceProductDelete.as_view(), name='serviceproductdelete'),
+    path('serviceproduct/delete/<pk>/', views.ServiceProductDelete.as_view(), name='serviceproductdelete'),
+    path('activate/<uidb64>/<token>/', views.ActivateAccount.as_view(), name='activate'),
     path('register/', views.signUp.as_view(), name='register'),
     path('login/', views.loginView.as_view(), name='login'),
     path('logout/', views.logoutView.as_view(), name='logout'),
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name = "reset_password.html"), name ='reset_password'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name = "password_reset_sent.html"), name ='password_reset_done'),
     path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name = "password_reset_form.html"), name ='password_reset_confirm'),
-    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name = "password_reset_done.html"), name ='password_reset_complete')
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name = "password_reset_done.html"), name ='password_reset_complete'),
+    path('profile/', views.UserProfile.as_view(), name="userprofile"),
+    path('profile/update/<pk>/', views.UserProfileUpdate.as_view(), name="userprofileupdate"),
+    path('profile/update/<pk>/', views.UserUpdate.as_view(), name="userupdate"),
+    path('profile/delete/<pk>/', views.UserDelete.as_view(), name="userdelete"),
 ]
 
 
