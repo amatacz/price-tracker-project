@@ -1,0 +1,36 @@
+{% extends 'pricemonitor/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Szczegóły serwisu - Monitoruj ceny i kupuj mądrze </title>
+{% endblock %}
+
+
+{% block content %}
+<!-- Left div -->
+<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+    <h1 class="max-w-md text-4xl font-bold text-center text-black md:text-5xl md:text-left">
+        {{ service.verbose_name }}
+    </h1>
+    <p class="max-w-sm text-center text-ebony md:text-left">
+        <a href="https://{{ service.host }}" target="_blank">{{ service.host }}</a></p>
+    <div class="flex flex-col justify-start md:justify-between">
+        <!-- Hide buttons available for moderators -->
+        {% if user.profile.role == 'moderator' %}
+        <div class="flex flex-col mt-16 mb-8 md:flex-row space-x-10">
+            <a href="{% url 'serviceupdate' service.id %}" class="p-3 px-8 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Edytuj</a>
+            <a href="{% url 'servicedelete' service.id %}" class="p-3 px-8 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Usuń</a>  
+        </div>
+        {% endif %}
+        <div class="flex flex-col mb-8 md:w-1/2">
+            <a href="{% url 'serviceitemslist' service.id %}" class="p-3 px-6 mb-3 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie produkty z tego sklepu</a>
+            <a href="{% url 'servicelist' %}" class="p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Lista serwisów</a>
+        </div>
+    </div>
+  </div>
+  <!-- Image -->
+  <div class="md:w-1/2 ">
+    <img src="/static/img/service/{{ service.service_name }}.svg" class="object-fill h-24 w-96" alt="">
+  </div>
+</div>
+{% endblock %}

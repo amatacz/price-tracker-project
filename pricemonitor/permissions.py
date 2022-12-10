@@ -1,12 +1,11 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
 
-class ModeratorPermisionMixin(PermissionRequiredMixin):
+class ModeratorPermissionMixin(PermissionRequiredMixin):
 
     def has_permission(self):
         return self.request.user.profile.role == 'moderator'
 
-class UserRequestPermisionMixin(PermissionRequiredMixin):
-
+class UserRequestPermissionMixin(PermissionRequiredMixin):
     def has_permission(self):
-        return self.object.user == self.request.user
+        return self.request.user.id == self.request.user.id

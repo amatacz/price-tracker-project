@@ -1,0 +1,42 @@
+{% extends 'pricemonitor/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Szczegóły produktu - Monitoruj ceny i kupuj mądrze </title>
+{% endblock %}
+
+
+{% block content %}
+<!-- Left div -->
+<div class="flex flex-col mb-32 space-y-12 md:w-3/4">
+    <div class="md:w-3/4">
+        <h4 class="max-w-md text-4xl mb-4 font-bold text-center text-ebony md:text-5xl md:text-left">
+            {{ serviceproduct.product.verbose_name }} z {{ serviceproduct.service.verbose_name }}
+        </h4>
+        <ul>
+            <li class="mt-4 mb-4 text-black">tu będzie najwyższa cena produktu odkąd jest w bazie</li>
+            <li class="mt-4 mb-4 text-black">tu będzie najniższa cena produktu odkąd jest w bazie</li>
+            <li class="pt-2 font-bold text-black"><a href="{{ serviceproduct.product_url }}" target="_blank">Link do produktu</a></li>
+        </ul>
+    </div>
+    <div class="flex flex-col justify-start md:justify-between">
+        <!-- Hide buttons available for moderators -->
+        {% if user.profile.role == 'moderator' %}
+        <div class="flex flex-col mt-2 mb-6 md:flex-row space-x-4">
+            <a href="{% url 'serviceproductupdate' serviceproduct.id %}" class="p-3 px-8 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Edytuj</a>
+            <a href="{% url 'serviceproductdelete' serviceproduct.id %}" class="p-3 px-8 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Usuń</a>  
+        </div>
+        {% endif %}
+        <div class="flex flex-col mb-16 md:w-1/2">
+            <a href="{% url 'productslist' serviceproduct.product.id %}" class="p-3 px-6 mb-3 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz ten produkt w innych sklepach</a>
+            <a href="{% url 'serviceproductlist' %}" class="p-3 px-6 mb-3 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Obserwuj ten produkt</a>
+            <a href="{% url 'servicelist' %}" class="p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Lista serwisów</a>
+        </div>
+    </div>
+  </div>
+  <!-- Image -->
+  <div class="md:w-1/4 ">
+    <img src="/static/img/product/{{ serviceproduct.product.product_name }}.png" class="object-contain h-48 w-96" alt="">
+  </div>
+</div>
+{% endblock %}

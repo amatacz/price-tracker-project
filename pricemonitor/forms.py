@@ -3,11 +3,12 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from pricemonitor.models.service import Service
 from pricemonitor.models.product import Product
 from pricemonitor.models.serviceproduct import ServiceProduct
-from pricemonitor.models.userprofile import UserProfile
+from pricemonitor.models.userprofile import UserProfile, UserProductAssignment
+from pricemonitor.models.productuserrequest import ProductUserRequest
 from django.contrib.auth.models import User
 
-# CRUD - (Cr)eate
 
+# Service Forms
 
 class ServiceCreateForm(forms.ModelForm):
 
@@ -31,17 +32,73 @@ class ServiceCreateForm(forms.ModelForm):
         }), label="Nazwa serwisu")
 
 
+class ServiceUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Service
+        fields = '__all__'        
+
+
+# Product Froms
+
 class ProductCreateForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
 
+class ProductUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+class ProductUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+
+# ServiceProduct Forms
 
 class ServiceProductCreateForm(forms.ModelForm):
     class Meta:
         model = ServiceProduct
         fields = '__all__'
 
+class ServiceProductUpdateForm(forms.ModelForm):
+    class Meta:
+        model = ServiceProduct
+        fields = '__all__'
+
+
+# User Forms
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+
+        fields = [
+            'first_name',
+            'last_name',
+            'username',
+            'email'
+        ]
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = [
+            'avatar',
+        ]
+
+        labels = {
+            'avatar': 'Zdjęcie profilowe'
+        }
+
+class UserProductAssignmentForm(forms.ModelForm):
+    class Meta:
+        model = UserProductAssignment
+        fields = '__all__'
+
+# SignUp and LogIn Forms
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(max_length=150, label="Nazwa użytkownika")
@@ -55,7 +112,6 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "first_name", "last_name", "email", "password1", "password2"]
-
 
 
     def __init__(self, *args, **kwargs):
@@ -105,44 +161,7 @@ class LoginUserForm(AuthenticationForm):
             'class': 'form-control',
             'placeholder': 'Wprowadź hasło'
         })
+        
     class Meta:
         fields = ['username', 'password']
-
-
-# CRUD - (U)pdate
-
-class UpdateUserForm(forms.ModelForm):
-    username = forms.CharField(max_length=100, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-
-    class Meta:
-        model = User
-        fields = ['username', 'email']
-
-
-class UpdateProfileForm(forms.ModelForm):
-    avatar = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control'}))
-
-    class Meta:
-        model = UserProfile
-        fields = ['avatar']
-
-class ServiceUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Service
-        fields = '__all__'
-
-
-class ProductUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Product
-        fields = '__all__'
-
-
-class ServiceProductUpdateForm(forms.ModelForm):
-    class Meta:
-        model = ServiceProduct
-        fields = '__all__'
-
-
 

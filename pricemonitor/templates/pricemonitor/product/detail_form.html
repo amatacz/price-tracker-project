@@ -1,0 +1,36 @@
+{% extends 'pricemonitor/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Szczegóły produktu - Monitoruj ceny i kupuj mądrze </title>
+{% endblock %}
+
+
+{% block content %}
+<!-- Left div -->
+<div class="flex flex-col mb-32 space-y-12">
+    <div class="md:w-1/2">
+        <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
+            {{ product.verbose_name }}
+        </h1>
+    </div>
+    <div class="flex flex-col justify-start md:justify-between">
+        <!-- Hide buttons available for moderators -->
+        {% if user.profile.role == 'moderator' %}
+        <div class="flex flex-col mt-16 mb-6 md:flex-row space-x-4">
+            <a href="{% url 'productupdate' product.id %}" class="p-3 px-8 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Edytuj</a>
+            <a href="{% url 'productdelete' product.id %}" class="p-3 px-8 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Usuń</a>  
+        </div>
+        {% endif %}
+        <div class="flex flex-col mb-16 md:w-1/2">
+            <a href="{% url 'serviceproductlist' %}" class="p-3 px-6 mb-3 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Obserwuj ten produkt</a>
+            <a href="{% url 'servicelist' %}" class="p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Lista serwisów</a>
+        </div>
+    </div>
+  </div>
+  <!-- Image -->
+  <div class="md:w-1/2 ">
+    <img src="/static/img/product/{{ product.product_name }}.png" class="object-scale-down h-24 w-48" alt="">
+  </div>
+</div>
+{% endblock %}

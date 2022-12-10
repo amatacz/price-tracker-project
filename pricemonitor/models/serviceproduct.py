@@ -5,22 +5,42 @@ from importlib import import_module
 from pricemonitor.models.product import Product
 from pricemonitor.models.service import Service
 
+from django.core.exceptions import ValidationError
+ 
+# creating a validator function
+def validate_url(value):
+    domains = ['.pl', '.com', '.de', '.it']
+    if any(domain in value for domain in domains):
+        return value
+    else:
+        raise ValidationError("Podaj prawidłowy link")
+        
 
 class ServiceProductManager(models.Manager):
 
-    def get_from_data(self, service_name, product_name):
-        return self.get(product__name=product_name, service__name=service_name)
+    def get_from_data(self, service_name, product_name, status):
+        return self.get(product__name=product_name, service__name=service_name, status=status)
 
 
 class ServiceProduct(models.Model):
+    STATUSES = (
+        ("p", "Oczekuje"),
+        ("r", "Odrzucone"),
+        ("a", "Zaakceptowane")
+    )
+
     product = models.ForeignKey("Product", on_delete=models.CASCADE)
     service = models.ForeignKey("Service", on_delete=models.CASCADE, related_name="products")
-    product_url = models.URLField(max_length=255, default="no address")
+    product_url = models.CharField(max_length=255, default="no address", validators=[validate_url])
+    status = models.CharField(max_length=1, choices=STATUSES, default="p")
 
-    objects = ServiceProductManager()
 
     def __str__(self):
-        return f"{self.product.verbose_name}"
+        return f"{self.product.verbose_name} z {self.service.service_name}"
+
+    def validate_product_url_and_host(self):
+        if self.service.service_name not in self.product_url:
+            raise ValidationError("Link produktu nie pochodzi z właściwego sklepu")
 
 
 class ServiceProductItemManager(models.Manager):

@@ -36,10 +36,15 @@
                 // mint: '#92ddc8',
                 // rose: '#dd929c',
                 // salmon: '#ddb292',
-                pink: '#f8e8e9',
+                // pink: '#f8e8e9',
                 cream: '#fefafb',
-                ebony: '#241e20',
-                coffee: '#a9908d'
+                // ebony: '#241e20',
+                // coffee: '#a9908d',
+                indigo_dye: '#134074',
+                prussian_blue: '#13315c',
+                oxford_blue: '#0b2545',
+                pewter_blue: '#8da9c4',
+                mint_cream: '#eef4ed',
               },
               fontFamily: {
                 'oswald': ['Oswald'],
@@ -54,7 +59,7 @@
       <!-- responsive css TO DO -->
     </head>
 
-    <body class="flex flex-col min-h-screen bg-gradient-to-br from-pink to-cream">
+    <body class="flex flex-col min-h-screen bg-gradient-to-br from-indigo_dye to-cream via-mint_cream">
       <!-- Navbar -->
       {% block nav %}
       <nav class="relative container min-w-full">
@@ -66,19 +71,19 @@
           </div>
           <div class="flex items-center justify-between">
             {% for msg in messages %}
-            {{ msg }}
-          {% endfor %}
+              {{ msg }}
+            {% endfor %}
           </div>
           {% if user.is_authenticated %}
           <!-- Buttons -->
           <div class="items-right justify-between">
-            <a href="{% url 'userprofile' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Profil Użytkownika</a>
-            <a href="{% url 'logout' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Wyloguj się</a>
+            <a href="{% url 'profile' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Profil {{ user.username }}</a>
+            <a href="{% url 'logout' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Wyloguj się</a>
           </div>
           {% else %}
           <div class="items-right justify-between">
-            <a href="{% url 'login' %}" class="inline-grid m-3 p-3 px-6 text-white  text-center bg-coffee rounded-full hover:bg-pink">Zaloguj się</a>
-            <a href="{% url 'register' %}" class="inline-grid m-3 p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Zarejestruj się</a>
+            <a href="{% url 'login' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zaloguj się</a>
+            <a href="{% url 'register' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarejestruj się</a>
           </div>
           {% endif %}
         </div>
@@ -91,48 +96,50 @@
         <div class="container flex flex-col-reverse md:flex-row justify-between p-16 mx-auto m-10 space-y-0 md:space-y-0">
           {% block content %}
           {% if user.is_authenticated %}
+          
           <!-- Left div -->
-          <div class="flex flex-col mb-32 space-y-6 md:w-1/2 items-center">
-            <h5 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl">Twoje serwisy</h5>
-            <div class="flex justify-center">
-              <img src="/static/img/service_icon.svg" class="object-scale-down h-48 w-96" alt="">
+          <div class="flex flex-col mb-32 space-y-6 md:w-3/4 items-center">
+            <a href="{% url 'userserviceproductlist' %}" class="max-w-md text-2xl text-left text-ebony md:text-2xl">
+              <h5 class="max-w-md text-4xl font-bold text-left text-ebony italic md:text-5xl">Zobacz produkty, które monitorujesz</h5>
+            </a>
+            <div class="items-right justify-between">
+              <a href="{% url 'serviceproductlist' %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie produkty w naszym serwisie</a>
+              <a href="{% url 'servicelist' %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie sklepy w naszym serwisie</a>
+              
+              {% if user.profile.role == 'moderator' %}
+                <a href="{% url 'productlist' %}" class="inline-grid min-w-full mb-3 px-3 italic text-black">Zarządzaj produktami w serwisie</a>
+                <a href="{% url 'servicelist' %}" class="inline-grid min-w-full mb-3 px-3 italic text-black">Zarządzaj sklepami w serwisie</a>
+              {% endif %}
+            
             </div>
-            <div class="flex justify-center">
-              <p class="text-xl	font-bold underline decoration-1"><a href="{% url 'servicelist' %}">Więcej</p>
-            </div>
+
           </div>
-          <!-- Right div -->
-          <div class="flex flex-col mb-32 space-y-6 md:w-1/2 items-center">
-            <h5 class="max-w-md text-4xl mb-6 font-bold text-center text-ebony md:text-5xl">Twoje produkty</h5>
-            <div class="flex justify-center">
-              <img src="/static/img/product_icon.svg" class="object-scale-down h-48 w-96" alt="">
-            </div>
-            <div class="flex justify-center">
-              <p class="text-xl	font-bold underline decoration-1"><a href="{% url 'productlist' %}">Więcej</p>
-            </div>
-          </div>
+
           {% else %}
-          <!-- Left div -->
-          <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
-            <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
-              Monitoruj ceny i kupuj mądrze!
-            </h1>
-            <p class="max-w-sm text-center text-ebony md:text-left">
-              Trzymaj rękę na pulsie, kupuj wtedy gdy jest najkorzystniej!
-            </p>
-            <div class="flex justify-center md:justify-start">
-            <a href="{% url 'register' %}" class="p-3 px-6 text-white text-center bg-coffee rounded-full hover:bg-pink">Zarejestruj się</a>
+            <!-- Left div -->
+            <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+              <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
+                Monitoruj ceny i kupuj mądrze!
+              </h1>
+              <p class="max-w-sm text-center text-ebony md:text-left">
+                Trzymaj rękę na pulsie, kupuj wtedy gdy jest najkorzystniej!
+              </p>
+              <div class="flex justify-center md:justify-start">
+              <a href="{% url 'register' %}" class="p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarejestruj się</a>
+              </div>
             </div>
-          </div>
-          <!-- Image -->
-          <div class="md:w-1/2">
-            <img src="/static/img/heroimage.svg" alt="">
-          </div>
+            <!-- Image -->
+            <div class="md:w-1/2">
+              <img src="/static/img/heroimage.svg" alt="">
+            </div>
           {% endif %}
+
+
+
           {% endblock %}
         </div>
         <!-- Footer -->
-        <footer class="bg-coffee mt-auto fixed bottom-0 min-w-full">
+        <footer class="bg-coffee mt-auto fixed bottom-0 min-w-full bg-indigo_dye">
           <!-- Flex Container -->
           <div class="container flex flex-col justify-between px-3 mx-auto space-y-0 md:flex-row">
             <!-- Logo container -->
@@ -143,7 +150,7 @@
               </div>
             </div>
               <!-- Social Links Container -->
-            <div class="flex flex-col pt-4 items-right justify-between md:flex-row md:space-x-6">
+            <div class="flex flex-col pt-4 items-right justify-between md:flex-row md:space-x-10">
               <!-- Link 1 -->
               <a href="#" target="_blank">
                 <img src="/static/img/icon-linkedin.svg" class="h-8" alt=""/>

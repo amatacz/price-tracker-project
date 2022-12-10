@@ -1,41 +1,60 @@
 from django.shortcuts import render, redirect
 
 from pricemonitor.models.serviceproduct import ServiceProduct
-from django.views.generic import ListView
+from pricemonitor.models.service import Service
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.views import redirect_to_login
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import authenticate, login, logout
-from pricemonitor.permissions import ModeratorPermisionMixin
+from pricemonitor.permissions import ModeratorPermissionMixin
 
 class ServiceProductList(LoginRequiredMixin, ListView):
     model = ServiceProduct
-    template_name = "pricemonitor/serviceproduct_list.html"
+    template_name = "pricemonitor/serviceproduct/list.html"
 
 
-class ServiceProductCreate(ModeratorPermisionMixin, CreateView):
+class ServiceProductCreate(ModeratorPermissionMixin, CreateView):
     model = ServiceProduct
     fields = ['product', 'service', 'product_url']
-    template_name = "pricemonitor/serviceproduct_create_form.html"
+    template_name = "pricemonitor/serviceproduct/create_form.html"
     success_url = reverse_lazy('serviceproductlist')
 
-    def get_initial(self):
-        return {
-            'service': self.kwargs['service_id']
-        }
-
-    def get_success_url(self):
-        return reverse_lazy('servicedetail', args=[self.kwargs['service_id']])
 
 
-class ServiceProductUpdate(ModeratorPermisionMixin, UpdateView):
+class ServiceProductUpdate(ModeratorPermissionMixin, UpdateView):
     model = ServiceProduct
-    template_name = "pricemonitor/serviceproduct_update_form.html"
+    fields = "__all__"
+    template_name = "pricemonitor/serviceproduct/update_form.html"
     success_url = reverse_lazy('serviceproductlist')
 
-
-class ServiceProductDelete(ModeratorPermisionMixin, DeleteView):
+class ServiceProductDetail(LoginRequiredMixin, DetailView):
     model = ServiceProduct
-    template_name = "pricemonitor/serviceproduct_delete_form.html"
+    template_name = "pricemonitor/serviceproduct/detail.html"
+
+    
+    def assign_product_to_user(self, request):       
+        pass
+
+
+class ServiceProductDelete(ModeratorPermissionMixin, DeleteView):
+    model = ServiceProduct
+    template_name = "pricemonitor/delete_form.html"
     success_url = reverse_lazy('serviceproductlist')
+
+
+class ProductsInServiceProduct(LoginRequiredMixin, ListView):
+    model = ServiceProduct
+
+    def get(self, request, pk):
+        items = self.model.objects.filter(product__id = pk)
+        return render(request, 'pricemonitor/serviceproduct/products_in_serviceproducts_list.html', {'items':items})
+
+
+class ServiceItemsList(LoginRequiredMixin, ListView):
+    model = ServiceProduct
+
+    def get(self, request, pk):
+        items = self.model.objects.filter(service__id = pk)
+        return render(request, 'pricemonitor/serviceproduct/serviceproducts_in_service_list.html', {'items':items})

@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 
-from django.views.generic import View, UpdateView, DeleteView
-from django.contrib.auth.views import redirect_to_login
+from django.views.generic import CreateView, View, DeleteView
 from django.views.generic.detail import DetailView
+
+from django.contrib.auth.views import redirect_to_login
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from pricemonitor.forms import SignUpForm, LoginUserForm
+from pricemonitor.forms import SignUpForm, LoginUserForm, UserForm, ProfileForm, UserProductAssignmentForm
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes
@@ -16,15 +17,74 @@ from pricemonitor.tokens import account_activation_token
 
 from django.contrib.auth.models import User
 from pricemonitor.models.userprofile import UserProfile
+from pricemonitor.models.serviceproduct import ServiceProduct
 from django.utils.encoding import force_str
 from pricemonitor.tokens import account_activation_token
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from pricemonitor.permissions import UserRequestPermissionMixin
 
+from shapeshifter.views import MultiModelFormView
+from shapeshifter.mixins import MultiSuccessMessageMixin
 
 
 
 # User views
+
+class UserProfileView(LoginRequiredMixin, DetailView):
+    model = User
+    template_name = 'pricemonitor/profile/detail.html'
+
+    def get(self, request):
+        user_related_data = User.objects.filter(username = User.username)
+        context = {
+            "user_related_data": user_related_data
+        }
+        return render(request, self.template_name, context)
+
+
+class UserDeleteView(UserRequestPermissionMixin, DeleteView):
+    model = User
+    template_name = "pricemonitor/profile/delete_form.html"
+    success_url = reverse_lazy('home')
+
+
+class UserUpdateView(LoginRequiredMixin, MultiSuccessMessageMixin, MultiModelFormView):
+    form_classes = (UserForm, ProfileForm)
+    template_name = "pricemonitor/profile/update_form.html"
+    success_url = reverse_lazy('home')
+    success_message = 'Twój profil został zaktualizowany'
+
+    def get_instances(self):
+        profile_instance = UserProfile.objects.filter(
+                user=self.request.user,
+            ).first()
+        instances = {
+            'userform': self.request.user,
+            'profileform': profile_instance,
+        }
+
+        return instances
+
+class UserProductAssignment(LoginRequiredMixin, CreateView):
+    form_class = UserProductAssignmentForm
+    template_name = "pricemonitor/userproductassignment/userproductassignment_form.html"
+    success_url = reverse_lazy('home')
+
+    def create(self):
+        serviceproduct = ServiceProduct.objects.get(pk=self.pk)
+
+        UserProductAssignment.objects.update_or_create(
+                user = self.request.user,
+                defaults = {
+                    'serviceproduct': serviceproduct
+                }
+            ).save()
+
+
+
+# LogIn, LogOut, SignUp and Activate views
+
 class signUp(View):
     form_class = SignUpForm
     template_name = 'registration/register.html'
@@ -76,6 +136,7 @@ class ActivateAccount(View):
             messages.warning(request, ('Link nie działa, prawdopodobnie wygasł lub został już użyty.'))
             return redirect('home')
 
+
 class loginView(View):
     form_class = LoginUserForm
     template_name = 'registration/login.html'
@@ -105,40 +166,8 @@ class loginView(View):
         form = LoginUserForm()
         return render(request, 'registration/login.html', {'form':form})
 
+
 class logoutView(View):
     def get(self, request):
         logout(request)
         return redirect('home')
-
-def home_view(request):
-    return render(request, 'pricemonitor/base.html')
-
-
-class UserProfile(LoginRequiredMixin, DetailView):
-    model = User
-    template_name = 'pricemonitor/profile.html'
-
-    def get(self, request):
-        user_related_data = User.objects.filter(username = User.username)
-        context = {
-            "user_related_data": user_related_data
-        }
-        return render(request, self.template_name, context)
-
-class UserUpdate(LoginRequiredMixin, UpdateView):
-    model = User
-    template_name = "pricemonitor/profile_update_form.html"
-    fields = ["username", "email"]
-    success_url = reverse_lazy('userprofile')
-
-class UserProfileUpdate(LoginRequiredMixin, UpdateView):
-    model = UserProfile
-    template_name = 'pricemonitor/userprofile_update_form.html'
-    fields = ['avatar']
-    success_url = reverse_lazy('userprofile')
-
-
-class UserDelete(LoginRequiredMixin, DeleteView):
-    model = User
-    template_name = "pricemonitor/user_delete_form.html"
-    success_url = reverse_lazy('home')

@@ -47,6 +47,10 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
 CRISPY_TEMPLATE_PACK = "tailwind"
 
+TEMPLATE_DIRS = (
+    "pricemonitor/templates",
+)
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
