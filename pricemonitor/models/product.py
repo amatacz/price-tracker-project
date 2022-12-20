@@ -24,6 +24,8 @@ class Product(models.Model):
     product_name = models.CharField(max_length=255, verbose_name="Nazwa techniczna")
     verbose_name = models.CharField(max_length=255, verbose_name="Nazwa produktu")
     status = models.CharField(max_length=1, choices=STATUSES, default="p")
+    product_URL = models.CharField(max_length=255, verbose_name="Link do produktu", validators=[validate_url], default="brak adresu")
+    price = models.DecimalField(max_digits=10, decimal_places=2, default="0.00", verbose_name="Aktualna cena produktu")
 
 
     def __str__(self):

@@ -1,6 +1,0 @@
-model user ma pole is.active jak sie tworzy usera przez user creation form i tym polem sie modyfikuje tak, ze jak jest false, przychodzi ten link
-
-tailwind
-
-
-celery serviceproductdatarequest.get_data()

@@ -108,6 +108,7 @@
               
               {% if user.profile.role == 'moderator' %}
                 <a href="{% url 'productlist' %}" class="inline-grid min-w-full mb-3 px-3 italic text-black">Zarządzaj produktami w serwisie</a>
+                <a href="{% url 'serviceproductlist' %}" class="inline-grid min-w-full mb-3 px-3 italic text-black">Zarządzaj produktami z wszystkich sklepów</a>
                 <a href="{% url 'servicelist' %}" class="inline-grid min-w-full mb-3 px-3 italic text-black">Zarządzaj sklepami w serwisie</a>
               {% endif %}
             

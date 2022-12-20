@@ -1,49 +1,14 @@
-jak wyswietlic np wszystkie iphone?
+Nie tworzyłam modelu UserServiceProductRequest, tylko zrobiłam tak, że User może zarequestować Product, gdzie podaje nazwę i link.
+Model produkt ma pole status i domyślnie status jest "Oczekuje", admin zmienia na "Zaakceptowane".
+
+Admin widzi wszystkie Produkty ze wszystkimi statusami i jak sprawdzi, że wszystko gra, akceptuje i wtedy moze od razu stworzyć ServiceProduct dla wszystkich serwisów - n. iphone13 we wszystkich dostepnych sklepach.
+Userzy widzą stworzone ServiceProducty i mogą jednym kllikiem dodawać je do obserwowanych -> tworzy się wtedy obiekt UserServiceProduct i ich listę widzi User w "Moje obserwowane produkty" 
+-> analogicznie na klik usuwasz z obserwowanych i ten obiekt sie usuwa.
+
+Tak samo User może zarequestować Service, on widzi liste tylko tych zaakceptowanych -> admin widzi wszystkie i moze je klepnąć albo nie.
 
 
-home
-1. mozesz przejsc do listy wszystkich ServiceProductow
-	widac tam:
-	iphone z allegro -> klikasz w szczegoly iphone z allegro i tam jest m.in przycisk "zobacz wszystkie oferty tego produktu"
-	iphone z rtv
-
-"zobacz wszystkie oferty tego produktu" -> to jest widok product/<pk>/list i tam widac wszystkie ServiceProducty z product.id == iphone
-
-2. mozesz przejsc do listy wszystkich sklepów
-	widac tam:
-	rtv euro agd -> klikasz w szczegoly i tam jest przycisk "zobacz wszystkie produkty z tego sklepu"
-	allegro
-"zobacz wszystkie produkty z tego sklepu" -> to jest widok, service/pk/list i tam widac wszystkie ServiceProducty z service.id == rtveuroagd
-
-3. jeśli jesteś moderatorem widzisz -> "zarządzaj produktami w serwisie"
-	tam lista wszystkich Product -> wejście do DETAIL (tu się wyświetla, nazwa i status) -> przjeście do UPDATE i DELETE
-4. jeśli jesteś moderatorem widzisz -> "zarządzaj sklepamie w serwisie"
-	tam lista wszystkich Service -> wejście do DETAIL (tu się wyświetla, nazwa i status) -> przjeście do UPDATE i DELETE
-
-
-
-
-Widok Listy ServiceProductow -> w każdej karcie jest przycisk "Obserwuj", taki przycisk tworzy obiekt UserServiceProduct z załadowanym id SP i id Usera
-
-
-Dodaj sklep, dodaj produkt, dodaj produkt do serwisu (get initial z zaladowanym serwisem)
-
-
-Product to
-nazwa_techniczna i nazwa verbose, status
-
-serwis to
-nazwa_techniczna, nazwa verbose i host, status
-
-serviceproduct
-product - fk do Product
-service - fk do Service
-link do produktu z danego serwisu (walidator?)
-status
-
-
-
-
+jak jestem w backend.base.media_markt.parser nie moge importować np backend.base.BaseParser
 
 
 

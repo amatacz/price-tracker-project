@@ -20,7 +20,7 @@ class ProductList(ModeratorPermissionMixin, ListView):
 class ProductCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Product
     template_name = "pricemonitor/product/create_form.html"
-    fields = ["verbose_name"]
+    fields = ["verbose_name", "product_URL"]
     success_url = reverse_lazy('serviceproductlist')
     success_message = 'Dziękujemy za dodanie produktu. Produkt będzie widoczny po zatwierdzeniu go przez moderatora.'
 
