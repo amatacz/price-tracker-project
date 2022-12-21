@@ -45,9 +45,9 @@ class ServiceProduct(models.Model):
 
 class ServiceProductItemManager(models.Manager):
 
-    def register_from_data(self, data):
+    def register_from_data(self, data, service_product):
         self.create(
-            service_product=ServiceProduct.objects.get_from_data(data.get("service_name"), data.get("product_name")),
+            service_product=service_product,
             date=data.get("date"),
             price=data.get("price")
         )
@@ -83,18 +83,17 @@ class ServiceProductDataRequest(models.Model):
     def get_data(self):
         self.status = 'r'
         self.save()
-        parser = import_module(f'pricetracker.pricemonitor.backend.{self.service_product.service.service_name}.parser')
+        parser = import_module(f'pricemonitor.backend.{self.service_product.service.service_name}.parser')
         parser_obj = parser.Parser(
             url=self.service_product.product_url,
-            product_name=self.service_product.product_name
         )
         try:
-            response = parser_obj.get_data()
+            response = parser_obj.process()
         except Exception as e:
             self.status = 'e'
             self.error_message = str(repr(e))
         else:
-            ServiceProductItem.object.register_from_data(response)
-            self.status = "d"
+            ServiceProductItem.object.register_from_data(response, self.service_product)
+            self.status = 'd'
         self.end_datetime = datetime.datetime.now()
         self.save()

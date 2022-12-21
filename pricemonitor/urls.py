@@ -27,7 +27,7 @@ urlpatterns = [
 
     # ServiceProduct URLs
     path('serviceproduct/list/', views.ServiceProductList.as_view(), name='serviceproductlist'),
-    path('servicepproduct/create/', views.ServiceProductCreate.as_view(), name='serviceproductcreate'),
+    path('serviceproduct/create/', views.ServiceProductCreate.as_view(), name='serviceproductcreate'),
     path('serviceproduct/update/<pk>/', views.ServiceProductUpdate.as_view(), name='serviceproductupdate'),
     path('serviceproduct/delete/<pk>/', views.ServiceProductDelete.as_view(), name='serviceproductdelete'),
     path('serviceproduct/detail/<pk>', views.ServiceProductDetail.as_view(), name='serviceproductdetail'), 
