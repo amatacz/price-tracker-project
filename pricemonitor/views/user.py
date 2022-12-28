@@ -158,7 +158,7 @@ class loginView(View):
                     login(request, user)
                     messages.success(
                         request, f"Zalogowałeś się jako {username}")
-                    return redirect('home')
+                    return redirect('userserviceproductlist')
                 else:
                     messages.error(request, 'Błąd')
             else:

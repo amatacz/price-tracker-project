@@ -27,3 +27,5 @@ class ProductUserRequest(models.Model):
 
     def __str__(self):
         return self.verbose_name
+
+        #NIEUŻYWANE

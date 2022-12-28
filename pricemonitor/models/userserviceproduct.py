@@ -13,4 +13,4 @@ class UserServiceProduct(models.Model):
     def get_latest_price(self):
         items = self.service_product.items.all()
         if items:
-            return items.latest('date') #to uzyc w template, zeby user widzial cene
+            return items.latest('date') # to uzyc w template, zeby user widzial cene

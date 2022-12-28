@@ -46,11 +46,12 @@ class ServiceProduct(models.Model):
 class ServiceProductItemManager(models.Manager):
 
     def register_from_data(self, data, service_product):
-        self.create(
-            service_product=service_product,
-            date=data.get("date"),
-            price=data.get("price")
-        )
+        if service_product.service.service_url == data:
+            self.create(
+                service_product=service_product,
+                date=data.get("date"),
+                price=data.get("price")
+            )
 
 
 class ServiceProductItem(models.Model):
@@ -83,7 +84,11 @@ class ServiceProductDataRequest(models.Model):
     def get_data(self):
         self.status = 'r'
         self.save()
-        parser = import_module(f'pricemonitor.backend.{self.service_product.service.service_name}.parser')
+        #parser = import_module(f'pricemonitor.backend.{self.service_product.service.service_name}.parser')
+        parser = import_module('pricemonitor.backend.ceneo.parser')
+
+        # czy poniżej url powinien równać się wynikowi wyszukiwania na ceneo -> w takim razie stworzyć przykładowy ServiceProduct
+        # i wtedy przypisywać na pdst. service_product.service.service_url
         parser_obj = parser.Parser(
             url=self.service_product.product_url,
         )

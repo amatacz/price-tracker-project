@@ -1,17 +1,3 @@
-Nie tworzyłam modelu UserServiceProductRequest, tylko zrobiłam tak, że User może zarequestować Product, gdzie podaje nazwę i link.
-Model produkt ma pole status i domyślnie status jest "Oczekuje", admin zmienia na "Zaakceptowane".
-
-Admin widzi wszystkie Produkty ze wszystkimi statusami i jak sprawdzi, że wszystko gra, akceptuje i wtedy moze od razu stworzyć ServiceProduct dla wszystkich serwisów - n. iphone13 we wszystkich dostepnych sklepach.
-Userzy widzą stworzone ServiceProducty i mogą jednym kllikiem dodawać je do obserwowanych -> tworzy się wtedy obiekt UserServiceProduct i ich listę widzi User w "Moje obserwowane produkty" 
--> analogicznie na klik usuwasz z obserwowanych i ten obiekt sie usuwa.
-
-Tak samo User może zarequestować Service, on widzi liste tylko tych zaakceptowanych -> admin widzi wszystkie i moze je klepnąć albo nie.
-
-
-jak jestem w backend.base.media_markt.parser nie moge importować np backend.base.BaseParser
-
-
-
-
-
-
+serviceproduct.py 
+czy url w parser_obj powinien równać się wynikowi wyszukiwania na ceneo 
+-> w takim razie stworzyć przykładowy ServiceProduct z linkien do ceneo -> czy zrobic dodatkowe, ukryte pole w SP (np. ceneo_url) i na nim uruchamiać parser?

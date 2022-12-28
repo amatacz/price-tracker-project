@@ -3,7 +3,7 @@ import pprint
 
 sys.path.append("../")
 
-from media_expert.parser import Parser
+from ceneo.parser import Parser
 
-p = Parser(url="https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/smartfon-apple-iphone-13-256gb-5g-6-1-czerwony-mlq93pm-a")
+p = Parser(url="https://www.ceneo.pl/115151297;0280-0.htm")
 pprint.pprint(p.process())

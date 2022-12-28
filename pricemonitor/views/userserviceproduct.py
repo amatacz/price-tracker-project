@@ -22,7 +22,7 @@ class UserServiceProductCreate(LoginRequiredMixin, View):
         else:
             UserServiceProduct(user=request.user, service_product=service_product).save()
             messages.success(request, "Dodano!")
-        return redirect('userserviceproductlist')
+        return redirect('serviceproductlist')
 
 
 class UserServiceProductList(LoginRequiredMixin, ListView):
@@ -35,4 +35,4 @@ class UserServiceProductDelete(LoginRequiredMixin, DeleteView):
         user_serviceproduct = UserServiceProduct.objects.get(pk=pk)
         user_serviceproduct.delete()
         messages.success(request, "Przestałeś obserwować ten produkt")
-        return redirect('userserviceproductlist')
+        return redirect('serviceproductlist')

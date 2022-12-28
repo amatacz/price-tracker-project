@@ -26,25 +26,12 @@
             },
               extend: {
                 colors: {
-                // ice: '#99D3DF',
-                //   // fresh_water: '#88BBD6',
-                //   // plaster: '#CDCDCD',
-                //   // linen: 'E9E9E9',
-                //   // powder_blue: '#4B6D9D',
-                // dark_jeans: '#274463',
-                //   // orange: '#e28743',
-                // mint: '#92ddc8',
-                // rose: '#dd929c',
-                // salmon: '#ddb292',
-                // pink: '#f8e8e9',
                 cream: '#fefafb',
-                // ebony: '#241e20',
-                // coffee: '#a9908d',
-                indigo_dye: '#134074',
-                prussian_blue: '#13315c',
-                oxford_blue: '#0b2545',
-                pewter_blue: '#8da9c4',
-                mint_cream: '#eef4ed',
+                beige: '#efefd0',
+                english_vermillion:'#d64550',
+                peach: '#f7c59f',
+                usafa_blue: '#004e89',
+                sapphire_blue: '#1a659e',
               },
               fontFamily: {
                 'oswald': ['Oswald'],
@@ -58,8 +45,7 @@
       <link rel="stylesheet" href="css/main.css">
       <!-- responsive css TO DO -->
     </head>
-
-    <body class="flex flex-col min-h-screen bg-gradient-to-br from-indigo_dye to-cream via-mint_cream">
+    <body class="flex flex-col min-h-screen bg-cream">
       <!-- Navbar -->
       {% block nav %}
       <nav class="relative container min-w-full">
@@ -91,7 +77,7 @@
       {% endblock %}
 
       <!-- Hero section -->
-      <section id="hero">
+      <section id="hero" class="bg-gradient-to-br from-usafa_blue to-beige" style="margin: 20px; margin-left: 80px; margin-right: 80px;">
         <!-- Flex Container -->
         <div class="container flex flex-col-reverse md:flex-row justify-between p-16 mx-auto m-10 space-y-0 md:space-y-0">
           {% block content %}
@@ -139,8 +125,9 @@
 
           {% endblock %}
         </div>
+        </section>
         <!-- Footer -->
-        <footer class="bg-coffee mt-auto fixed bottom-0 min-w-full bg-indigo_dye">
+        <footer class="bg-coffee mt-auto fixed bottom-0 min-w-full">
           <!-- Flex Container -->
           <div class="container flex flex-col justify-between px-3 mx-auto space-y-0 md:flex-row">
             <!-- Logo container -->

@@ -10,8 +10,6 @@ from django.contrib.auth.admin import UserAdmin as AuthUserAdmin
 
 
 admin.site.register(UserProfile)
-# admin.site.register(ProductUserRequest)
-# admin.site.register(ServiceUserRequest)
 admin.site.register(Product)
 admin.site.register(Service)
 admin.site.register(ServiceProduct)

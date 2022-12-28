@@ -13,3 +13,5 @@ class ServiceUserRequest(models.Model):
     host = models.URLField(max_length=255, verbose_name="Link do sklepu")
     service = models.ForeignKey("Service", on_delete=models.CASCADE)
     status = models.CharField(max_length=1, choices=STATUSES, default="p")
+
+    #NIE UŻYWANE
