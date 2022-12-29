@@ -1,4 +1,3 @@
-from pricemonitor.models.productuserrequest import ProductUserRequest
 from django.contrib.auth.mixins import LoginRequiredMixin
 from pricemonitor.permissions import ModeratorPermissionMixin
 from django.views.generic.edit import CreateView, DeleteView

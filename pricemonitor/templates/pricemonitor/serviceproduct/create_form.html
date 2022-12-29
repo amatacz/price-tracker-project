@@ -8,21 +8,19 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
-    <h1 class="max-w-md text-4xl font-bold text-powder_blue text-center md:text-5xl md:text-left">
-        Dodaj produkt
-    </h1>
-
+<div>
+    <h3 class="mt-32 pt-16 text-5xl text-start text-ebony">Produkty dostępne w naszym sklepie</h3>
+</div>
+<div class="my-4">
     <form method="POST" action="">
     {% csrf_token %}
-    <h4 class="max-w-sm text-center text-dark_jeans md:text-left">
+    <h4 class="max-w-sm text-center text-ebony md:text-left">
         {{ form|crispy }}
     </h4>    
-    <button type="submit" class="p-3 px-6 my-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye">Zapisz</button>
+    <button type="submit" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Zapisz</button>
     </form>
     <div class="flex flex-col mb-16">
-        <a href="{% url 'productlist' %}" class="p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye">Wróc do listy produktów</a>
+        <a href="{% url 'productlist' %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Wróc do listy produktów</a>
     </div>    
 </div>
 {% endblock %}

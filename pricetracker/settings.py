@@ -38,10 +38,24 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pricemonitor',
+
     'rest_framework',
     'crispy_forms',
-    'crispy_tailwind'
+    'crispy_tailwind',
+
+    'tailwind',
+    'theme',
+    'django_browser_reload',
+    
 ]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
@@ -51,7 +65,6 @@ TEMPLATE_DIRS = (
     "pricemonitor/templates",
 )
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'pricetracker.urls'

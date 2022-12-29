@@ -37,7 +37,6 @@ urlpatterns = [
     path('deleteserviceproduct/<pk>', views.UserServiceProductDelete.as_view(), name='useserviceproductdelete'),
     path('userserviceproduct/list/', views.UserServiceProductList.as_view(), name='userserviceproductlist'),
 
-
     # Registration and user profile URLs
     path('activate/<uidb64>/<token>/', views.ActivateAccount.as_view(), name='activate'),
     path('register/', views.signUp.as_view(), name='register'),

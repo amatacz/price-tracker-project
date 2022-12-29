@@ -33,14 +33,13 @@ class ServiceProductDetail(LoginRequiredMixin, DetailView):
     model = ServiceProduct
     template_name = "pricemonitor/serviceproduct/detail.html"
 
-    
     def assign_product_to_user(self, request):       
         pass
 
 
 class ServiceProductDelete(ModeratorPermissionMixin, DeleteView):
     model = ServiceProduct
-    template_name = "pricemonitor/delete_form.html"
+    template_name = "pricemonitor/serviceproduct/delete_form.html"
     success_url = reverse_lazy('serviceproductlist')
 
 

@@ -8,19 +8,20 @@
 {% endblock %}
 
 {% block content %}
-<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
-        <h1 class="max-w-md text-4xl font-bold text-center text-indigo_dye md:text-5xl md:text-left">
-            Dodaj produkt
-        </h1>
-        <form method="POST" action="">
-        {% csrf_token %}
-        <h4 class="max-w-sm text-center text-dark_jeans md:text-left">
-            {{ form|crispy }}
-        </h4>    
-        <button type="submit" class="p-3 px-6 mt-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zapisz</button>
-        </form>
-    <div class="flex flex-col mb-16">
-        <a href="{% url 'productlist' %}" class="p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Wróc do listy produktów</a>
-    </div>   
+
+<div>
+    <h3 class="my-10  text-5xl text-start text-ebony">Dodaj produkt</h3>
 </div>
+<div class="mb-4">
+    <form method="POST" action="">
+    {% csrf_token %}
+    <h4 class="max-w-sm text-center text-ebony md:text-left">
+        {{ form|crispy }}
+    <button type="submit" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Zapisz</button>
+    </form>
+    <div class="flex flex-col mb-16">
+        <a href="{% url 'serviceproductlist' %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Wróc do listy produktóww</a>
+    </div>    
+</div>
+
 {% endblock %}

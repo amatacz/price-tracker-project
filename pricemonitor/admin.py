@@ -1,7 +1,5 @@
 from django.contrib import admin
 from pricemonitor.models.userprofile import UserProfile
-from pricemonitor.models.productuserrequest import ProductUserRequest
-from pricemonitor.models.serviceuserrequest import ServiceUserRequest
 from pricemonitor.models.serviceproduct import ServiceProduct
 from pricemonitor.models.product import Product
 from pricemonitor.models.service import Service

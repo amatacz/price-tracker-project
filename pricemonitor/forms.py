@@ -4,7 +4,6 @@ from pricemonitor.models.service import Service
 from pricemonitor.models.product import Product
 from pricemonitor.models.serviceproduct import ServiceProduct
 from pricemonitor.models.userprofile import UserProfile, UserProductAssignment
-from pricemonitor.models.productuserrequest import ProductUserRequest
 from django.contrib.auth.models import User
 
 
@@ -43,7 +42,7 @@ class ServiceUpdateForm(forms.ModelForm):
 class ProductCreateForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['verbose_name', 'product_URL']
 
 class ProductUpdateForm(forms.ModelForm):
     class Meta:

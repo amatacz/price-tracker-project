@@ -1,0 +1,23 @@
+{% extends 'pricemonitor/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Usuń produkt - Monitoruj ceny i kupuj mądrze</title>
+{% endblock %}
+
+{% block content %}
+<div>
+    <h3 class="my-10  text-5xl text-start text-ebony">Usuń produkt</h3>
+</div>
+<div class="pb-4">        
+        <form method="POST" action="">
+        {% csrf_token %}
+        <h4 class="text-xl mb-2">
+            Czy na pewno chcesz usunąć <b>{{ serviceproduct.product.verbose_name }}?</b></h4>
+        <button type="submit" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Usuń</button>
+        </form>
+</div>
+<div class="mb-16">        
+    <a href="{% url 'serviceproductlist' %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Wróc do listy produktów</a>
+</div>      
+{% endblock %}

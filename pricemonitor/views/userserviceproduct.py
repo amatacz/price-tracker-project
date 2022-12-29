@@ -35,4 +35,4 @@ class UserServiceProductDelete(LoginRequiredMixin, DeleteView):
         user_serviceproduct = UserServiceProduct.objects.get(pk=pk)
         user_serviceproduct.delete()
         messages.success(request, "Przestałeś obserwować ten produkt")
-        return redirect('serviceproductlist')
+        return redirect('userserviceproductlist')

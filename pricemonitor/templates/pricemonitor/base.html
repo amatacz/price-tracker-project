@@ -1,3 +1,5 @@
+{% load tailwind_tags %}
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -10,80 +12,86 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
+      {% tailwind_css %}
+
       {% block title %}
       <title>Price Monitor</title>
       {% endblock %}
-      <!-- tailwind css -->
-      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-      <script>
-        tailwind.config = {
-          theme: {
-            screens: {
-              sm: '480px',
-              md: '768px',
-              lg: '976px',
-              xl: '1140px'
-            },
-              extend: {
-                colors: {
-                cream: '#fefafb',
-                beige: '#efefd0',
-                english_vermillion:'#d64550',
-                peach: '#f7c59f',
-                usafa_blue: '#004e89',
-                sapphire_blue: '#1a659e',
-              },
-              fontFamily: {
-                'oswald': ['Oswald'],
-                'oxygen': ['Oxygen']
-              },
-            }
-          }
-        }
-      </script>
       <!-- style css-->
-      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="./theme/static/css/dist/styles.css">
       <!-- responsive css TO DO -->
     </head>
-    <body class="flex flex-col min-h-screen bg-cream">
+    
+    <body class="flex flex-col min-h-screen bg-white">
+      <div class="header_section">
+
       <!-- Navbar -->
       {% block nav %}
       <nav class="relative container min-w-full">
       <!-- Flex container -->
         <div class="flex items-center justify-between">
           <!-- Logo -->
+          {% if user.is_authenticated %}
+          <div class="pt-2">
+            <a href="{% url 'userserviceproductlist' %}"><img src="/static/img/logo.svg" alt=""/></a>
+          </div>
+          {% else %}
           <div class="pt-2">
             <a href="{% url 'home' %}"><img src="/static/img/logo.svg" alt=""/></a>
           </div>
+          {% endif %}
           <div class="flex items-center justify-between">
             {% for msg in messages %}
-              {{ msg }}
+              <p class="font-bold text-sapphire_blue">{{ msg }}</p>
             {% endfor %}
           </div>
           {% if user.is_authenticated %}
           <!-- Buttons -->
           <div class="items-right justify-between">
-            <a href="{% url 'profile' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Profil {{ user.username }}</a>
-            <a href="{% url 'logout' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Wyloguj się</a>
+
+            {% if user.profile.role == 'moderator' %}
+            <a href="{% url 'productlist' %}" class="inline-grid m-3 text-center text-stone hover:text-light_peach underline underline-offset-4"> Panel Administratora</a>
+            {% endif %}
+
+            <a href="{% url 'profile' %}" class="inline-grid m-3 text-center text-stone hover:text-light_peach underline underline-offset-4">Profil {{ user.username }}</a>
+            <a href="{% url 'logout' %}" class="inline-grid m-3 px-6 text-center text-stone hover:text-light_peach underline underline-offset-4">Wyloguj się</a>
           </div>
           {% else %}
           <div class="items-right justify-between">
-            <a href="{% url 'login' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zaloguj się</a>
-            <a href="{% url 'register' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarejestruj się</a>
+            <a href="{% url 'login' %}" class="inline-grid m-3 text-center text-stone hover:text-light_peach underline underline-offset-4">Zaloguj się</a>
+            <a href="{% url 'register' %}" class="inline-grid m-3 px-6 text-center text-stone hover:text-light_peach underline underline-offset-4">Zarejestruj się</a>
           </div>
           {% endif %}
         </div>
       </nav>
       {% endblock %}
+      </div>
 
       <!-- Hero section -->
-      <section id="hero" class="bg-gradient-to-br from-usafa_blue to-beige" style="margin: 20px; margin-left: 80px; margin-right: 80px;">
+      <section id="hero">
         <!-- Flex Container -->
-        <div class="container flex flex-col-reverse md:flex-row justify-between p-16 mx-auto m-10 space-y-0 md:space-y-0">
-          {% block content %}
-          {% if user.is_authenticated %}
+        <div class="bg-cream max-w-[85%] max-h-[50%] mx-auto shadow-xl shadow-gray-700 container flex flex-col-reverse items-center md:flex-row p-10 my-4 space-y-2 md:space-y-0">
           
-          <!-- Left div -->
+          <div class="flex flex-col space-y-6 md:w-1/2">
+            <img src="/static/img/hero_image.svg" width="300px" height="300px"/>           
+          </div>
+          <div class="flex flex-col md:w-1/2">
+            <h5 class="max-w-md font-sans font-light text-2xl text-left text-neutral-700 md:text-2xl">Trzymaj  rękę na pulsie, kupuj</h5>
+            <h5 class="max-w-md font-serif font-normal text-4xl text-left text-neutral-700 md:text-5xl">GDY JEST TANIEJ</h5>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content section -->
+      <section id="content" class="max-w-[85%] mx-32 p-16">
+        {% block content %}
+
+        {% endblock %}
+      </section>
+          
+          <!-- DO ZWERYFIKOWANIA CZY TO JEST POTRZEBNE
+            
+            Left div 
           <div class="flex flex-col mb-32 space-y-6 md:w-3/4 items-center">
             <a href="{% url 'userserviceproductlist' %}" class="max-w-md text-2xl text-left text-ebony md:text-2xl">
               <h5 class="max-w-md text-4xl font-bold text-left text-ebony italic md:text-5xl">Zobacz produkty, które monitorujesz</h5>
@@ -91,19 +99,10 @@
             <div class="items-right justify-between">
               <a href="{% url 'serviceproductlist' %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie produkty w naszym serwisie</a>
               <a href="{% url 'servicelist' %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie sklepy w naszym serwisie</a>
-              
-              {% if user.profile.role == 'moderator' %}
-                <a href="{% url 'productlist' %}" class="inline-grid min-w-full mb-3 px-3 italic text-black">Zarządzaj produktami w serwisie</a>
-                <a href="{% url 'serviceproductlist' %}" class="inline-grid min-w-full mb-3 px-3 italic text-black">Zarządzaj produktami z wszystkich sklepów</a>
-                <a href="{% url 'servicelist' %}" class="inline-grid min-w-full mb-3 px-3 italic text-black">Zarządzaj sklepami w serwisie</a>
-              {% endif %}
-            
             </div>
 
           </div>
-
-          {% else %}
-            <!-- Left div -->
+             Left div 
             <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
               <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
                 Monitoruj ceny i kupuj mądrze!
@@ -115,36 +114,38 @@
               <a href="{% url 'register' %}" class="p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarejestruj się</a>
               </div>
             </div>
-            <!-- Image -->
+             Image 
             <div class="md:w-1/2">
               <img src="/static/img/heroimage.svg" alt="">
             </div>
-          {% endif %}
+          -->
 
-
-
-          {% endblock %}
-        </div>
-        </section>
         <!-- Footer -->
-        <footer class="bg-coffee mt-auto fixed bottom-0 min-w-full">
+        <footer class="bg-white mt-auto fixed bottom-0 min-w-full">
           <!-- Flex Container -->
           <div class="container flex flex-col justify-between px-3 mx-auto space-y-0 md:flex-row">
             <!-- Logo container -->
             <div class="flex flex-col items-start justify-between md:flex-row md:space-x-6">
               <!-- Logo -->
+              {% if user.is_authenticated %}
               <div>
-                <a href="{% url 'home' %}"><img src="/static/img/logo.svg" class="h-16" alt=""/></a>
+                <a href="{% url 'userserviceproductlist' %}"><img src="/static/img/logo.svg" class="h-16" alt=""/></a>
               </div>
             </div>
+            {% else %}
+            <div>
+              <a href="{% url 'home' %}"><img src="/static/img/logo.svg" class="h-16" alt=""/></a>
+            </div>
+          </div>
+            {% endif%}
               <!-- Social Links Container -->
             <div class="flex flex-col pt-4 items-right justify-between md:flex-row md:space-x-10">
               <!-- Link 1 -->
-              <a href="#" target="_blank">
+              <a href="https://www.linkedin.com/in/aleksandra-matacz/" target="_blank">
                 <img src="/static/img/icon-linkedin.svg" class="h-8" alt=""/>
               </a>
               <!-- Link 2 -->
-              <a href="#" target="blank">
+              <a href="https://github.com/amatacz" target="blank">
                 <img src="/static/img/icon-github.svg" class="h-8" alt=""/>
               </a>
             </div>

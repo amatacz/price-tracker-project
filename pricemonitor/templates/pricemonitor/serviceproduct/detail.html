@@ -7,36 +7,49 @@
 
 
 {% block content %}
-<!-- Left div -->
-<div class="flex flex-col mb-32 space-y-12 md:w-3/4">
-    <div class="md:w-3/4">
-        <h4 class="max-w-md text-4xl mb-4 font-bold text-center text-ebony md:text-5xl md:text-left">
-            {{ serviceproduct.product.verbose_name }} z {{ serviceproduct.service.verbose_name }}
-        </h4>
+<div class="container flex flex-row">
+<div class="mb-32 space-x-12 md:w-1/2">
+    <div>
+    <h1 class="max-w-md text-4xl font-bold text-center text-black md:text-5xl md:text-left">
+        {{ serviceproduct.product.verbose_name }}
+    </h1>
+    <h2 class="max-w-md text-2xl font-bold text-center text-ebony md:text-4xl md:text-left">z {{ serviceproduct.service.verbose_name }}</h2>
+
+        <p class="max-w-sm text-center text-ebony md:text-left italic">
+            <a href="https://{{ serviceproduct.product.product_url }}" target="_blank">
+            Link do produktu
+            </a>
+        </p>
+        <p class="max-w-sm text-center text-ebony md:text-left">
+            {{ userserviceproduct.get_latest_price }} TU POWINNA BYĆ AKTUALNA CENA
+        </p>
         <ul>
             <li class="mt-4 mb-4 text-black">tu będzie najwyższa cena produktu odkąd jest w bazie</li>
             <li class="mt-4 mb-4 text-black">tu będzie najniższa cena produktu odkąd jest w bazie</li>
-            <li class="pt-2 font-bold text-black"><a href="{{ serviceproduct.product_url }}" target="_blank">Link do produktu</a></li>
         </ul>
+
     </div>
     <div class="flex flex-col justify-start md:justify-between">
-        <!-- Hide buttons available for moderators -->
+        <!-- Hidden buttons available for moderators -->
         {% if user.profile.role == 'moderator' %}
-        <div class="flex flex-col mt-2 mb-6 md:flex-row space-x-4">
-            <a href="{% url 'serviceproductupdate' serviceproduct.id %}" class="p-3 px-8 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Edytuj</a>
-            <a href="{% url 'serviceproductdelete' serviceproduct.id %}" class="p-3 px-8 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Usuń</a>  
+        <div class="flex flex-col mt-16 mb-8 md:flex-row space-x-10">
+            <div>
+                <a href="{% url 'serviceproductupdate' serviceproduct.id %}" class="min-w-full px-3 text-white text-center rounded-md bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Edytuj</a>
+            </div>
+            <div>
+                <a href="{% url 'serviceproductdelete' serviceproduct.id %}" class="min-w-full px-3 text-white text-center rounded-md bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Usuń</a>  
+            </div>
         </div>
         {% endif %}
-        <div class="flex flex-col mb-16 md:w-1/2">
-            <a href="{% url 'productslist' serviceproduct.product.id %}" class="p-3 px-6 mb-3 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz ten produkt w innych sklepach</a>
-            <a href="{% url 'serviceproductlist' %}" class="p-3 px-6 mb-3 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Obserwuj ten produkt</a>
-            <a href="{% url 'servicelist' %}" class="p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Lista serwisów</a>
+        <div class="flex flex-col mb-8 md:w-1/2">
+            <a href="{% url 'serviceproductlist' %}" class="inline-grid min-w-full mt-3 text-white text-center rounded-md bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Lista produktów</a>
         </div>
     </div>
-  </div>
+</div>
   <!-- Image -->
-  <div class="md:w-1/4 ">
+  <div class="md:w-1/2 space-y-12">
     <img src="/static/img/product/{{ serviceproduct.product.product_name }}.png" class="object-contain h-48 w-96" alt="">
   </div>
+
 </div>
 {% endblock %}

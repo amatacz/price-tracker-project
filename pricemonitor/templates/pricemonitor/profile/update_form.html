@@ -8,20 +8,20 @@
 {% endblock %}
 
 {% block content %}
-<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
-    <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
-        Edytuj dane
-    </h1>
+<div>
+    <h3 class="my-10 text-5xl text-ebony">Edytuj dane</h3>
+</div>
+<div class="mb-4">
     <form method="POST" action="">
     {% csrf_token %}
     <h4 class="max-w-sm text-center text-ebony md:text-left">
         {% for form in forms %}
             {{ form|crispy }}
-        {% endfor %}
-    <button type="submit" class="p-3 px-6 my-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zapisz</button>
+        {% endfor %}    <button type="submit" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Zapisz</button>
     </form>
     <div class="flex flex-col mb-16">
-        <a href="{% url 'profile' %}" class="p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Wróc do profilu</a>
+        <a href="{% url 'profile' %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Wróc do profilu</a>
     </div>    
 </div>
+
 {% endblock %}

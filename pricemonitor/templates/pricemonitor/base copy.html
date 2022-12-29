@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+    <head>
+      {% load static %}
+      <!-- basic -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      {% block title %}
+      <title>Price Monitor</title>
+      {% endblock %}
+      <!-- tailwind css -->
+      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+      <script>
+        tailwind.config = {
+          theme: {
+            screens: {
+              sm: '480px',
+              md: '768px',
+              lg: '976px',
+              xl: '1140px'
+            },
+              extend: {
+                colors: {
+                cream: '#fefafb',
+                beige: '#efefd0',
+                english_vermillion:'#d64550',
+                peach: '#f7c59f',
+                usafa_blue: '#004e89',
+                sapphire_blue: '#1a659e',
+              },
+              fontFamily: {
+                'oswald': ['Oswald'],
+                'oxygen': ['Oxygen']
+              },
+            }
+          }
+        }
+      </script>
+      <!-- style css-->
+      <link rel="stylesheet" href="css/main.css">
+      <!-- responsive css TO DO -->
+    </head>
+
+    <body class="flex flex-col min-h-screen bg-cream">
+      <!-- Navbar -->
+      {% block nav %}
+      <nav class="relative container min-w-full">
+      <!-- Flex container -->
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="pt-2">
+            <a href="{% url 'home' %}"><img src="/static/img/logo.svg" alt=""/></a>
+          </div>
+          <div class="flex items-center justify-between">
+            {% for msg in messages %}
+              {{ msg }}
+            {% endfor %}
+          </div>
+          {% if user.is_authenticated %}
+          <!-- Buttons -->
+          <div class="items-right justify-between">
+            {% if user.profile.role == 'moderator' %}
+            <a href="{% url 'productlist' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarządzaj produktami w serwisie</a>
+            <a href="{% url 'serviceproductlist' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarządzaj produktami z wszystkich sklepów</a>
+            <a href="{% url 'servicelist' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarządzaj sklepami w serwisie</a>
+            {% endif %}
+            <a href="{% url 'profile' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Profil {{ user.username }}</a>
+            <a href="{% url 'logout' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Wyloguj się</a>
+          </div>
+          {% else %}
+          <div class="items-right justify-between">
+            <a href="{% url 'login' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zaloguj się</a>
+            <a href="{% url 'register' %}" class="inline-grid m-3 p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarejestruj się</a>
+          </div>
+          {% endif %}
+        </div>
+
+      </nav>
+      {% endblock %}
+
+      <!-- Hero section -->
+      <section id="hero" class="bg-gradient-to-br from-usafa_blue to-beige" style="margin: 20px; margin-left: 80px; margin-right: 80px;">
+        <!-- Flex Container -->
+        <div class="container flex flex-col-reverse md:flex-row justify-between p-16 mx-auto m-10 space-y-0 md:space-y-0">
+          {% block content %}
+          {% if user.is_authenticated %}         
+          <!-- Left div -->
+          <div class="flex flex-col mb-32 space-y-6 md:w-3/4 items-center">
+            <a href="{% url 'userserviceproductlist' %}" class="max-w-md text-2xl text-left text-ebony md:text-2xl">
+              <h5 class="max-w-md text-4xl font-bold text-left text-ebony italic md:text-5xl">Zobacz produkty, które monitorujesz</h5>
+            </a>
+            <div class="items-right justify-between">
+              <a href="{% url 'serviceproductlist' %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie produkty w naszym serwisie</a>
+              <a href="{% url 'servicelist' %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie sklepy w naszym serwisie</a>
+            </div>
+
+          </div>
+
+          {% else %}
+            <!-- Left div -->
+            <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+              <h1 class="max-w-md text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
+                Monitoruj ceny i kupuj mądrze!
+              </h1>
+              <p class="max-w-sm text-center text-ebony md:text-left">
+                Trzymaj rękę na pulsie, kupuj wtedy gdy jest najkorzystniej!
+              </p>
+              <div class="flex justify-center md:justify-start">
+              <a href="{% url 'register' %}" class="p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zarejestruj się</a>
+              </div>
+            </div>
+            <!-- Image -->
+            <div class="md:w-1/2">
+              <img src="/static/img/heroimage.svg" alt="">
+            </div>
+          {% endif %}
+
+
+
+          {% endblock %}
+        </div>
+        </section>
+        <!-- Footer -->
+        <footer class="bg-coffee mt-auto fixed bottom-0 min-w-full">
+          <!-- Flex Container -->
+          <div class="container flex flex-col justify-between px-3 mx-auto space-y-0 md:flex-row">
+            <!-- Logo container -->
+            <div class="flex flex-col items-start justify-between md:flex-row md:space-x-6">
+              <!-- Logo -->
+              <div>
+                <a href="{% url 'home' %}"><img src="/static/img/logo.svg" class="h-16" alt=""/></a>
+              </div>
+            </div>
+              <!-- Social Links Container -->
+            <div class="flex flex-col pt-4 items-right justify-between md:flex-row md:space-x-10">
+              <!-- Link 1 -->
+              <a href="#" target="_blank">
+                <img src="/static/img/icon-linkedin.svg" class="h-8" alt=""/>
+              </a>
+              <!-- Link 2 -->
+              <a href="#" target="blank">
+                <img src="/static/img/icon-github.svg" class="h-8" alt=""/>
+              </a>
+            </div>
+          </div>
+        </footer>
+
+
+
+    </body>
+</html>

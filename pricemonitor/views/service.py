@@ -17,6 +17,8 @@ class ServiceCreate(LoginRequiredMixin, CreateView):
     template_name = "pricemonitor/service/create_form.html"
     fields = ["verbose_name", "host"]
     success_url = reverse_lazy('servicelist')
+    success_message = 'Dziękujemy za dodanie sklepu. Sklep będzie widoczny po zatwierdzeniu go przez moderatora.'
+
 
 
 class ServiceList(LoginRequiredMixin, ListView):

@@ -7,20 +7,18 @@
 {% endblock %}
 
 {% block content %}
-<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
-    <div class="flex flex-col">
-        <h1 class="max-w-md mb-8 text-4xl font-bold text-center text-ebony md:text-5xl md:text-left">
-            Usuń produkt
-        </h1>
+<div>
+    <h3 class="my-10  text-5xl text-start text-ebony">Usuń produkt</h3>
+</div>
+<div class="pb-4">        
         <form method="POST" action="">
         {% csrf_token %}
-        <h4 class="max-w-sm text-center text-dark_jeans md:text-left">
-            Czy na pewno chcesz usunąć produkt <b>{{ product.verbose_name }}?</b></h4>
-        <button type="submit" class="p-3 px-6 mt-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Usuń</button>
+        <h4 class="text-xl mb-2">
+            Czy na pewno chcesz usunąć <b>{{ product.verbose_name }}?</b></h4>
+        <button type="submit" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Usuń</button>
         </form>
-    </div>
-    <div class="flex flex-col mb-16 md:w-1/2">
-        <a href="{% url 'productlist' %}" class="p-3 px-6 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Wróc do listy produktów</a>
-    </div>    
 </div>
+<div class="mb-16">        
+    <a href="{% url 'serviceproductlist' %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">Wróc do listy produktów</a>
+</div>      
 {% endblock %}

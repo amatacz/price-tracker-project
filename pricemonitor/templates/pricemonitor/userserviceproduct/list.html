@@ -7,38 +7,48 @@
 
 
 {% block content %}
-<div class="container flex flex-col justify-between px-6 mx-auto mt-10 mb-16 space-y-0 md:space-y-0 space-x-4">
-    <div class="mb-16">
-        <h3 class="max-w-md text-4xl font-bold px-6 text-start text-ebony md:text-5xl">Produkty, które monitorujesz</h3>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2">
+<div>
+    <h3 class="px-6 mt-10 text-5xl text-start text-ebony">Produkty, które monitorujesz</h3>
+</div>
+
+<div class="px-6 container flex flex-col mt-10 mb-16 space-y-0  md:space-y-0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
     {% for userserviceproduct in object_list %}
         {% if userserviceproduct.user_id == user.id %}
-        <div class="max-w-sm pt-10 mb-16 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <img class="object-scale-down h-24 w-96" src="/static/img/product/{{ userserviceproduct.service_product.product.product_name }}.png" alt="" />
-            <div class="flex flex-col p-5 items-center">
-                <p class="font-bold">{{ userserviceproduct.service_product.product.verbose_name }}</p>
-                <a href="{{ userserviceproduct.service_product.product_url }}"><p>Link do produktu</p></a>
-                <a href="{% url 'useserviceproductdelete' userserviceproduct.id %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">
-                    Przestań obserwować ten produkt
-                </a>
+        <div class="max-w-sm grid grid-cols-2 mt-6 rounded-lg shadow-md shadow-gray-700 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 sm:grid-cols-1">
+            <!-- Card -->
+            <div class="mx-10 py-4 grid gap-5 justify-items-center text-center">
+                <img class="object-scale-down h-24 w-96" src="/static/img/product/{{ userserviceproduct.service_product.product.product_name }}.png" alt="">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">{{ userserviceproduct.service_product.product.verbose_name }}</div>
+                    <div class="font-bold text-lg mb-2">{{ userserviceproduct.service_product.service.verbose_name }}</div>
+                    <a href="{{ userserviceproduct.service_product.product_url }}" target="_blank"><p class="text-gray-700 text-base italic">Link do produktu</p></a>
+                    <a href="{% url 'serviceproductdetail' userserviceproduct.service_product.id %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">
+                        Więcej
+                    </a>
+                    <a href="{% url 'useserviceproductdelete' userserviceproduct.id %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">
+                        Przestań obserwować produkt
+                    </a>
+
+
+                </div>
+
             </div>
+
         </div>
         {% endif %}
     {% empty %}
-    <div class="mb-16">
-        <h4 class="max-w-md text-4xl font-bold px-6 text-start text-ebony md:text-5xl">Jeszcze nie monitorujesz żadnego produktu</h4>
+    <div>
+        <h3 class="px-6 mt-10 text-2xl text-start text-ebony">Nie obserwujesz żadnego produktu</h3>
     </div>
     {% endfor %}
     </div> 
-    <div class="flex flex-col mb-32">
-        <div class="items-right justify-between">
-            <a href="{% url 'serviceproductlist' %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie produkty w naszym serwisie</a>
-            <a href="{% url 'servicelist' %}" class="inline-grid min-w-full m-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Zobacz wszystkie sklepy w naszym serwisie</a>
-        </div>
-        <div class="items-right justify-between">
-            <a href="{% url 'home' %}" class="inline-grid m-3 p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Wróć</a>
-        </div>
+</div>
+<div class="container flex flex-col justify-evenly space-y-6 mb-16 px-2">
+    <div class="text-start text-ebony font-semibold text-xl space-x-3">
+        <a href="{% url 'serviceproductlist' %}" class="underline underline-offset-4">Wszystkie produkty</a>
+        <a href="{% url 'servicelist' %}" class="underline underline-offset-4">Wszystkie sklepy</a>
     </div>
 </div>
+
 {% endblock %}

@@ -7,36 +7,39 @@
 
 
 {% block content %}
-<div class="container flex flex-col justify-between px-6 mx-auto mt-10 mb-16 space-y-0 md:space-y-0 space-x-4">
-    <div class="mb-16">
-        <h3 class="max-w-md text-4xl font-bold px-6 text-start text-ebony md:text-5xl">Produkty, które możesz monitorować</h3>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2">
+<div>
+    <h3 class="mt-10 text-5xl text-start text-ebony">Produkty dostępne w naszym sklepie</h3>
+</div>
+
+<div class="container flex flex-col mt-10 mb-16 space-y-0  md:space-y-0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
     {% for serviceproduct in object_list %}
-    {% if serviceproduct.status == 'a' %}
-        <div class="max-w-sm pt-10 px-3 mb-16 text-center border border-ebony-200 rounded-lg shadow-md dark:bg-ebony-800 dark:border-ebony-700">
-            <img class="object-scale-down h-24 w-24 inline-grid" src="/static/img/product/{{ serviceproduct.product.product_name }}.png" alt="" />
-            <p class="pt-2 font-bold text-black">{{ serviceproduct.product.verbose_name }}</p>
-            <p class="pt-2 font-bold text-black">{{ serviceproduct.service.verbose_name }}</p>
-            <div class="p-5">
-                <a href="{% url 'watchserviceproduct' serviceproduct.id %}" class="inline-grid mb-3 p-3 px-3 text-black text-center bg-pewter_blue rounded-full min-w-full hover:bg-indigo_dye hover:text-white">
+        <div class="max-w-sm grid grid-cols-2 mt-6 rounded-lg shadow-md shadow-gray-700 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 sm:grid-cols-1">
+            <!-- Card -->
+            <div class="mx-10 py-4 grid gap-5 justify-items-center text-center">
+                <img class="object-scale-down h-24 w-96" src="/static/img/product/{{ serviceproduct.product.product_name }}.png" alt="">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">{{ serviceproduct.product.verbose_name }}</div>
+                    <div class="font-bold text-lg mb-2">{{ serviceproduct.service.verbose_name }}</div>
+                    <a href="{% url 'watchserviceproduct' serviceproduct.id %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">
                     Obserwuj ten produkt
-                </a>
-                <a href="{% url 'serviceproductdetail' serviceproduct.id %}" class="inline-grid mb-3 p-3 px-6 text-center bg-pewter_blue rounded-full min-w-full hover:bg-indigo_dye hover:text-white">
-                    Więcej
-                </a>
+                    </a>
+                    <a href="{% url 'serviceproductdetail' serviceproduct.id %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">
+                        Więcej
+                    </a>
+
+                </div>
+
             </div>
+
         </div>
-    {% endif %}
     {% endfor %}
     </div> 
-    <div class="flex flex-col mb-32">
-        <div class="items-right justify-between">
-            <a href="{% url 'productcreate' %}" class="inline-grid m-3 p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Dodaj produkt</a>
-        </div>
-        <div class="items-right justify-between">
-            <a href="{% url 'home' %}" class="inline-grid m-3 p-3 px-6 text-center bg-pewter_blue rounded-full hover:bg-indigo_dye hover:text-white">Wróć</a>
-        </div>
+</div>
+<div class="container flex flex-col justify-evenly space-y-6 mb-16 px-2">
+    <div class="text-start text-ebony font-semibold text-xl space-x-3">
+        <a href="{% url 'productcreate' %}" class="underline underline-offset-4">Dodaj produkt do bazy</a>
+        <a href="{% url 'servicelist' %}" class="underline underline-offset-4">Wszystkie sklepy</a>
     </div>
 </div>
 {% endblock %}

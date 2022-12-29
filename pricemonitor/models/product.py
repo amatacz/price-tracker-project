@@ -21,8 +21,8 @@ class Product(models.Model):
         ("a", "Zaakceptowane")
     )
 
-    product_name = models.CharField(max_length=255, verbose_name="Nazwa techniczna")
-    verbose_name = models.CharField(max_length=255, verbose_name="Nazwa produktu")
+    product_name = models.CharField(max_length=255, verbose_name="Nazwa techniczna", null=True)
+    verbose_name = models.CharField(max_length=255, verbose_name="Nazwa produktu", null=True)
     status = models.CharField(max_length=1, choices=STATUSES, default="p")
     product_URL = models.CharField(max_length=255, verbose_name="Link do produktu", validators=[validate_url], default="brak adresu")
 
