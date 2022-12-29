@@ -44,14 +44,12 @@ class ServiceProduct(models.Model):
 
 
 class ServiceProductItemManager(models.Manager):
-
     def register_from_data(self, data, service_product):
-        if service_product.service.service_url == data:
-            self.create(
-                service_product=service_product,
-                date=data.get("date"),
-                price=data.get("price")
-            )
+        self.create(
+            service_product=service_product,
+            date=data.get("date"),
+            price=data.get("price")
+        )
 
 
 class ServiceProductItem(models.Model):

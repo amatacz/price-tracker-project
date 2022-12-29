@@ -17,6 +17,8 @@
       {% block title %}
       <title>Price Monitor</title>
       {% endblock %}
+
+      <!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" /> -->
       <!-- style css-->
       <link rel="stylesheet" href="./theme/static/css/dist/styles.css">
       <!-- responsive css TO DO -->
@@ -42,7 +44,7 @@
           {% endif %}
           <div class="flex items-center justify-between">
             {% for msg in messages %}
-              <p class="font-bold text-sapphire_blue">{{ msg }}</p>
+              <p>{{ msg }}</p>
             {% endfor %}
           </div>
           {% if user.is_authenticated %}
@@ -50,7 +52,21 @@
           <div class="items-right justify-between">
 
             {% if user.profile.role == 'moderator' %}
-            <a href="{% url 'productlist' %}" class="inline-grid m-3 text-center text-stone hover:text-light_peach underline underline-offset-4"> Panel Administratora</a>
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="inline-grid m-3 text-center text-stone hover:text-light_peach underline underline-offset-4" type="button">Panel Administratora<svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <!-- Dropdown menu -->
+              <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                    <li>
+                      <a href="{% url 'productlist' %}" class="block py-2 px-4 text-black hover:bg-greige">Lista produktów</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'serviceproductlist' %}" class="block py-2 px-4 text-black hover:bg-greige">Produkty w sklepach</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'servicelist' %}" class="block py-2 px-4 text-black hover:bg-greige">Sklepy</a>
+                    </li>
+                  </ul>
+              </div>
             {% endif %}
 
             <a href="{% url 'profile' %}" class="inline-grid m-3 text-center text-stone hover:text-light_peach underline underline-offset-4">Profil {{ user.username }}</a>
@@ -70,7 +86,7 @@
       <!-- Hero section -->
       <section id="hero">
         <!-- Flex Container -->
-        <div class="bg-cream max-w-[85%] max-h-[50%] mx-auto shadow-xl shadow-gray-700 container flex flex-col-reverse items-center md:flex-row p-10 my-4 space-y-2 md:space-y-0">
+        <div class="bg-cream min-w-[85%] max-h-[50%] mx-auto shadow-xl shadow-gray-700 container flex flex-col-reverse items-center md:flex-row p-10 my-4 space-y-2 md:space-y-0">
           
           <div class="flex flex-col space-y-6 md:w-1/2">
             <img src="/static/img/hero_image.svg" width="300px" height="300px"/>           
@@ -153,6 +169,6 @@
         </footer>
 
 
-
+        <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     </body>
 </html>
