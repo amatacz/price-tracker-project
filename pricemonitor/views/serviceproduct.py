@@ -11,8 +11,13 @@ from django.contrib.auth import authenticate, login, logout
 from pricemonitor.permissions import ModeratorPermissionMixin
 
 class ServiceProductList(LoginRequiredMixin, ListView):
-    model = ServiceProduct
+    #model = ServiceProduct
     template_name = "pricemonitor/serviceproduct/list.html"
+
+    def get_queryset(self):
+        queryset = ServiceProduct.objects.all()
+        queryset.filter(followed__isnull=False)
+        return queryset
 
 
 class ServiceProductCreate(ModeratorPermissionMixin, CreateView):

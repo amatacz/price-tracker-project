@@ -21,7 +21,7 @@
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">{{ serviceproduct.product.verbose_name }}</div>
                     <div class="font-bold text-lg mb-2">{{ serviceproduct.service.verbose_name }}</div>
-                    <a href="{% url 'watchserviceproduct' serviceproduct.id %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">
+                    <button data-id="{{ serviceproduct.id }}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80 follow-button">
                     Obserwuj ten produkt
                     </a>
                     <a href="{% url 'serviceproductdetail' serviceproduct.id %}" class="inline-grid my-3 px-3 text-white text-center rounded-md shadow-md shadow-gray-700 bg-stone bg-opacity-50 hover:bg-stone bg-opacity-80">
@@ -42,4 +42,28 @@
         <a href="{% url 'servicelist' %}" class="underline underline-offset-4">Wszystkie sklepy</a>
     </div>
 </div>
+
+<script>
+    let buttons = document.querySelectorAll('button.follow-button')
+
+    buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.dataset.id)
+        
+        $.ajax({
+            url: `{% url 'watchserviceproduct' %}` + `?pk=${button.dataset.id}`,
+            type: "GET",
+            dataType: "json",
+            success: (data) => {
+            console.log(data);
+            button.innerHTML="Przestań obserwować ten produkt"
+            },
+            error: (error) => {
+            console.log(error);
+            }
+        })
+    })
+});
+</script>
+
 {% endblock %}

@@ -14,7 +14,8 @@ from pricemonitor.models.serviceproduct import ServiceProduct
 
 
 class UserServiceProductCreate(LoginRequiredMixin, View):
-    def get(self, request, pk, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        pk = request.GET.get("pk")
         service_product = ServiceProduct.objects.get(pk=pk)
         user_serviceproduct = UserServiceProduct.objects.filter(user=request.user, service_product=service_product)
         if user_serviceproduct.exists():

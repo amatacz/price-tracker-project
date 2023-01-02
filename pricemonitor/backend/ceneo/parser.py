@@ -45,4 +45,4 @@ class Parser():
                 if offer.get_attribute('data-shopurl') == service:
                     d[service] = {'price': offer.get_attribute('data-price'), 'date': date_and_time}
 
-        return print(d)
+        return d

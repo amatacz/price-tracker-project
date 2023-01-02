@@ -8,7 +8,7 @@ from pricemonitor.models.serviceproduct import ServiceProduct
 
 class UserServiceProduct(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    service_product = models.ForeignKey(ServiceProduct, on_delete=models.CASCADE)
+    service_product = models.ForeignKey(ServiceProduct, on_delete=models.CASCADE, related_name="followed")
 
     def get_latest_price(self):
         items = self.service_product.items.all()

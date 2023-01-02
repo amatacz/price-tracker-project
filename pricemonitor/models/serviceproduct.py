@@ -45,11 +45,12 @@ class ServiceProduct(models.Model):
 
 class ServiceProductItemManager(models.Manager):
     def register_from_data(self, data, service_product):
-        self.create(
-            service_product=service_product,
-            date=data.get("date"),
-            price=data.get("price")
-        )
+        if data.get(service_product):
+            self.create(
+                service_product=service_product,
+                date=data[service_product].get("date"),
+                price=data[service_product].get("price")
+            )
 
 
 class ServiceProductItem(models.Model):
@@ -87,6 +88,7 @@ class ServiceProductDataRequest(models.Model):
 
         # czy poniżej url powinien równać się wynikowi wyszukiwania na ceneo -> w takim razie stworzyć przykładowy ServiceProduct
         # i wtedy przypisywać na pdst. service_product.service.service_url
+        # zrobic dodatkowe pole w SP z linkiem ceneo
         parser_obj = parser.Parser(
             url=self.service_product.product_url,
         )

@@ -33,7 +33,7 @@ urlpatterns = [
     path('serviceproduct/detail/<pk>', views.ServiceProductDetail.as_view(), name='serviceproductdetail'), 
 
     # UserServiceProduct URLs
-    path('watchserviceproduct/<pk>', views.UserServiceProductCreate.as_view(), name='watchserviceproduct'),
+    path('watchserviceproduct/', views.UserServiceProductCreate.as_view(), name='watchserviceproduct'),
     path('deleteserviceproduct/<pk>', views.UserServiceProductDelete.as_view(), name='useserviceproductdelete'),
     path('userserviceproduct/list/', views.UserServiceProductList.as_view(), name='userserviceproductlist'),
 
