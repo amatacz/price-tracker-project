@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 from pricemonitor.models.serviceproduct import ServiceProduct
 from pricemonitor.models.service import Service
+from pricemonitor.models.userserviceproduct import UserServiceProduct
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.views import redirect_to_login
@@ -11,13 +12,17 @@ from django.contrib.auth import authenticate, login, logout
 from pricemonitor.permissions import ModeratorPermissionMixin
 
 class ServiceProductList(LoginRequiredMixin, ListView):
-    #model = ServiceProduct
+    model = ServiceProduct
     template_name = "pricemonitor/serviceproduct/list.html"
 
-    def get_queryset(self):
-        queryset = ServiceProduct.objects.all()
-        queryset.filter(followed__isnull=False)
-        return queryset
+    # def get_queryset(self):
+    #     queryset = ServiceProduct.objects.all()
+    #     user_queryset = UserServiceProduct.objects.filter(user__id = self.request.user.id)
+    #     followed_filter = queryset.values_list('followed__user', flat = True)
+    #     queryset.exclude(user_id == followed_filter)
+
+    #     # queryset.filter(followed__isnull=False)
+    #     return queryset
 
 
 class ServiceProductCreate(ModeratorPermissionMixin, CreateView):
@@ -27,19 +32,16 @@ class ServiceProductCreate(ModeratorPermissionMixin, CreateView):
     success_url = reverse_lazy('serviceproductlist')
 
 
-
 class ServiceProductUpdate(ModeratorPermissionMixin, UpdateView):
     model = ServiceProduct
     fields = "__all__"
     template_name = "pricemonitor/serviceproduct/update_form.html"
     success_url = reverse_lazy('serviceproductlist')
 
+
 class ServiceProductDetail(LoginRequiredMixin, DetailView):
     model = ServiceProduct
     template_name = "pricemonitor/serviceproduct/detail.html"
-
-    def assign_product_to_user(self, request):       
-        pass
 
 
 class ServiceProductDelete(ModeratorPermissionMixin, DeleteView):
