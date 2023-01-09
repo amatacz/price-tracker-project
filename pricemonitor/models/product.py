@@ -25,6 +25,7 @@ class Product(models.Model):
     verbose_name = models.CharField(max_length=255, verbose_name="Nazwa produktu", null=True)
     status = models.CharField(max_length=1, choices=STATUSES, default="p")
     product_URL = models.CharField(max_length=255, verbose_name="Link do produktu", validators=[validate_url], default="brak adresu")
+    ceneo_product_URL = models.CharField(max_length=255, verbose_name="Link do ceneo", default="brak adresu")
 
     def __str__(self):
         return self.verbose_name

@@ -1,3 +1,0 @@
-serviceproduct.py 
-czy url w parser_obj powinien równać się wynikowi wyszukiwania na ceneo 
--> w takim razie stworzyć przykładowy ServiceProduct z linkien do ceneo -> czy zrobic dodatkowe, ukryte pole w SP (np. ceneo_url) i na nim uruchamiać parser?
